@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Nps-widget by satismeter</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Nps-widget</h1>
+        <p>Net Promoter Score widget</p>
+
+        <p class="view"><a href="https://github.com/satismeter/nps-widget">View the Project on GitHub <small>satismeter/nps-widget</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/satismeter/nps-widget/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/satismeter/nps-widget/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/satismeter/nps-widget">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="net-promoter-score-widget" class="anchor" href="#net-promoter-score-widget"><span class="octicon octicon-link"></span></a>Net Promoter Score widget</h1>
+
+<p>A lightwight web widget for gathering Net Promoter Score. Built on top of
+<a href="https://github.com/component/component">Component</a> framework.</p>
+
+<p>The widget was created for <a href="http://www.satismeter.com">SatisMeter</a> SaaS app
+that provides other services for Net Promoter Score.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">View</span><span class="p">();</span>
+<span class="nx">view</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'dismiss'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* Handle dismiss */</span> <span class="p">});</span>
+<span class="nx">view</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'submit'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'rating'</span><span class="p">),</span> <span class="nx">view</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback'</span><span class="p">));</span>
+<span class="p">});</span>
+<span class="nx">view</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="nx">view</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+</pre></div>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<pre><code>component install satismeter/nps-widget
+</code></pre>
+
+<h2>
+<a name="browser-support" class="anchor" href="#browser-support"><span class="octicon octicon-link"></span></a>Browser support</h2>
+
+<p>Supports all modern browsers and Internet explorer 9+.</p>
+
+<h2>
+<a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h2>
+
+<pre><code>npm install -g component-test
+component test phantomjs
+</code></pre>
+
+<h2>
+<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
+
+<blockquote>
+<p>Net Promoter, NPS, and Net Promoter Score are trademarks of
+Satmetrix Systems, Inc., Bain &amp; Company, Inc., and Fred Reichheld.</p>
+</blockquote>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/satismeter">satismeter</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
