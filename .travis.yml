@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - "0.10"
 install:
-- "npm component"
-- "npm component-test"
+- "npm install component"
+- "npm install component-test"
 script:
-- "component build --dev"
-- "component test"
+- "node_modules/.bin/component build --dev"
+- "node_modules/.bin/component-test"
