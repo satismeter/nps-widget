@@ -1,0 +1,126 @@
+.nps {
+	position: fixed;
+	z-index: 2147483646;
+
+	top: 60px;
+	right: -500px;
+
+	padding: 20px;
+	margin: 20px;
+
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-shadow: rgba(0, 0, 0, 0.4) 0 1px 4px 0;
+
+	background-color: #f8f8f8;
+	color: #333;
+
+	font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	transition: right 500ms;
+}
+.nps * {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+}
+.nps.nps-visible {
+	right: 0;
+}
+
+.nps .nps-feedback, .nps .nps-rating, .nps .nps-thanks {
+	display: none;
+}
+.nps.nps-rating-visible .nps-rating {
+	display: block;
+}
+.nps.nps-feedback-visible .nps-feedback {
+	display: block;
+}
+.nps.nps-thanks-visible .nps-thanks {
+	display: block;
+}
+
+.nps-top {
+	min-height: 120px;
+	width: 375px;
+}
+.nps-question {
+	font-weight: bold;
+	margin-bottom: 14px;
+}
+.nps-scale {
+	font-size: 0;
+}
+.nps-value {
+	display: inline-block;
+	cursor: pointer;
+	width: 34px;
+	height: 32px;
+	border: 1px solid #666;
+	border-right: 1px dotted #666;
+	border-left: none;
+	background-color: white;
+}
+.nps-value.nps-selected {
+	background-color: #666;
+	border-right: 1px dotted white;
+}
+.nps-value:first-of-type {
+	border-left: 1px solid #666;
+	border-top-left-radius: 16px;
+	border-bottom-left-radius: 16px;
+}
+.nps-value:last-of-type {
+	border-right: 1px solid #666;
+	border-top-right-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+.nps-value:hover:not(.nps-selected) {
+	background-color: #eee;
+}
+.nps-value.nps-selected:hover {
+	background-color: #555;
+}
+.nps-hint {
+	display: inline-block;
+	width: 122px;
+	font-size: 12px;
+	font-style: italic;
+}
+.nps-neutral {
+	text-align: center;
+}
+.nps-likely {
+	text-align: right;
+}
+
+.nps-text {
+	width: 375px;
+	height: 60px;
+}
+.nps-buttons {
+	float: right;
+	margin-top: 14px;
+}
+
+.nps-powered-by {
+	color: #666;
+	margin-top: 14px;
+	font-size: 12px;
+	line-height: 30px;
+	float: left;
+	visibility: hidden;
+}
+.nps-powered-by > a {
+	color: #666;
+	font-weight: bold;
+}
+.nps-is-powered-by .nps-powered-by {
+	visibility: visible;
+}
+
+.nps-thanks .nps-question {
+	margin-bottom: 0;
+}

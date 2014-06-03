@@ -1,0 +1,70 @@
+<div class="nps {{classes}}">
+
+	<div class="nps-rating">
+		<div class="nps-top">
+			<div class="nps-question">{{translation.HOW_LIKELY}}</div>
+			<div class="nps-scale">
+				<div each="{{ratings}}">
+					<div class="nps-value {{valueClass}}"
+						data-value="{{$index}}"
+						on-click="{{this.selectRating.bind(this, $index)}}">
+					</div>
+				</div>
+			</div>
+			<div class="nps-hint nps-not-likely">{{translation.NOT_AT_ALL}}</div>
+			<div class="nps-hint nps-neutral">{{translation.NEUTRAL}}</div>
+			<div class="nps-hint nps-likely">{{translation.EXTREMLY}}</div>
+		</div>
+
+		<div class="nps-powered-by">
+			Powered by <a href="http://www.satismeter.com" target="_blank">SatisMeter</a>
+		</div>
+
+		<div class="nps-buttons">
+			<button class="nps-button nps-dismiss"
+				on-click="{{this.dismiss}}">{{translation.DISMISS}}</button>
+			<button class="nps-button nps-button-primary nps-submit"
+				on-click="{{this.ratingSubmit}}" disabled="{{ratingDisabled}}">
+				{{translation.SUBMIT}}</button>
+		</div>
+	</div>
+
+	<div class="nps-feedback">
+		<div class="nps-top">
+			<div class="nps-question">{{translation.THANKS_IMPROVE}}</div>
+			<textarea class="nps-textarea nps-text"
+				on-keyup="{{this.setFeedback}}" on-change="{{this.setFeedback}}"
+				placeholder="{{translation.GIVE_FEEDBACK}}"></textarea>
+		</div>
+
+		<div class="nps-powered-by">
+			Powered by <a href="http://www.satismeter.com" target="_blank">SatisMeter</a>
+		</div>
+
+		<div class="nps-buttons">
+			<button class="nps-button nps-close"
+				on-click="{{this.hide}}">{{translation.DISMISS}}</button>
+			<button class="nps-button nps-button-primary nps-submit"
+				on-click="{{this.feedbackSubmit}}"
+				disabled="{{feedbackDisabled}}">
+				{{translation.SUBMIT}}</button>
+		</div>
+	</div>
+
+	<div class="nps-thanks">
+		<div class="nps-top">
+			<div class="nps-question">{{translation.THANKS}}</div>
+		</div>
+
+		<div class="nps-powered-by">
+			Powered by <a href="http://www.satismeter.com" target="_blank">SatisMeter</a>
+		</div>
+
+		<div class="nps-buttons">
+			<button class="nps-button nps-button-primary nps-close"
+				on-click="{{this.hide}}">
+				{{translation.DISMISS}}</button>
+		</div>
+	</div>
+
+</div>

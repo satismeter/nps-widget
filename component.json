@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "component/load-styles": "1.0.1",
+    "ripplejs/ripple": "0.3.3",
+    "ripplejs/each": "0.2.0",
+    "ripplejs/computed": "0.1.0",
+    "ripplejs/events": "0.1.2"
+  },
+  "development": {
+    "chaijs/chai": "^1.9.1",
+    "tmcw/happen": "master",
+    "anthonyshort/raf-queue": "*",
+    "component/dom": "1.0.5"
+  },
+  "main": "index.js",
+  "scripts": [
+    "*.js"
+  ],
+  "json": [
+    "language-en.json",
+    "language-cz.json"
+  ],
+  "templates": [
+    "*.html",
+    "style.css",
+    "button.css"
+  ]
+}
