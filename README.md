@@ -7,7 +7,7 @@ The widget was created for [SatisMeter](http://www.satismeter.com) SaaS app
 that provides other services for Net Promoter Score.
 
 ```js
-view = new View({language: settings.language});
+view = new View();
 view.on('dismiss', function() { /* Handle dismiss */ });
 view.on('submit', function() {
     console.log(view.get('rating'), view.get('feedback'));
