@@ -1,6 +1,13 @@
 {
   "name": "nps-widget",
+  "repo": "satismeter/nps-widget",
+  "description": "Net promoter score widget.",
   "version": "0.0.2",
+  "keywords": [
+    "nps",
+    "net promoter score",
+    "widget"
+  ],
   "dependencies": {
     "component/load-styles": "1.0.1",
     "ripplejs/ripple": "0.4.0",
