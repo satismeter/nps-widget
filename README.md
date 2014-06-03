@@ -31,5 +31,7 @@ npm install -g component-test
 component test phantomjs
 ```
 
+## Copyright
+
 > Net Promoter, NPS, and Net Promoter Score are trademarks of
 > Satmetrix Systems, Inc., Bain & Company, Inc., and Fred Reichheld.
