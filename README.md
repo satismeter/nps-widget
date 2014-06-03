@@ -27,5 +27,6 @@ Supports all modern browsers and Internet explorer 9+.
 
 ## Testing
 ```
+npm install -g component-test
 component test phantomjs
 ```
