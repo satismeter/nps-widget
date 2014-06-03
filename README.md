@@ -6,6 +6,8 @@ A lightwight web widget for gathering Net Promoter Score. Built on top of
 The widget was created for [SatisMeter](http://www.satismeter.com) SaaS app
 that provides other services for Net Promoter Score.
 
+![NPS widget](http://satismeter.github.io/nps-widget/rating.png)
+
 ```js
 view = new View();
 view.on('dismiss', function() { /* Handle dismiss */ });
