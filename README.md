@@ -22,6 +22,7 @@ view.show();
 ## Install
 
 ```
+npm install -g component@^1.0.0-rc5
 component install satismeter/nps-widget
 ```
 
