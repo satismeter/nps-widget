@@ -1,6 +1,6 @@
 {
   "name": "nps-widget",
-  "repo": "satismeter/nps-widget",
+  "repository": "satismeter/nps-widget",
   "description": "Net promoter score widget.",
   "version": "0.0.2",
   "keywords": [
@@ -16,10 +16,12 @@
     "ripplejs/events": "0.1.2"
   },
   "development": {
-    "chaijs/chai": "^1.9.1",
-    "tmcw/happen": "master",
-    "anthonyshort/raf-queue": "*",
-    "component/dom": "1.0.5"
+    "dependencies": {
+      "chaijs/chai": "^1.9.1",
+      "tmcw/happen": "master",
+      "anthonyshort/raf-queue": "*",
+      "component/dom": "1.0.5"      
+    }
   },
   "main": "index.js",
   "scripts": [
