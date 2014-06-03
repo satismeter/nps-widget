@@ -30,3 +30,6 @@ Supports all modern browsers and Internet explorer 9+.
 npm install -g component-test
 component test phantomjs
 ```
+
+> Net Promoter, NPS, and Net Promoter Score are trademarks of
+> Satmetrix Systems, Inc., Bain & Company, Inc., and Fred Reichheld.
