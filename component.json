@@ -1,10 +1,10 @@
 {
   "name": "nps-widget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "component/load-styles": "1.0.1",
-    "ripplejs/ripple": "0.3.3",
-    "ripplejs/each": "0.2.0",
+    "ripplejs/ripple": "0.4.0",
+    "ripplejs/each": "0.4.1",
     "ripplejs/computed": "0.1.0",
     "ripplejs/events": "0.1.2"
   },
