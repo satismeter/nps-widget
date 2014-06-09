@@ -108,7 +108,7 @@ View.prototype.feedbackSubmit = function() {
     this.emit('submit');
     this.set('state', View.THANKS_STATE);
 };
-View.prototype.setFeedback = function() {
+View.prototype.setFeedback = function(event) {
   this.set('feedback', event.target.value);
 };
 
