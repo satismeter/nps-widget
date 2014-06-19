@@ -28,8 +28,7 @@
     "*.js"
   ],
   "json": [
-    "language-en.json",
-    "language-cz.json"
+    "languages/*.json"
   ],
   "templates": [
     "*.html",
