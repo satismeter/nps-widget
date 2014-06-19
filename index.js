@@ -5,10 +5,18 @@ var events = require('events');
 
 import loadStyles from 'load-styles';
 
-var translations = {};
-['cz', 'de', 'en', 'es', 'fr', 'it', 'pl', 'pt-br', 'ru', 'tr'].forEach(function(language) {
-    translations[language] = require('nps-widget/languages/' + language + '.json');
-});
+var translations = {
+    cz: require('./languages/cz'),
+    de: require('./languages/de'),
+    en: require('./languages/en'),
+    es: require('./languages/es'),
+    fr: require('./languages/fr'),
+    it: require('./languages/it'),
+    pl: require('./languages/pl'),
+    'pt-br': require('./languages/pt-br'),
+    ru: require('./languages/ru'),
+    tr: require('./languages/tr')
+};
 
 loadStyles(require('./style'));
 loadStyles(require('./button'));
