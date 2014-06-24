@@ -15,6 +15,7 @@ var translations = {
     pl: require('./languages/pl'),
     'pt-br': require('./languages/pt-br'),
     ru: require('./languages/ru'),
+    sk: require('./languages/sk'),
     tr: require('./languages/tr')
 };
 
