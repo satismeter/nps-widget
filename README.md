@@ -1,7 +1,7 @@
 # Net Promoter Score widget [![Build Status](https://travis-ci.org/satismeter/nps-widget.svg?branch=master)](https://travis-ci.org/satismeter/nps-widget)
 
 
-A lightwight web widget for gathering Net Promoter Score. Built on top of
+A lightweight web widget for gathering Net Promoter Score. Built on top of
 [Component](https://github.com/component/component) framework.
 
 The widget was created for [SatisMeter](http://www.satismeter.com) SaaS app
