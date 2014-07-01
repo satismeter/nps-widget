@@ -48,11 +48,12 @@ View.parse = function(options) {
         poweredBy: options.poweredBy !== false,
         state: options.state || View.RATING_STATE,
         rating: options.rating || null,
-        visible: !!options.visible
+        visible: !!options.visible,
+        skin: options.skin || 'dialog'
     };
 };
 
-View.computed('classes', ['state', 'visible', 'poweredBy'], function() {
+View.computed('classes', ['state', 'visible', 'poweredBy', 'skin'], function() {
     var result = [];
     switch (this.get('state')) {
         case View.RATING_STATE:
@@ -70,6 +71,12 @@ View.computed('classes', ['state', 'visible', 'poweredBy'], function() {
     }
     if (this.get('poweredBy')) {
         result.push('nps-is-powered-by');
+    }
+    if (this.get('skin') === 'dialog') {
+        result.push('nps-dialog');
+    }
+    if (this.get('skin') === 'page') {
+        result.push('nps-page');
     }
     return result.join(' ');
 });

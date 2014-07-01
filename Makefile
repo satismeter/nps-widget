@@ -1,4 +1,4 @@
-build:
+build: *.js *.css *.html languages/*.json
 	component build --dev
 
 test: build

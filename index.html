@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Sample</title>
+    <style>
+        body {
+            background-color: #f8f8f8;
+        }
+    </style>
 </head>
 <body>
     <script src="build/build.js"></script>
     <script>
         var View = require('nps-widget');
-        var view = new View({language: 'sk'});
+        var view = new View({language: 'en', skin: 'page'});
         view.appendTo(document.body);
         view.show();
     </script>
