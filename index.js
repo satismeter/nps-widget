@@ -47,7 +47,7 @@ View.parse = function(options) {
         language: options.language || 'en',
         poweredBy: options.poweredBy !== false,
         state: options.state || View.RATING_STATE,
-        rating: options.rating || null,
+        rating: typeof options.rating === 'number' ? options.rating : null,
         visible: !!options.visible,
         skin: options.skin || 'dialog'
     };
