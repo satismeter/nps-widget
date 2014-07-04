@@ -1,5 +1,6 @@
 {
-    "HOW_LIKELY": "Doporučili byste nás znamým nebo kolegům?",
+    "US": "nás",
+    "HOW_LIKELY": "Doporučili byste %s znamým nebo kolegům?",
     "NOT_AT_ALL": "Určitě ne",
     "NEUTRAL": "Možná",
     "EXTREMLY": "Určitě ano",

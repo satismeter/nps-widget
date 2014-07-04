@@ -1,5 +1,6 @@
 {
-    "HOW_LIKELY": "How likely are you to recommend us to your friends and colleagues?",
+    "US": "us",
+    "HOW_LIKELY": "How likely are you to recommend %s to your friends and colleagues?",
     "NOT_AT_ALL": "Not at all likely",
     "NEUTRAL": "Neutral",
     "EXTREMLY": "Extremely likely",

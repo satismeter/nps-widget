@@ -1,5 +1,6 @@
 {
-    "HOW_LIKELY": "Bizi arkadaş ve meslektaşlarınıza tavsiye etmeniz ne kadar olası?",
+    "US": "Bizi",
+    "HOW_LIKELY": "%s arkadaş ve meslektaşlarınıza tavsiye etmeniz ne kadar olası?",
     "NOT_AT_ALL": "Hiç de olası değil",
     "NEUTRAL": "Tarafsız",
     "EXTREMLY": "Yüksek olasıklıkla",

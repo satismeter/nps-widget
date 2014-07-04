@@ -2,6 +2,8 @@ var ripple = require('ripple');
 var each = require('each');
 var computed = require('computed');
 var events = require('events');
+var clone = require('clone');
+var fmt = require('fmt');
 
 import loadStyles from 'load-styles';
 
@@ -49,7 +51,8 @@ View.parse = function(options) {
         state: options.state || View.RATING_STATE,
         rating: typeof options.rating === 'number' ? options.rating : null,
         visible: !!options.visible,
-        skin: options.skin || 'dialog'
+        skin: options.skin || 'dialog',
+        us: options.us
     };
 };
 
@@ -81,8 +84,10 @@ View.computed('classes', ['state', 'visible', 'poweredBy', 'skin'], function() {
     return result.join(' ');
 });
 
-View.computed('translation', ['language'], function() {
-    return translations[this.get('language')];
+View.computed('translation', ['language', 'us'], function() {
+    var translation = clone(translations[this.get('language')]);
+    translation.HOW_LIKELY = fmt(translation.HOW_LIKELY, this.get('us') || translation.US);
+    return translation;
 });
 
 View.computed('ratings', ['rating'], function() {
