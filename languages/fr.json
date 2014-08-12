@@ -8,5 +8,6 @@
     "GIVE_FEEDBACK": "Donnez-nous votre avis",
     "DISMISS": "Décliner",
     "SUBMIT": "Soumettre l'avis",
-    "THANKS": "Merci d'avoir partagé votre avis !"
+    "THANKS": "Merci d'avoir partagé votre avis !",
+    "FILLED": "You have already filled the survey."
 }

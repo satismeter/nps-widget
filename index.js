@@ -32,6 +32,7 @@ var View = ripple(require('./template'))
 View.RATING_STATE = 1;
 View.FEEDBACK_STATE = 2;
 View.THANKS_STATE = 3;
+View.FILLED_STATE = 4;
 
 View.directive('disabled', {
     update: function(value, el, view) {
@@ -67,6 +68,9 @@ View.computed('classes', ['state', 'visible', 'poweredBy', 'skin'], function() {
             break;
         case View.THANKS_STATE:
             result.push('nps-thanks-visible');
+            break;
+        case View.FILLED_STATE:
+            result.push('nps-filled-visible');
             break;
     }
     if (this.get('visible')) {

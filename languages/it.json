@@ -8,5 +8,6 @@
     "GIVE_FEEDBACK": "Dacci il tuo feedback",
     "DISMISS": "Chiudi",
     "SUBMIT": "Invia feedback",
-    "THANKS": "Grazie per il tuo feedback!"
+    "THANKS": "Grazie per il tuo feedback!",
+    "FILLED": "You have already filled the survey."
 }

@@ -8,7 +8,7 @@
 	-moz-box-sizing: border-box;
 }
 
-.nps .nps-feedback, .nps .nps-rating, .nps .nps-thanks {
+.nps .nps-feedback, .nps .nps-rating, .nps .nps-thanks, .nps .nps-filled {
 	display: none;
 }
 .nps.nps-rating-visible .nps-rating {
@@ -18,6 +18,9 @@
 	display: block;
 }
 .nps.nps-thanks-visible .nps-thanks {
+	display: block;
+}
+.nps.nps-filled-visible .nps-filled {
 	display: block;
 }
 
@@ -123,7 +126,7 @@
 	color: #333;
 
 	font-size: 14px;
-	transition: right 500ms;	
+	transition: right 500ms;
 }
 .nps.nps-dialog.nps-visible {
 	right: 0;
