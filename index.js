@@ -4,6 +4,7 @@ var computed = require('computed');
 var events = require('events');
 var clone = require('clone');
 var fmt = require('fmt');
+var query = require('query');
 
 import loadStyles from 'load-styles';
 
@@ -127,6 +128,9 @@ View.prototype.dismiss = function() {
 View.prototype.ratingSubmit = function() {
     this.emit('submit');
     this.set('state', View.FEEDBACK_STATE);
+    setTimeout(function () {
+        query('.nps-feedback .nps-text', this.el).focus();
+    }, 1);
 };
 View.prototype.feedbackSubmit = function() {
     this.emit('submit');

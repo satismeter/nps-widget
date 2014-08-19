@@ -15,7 +15,8 @@
     "ripplejs/computed": "0.1.0",
     "ripplejs/events": "0.1.2",
     "component/clone": "~0.2.2",
-    "yields/fmt": "~0.0.2"
+    "yields/fmt": "~0.0.2",
+    "component/query": "~0.0.1"
   },
   "development": {
     "dependencies": {
