@@ -252,6 +252,9 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 .nps.nps-page .nps-icon, .nps.nps-page .nps-close {
   display: none; }
 
+.nps.nps-page .nps-powered-by {
+  line-height: 38px; }
+
 /* Utils */
 .nps-cf:before, .nps-cf:after {
   content: " ";
