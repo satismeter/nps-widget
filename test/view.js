@@ -41,7 +41,7 @@ describe('view', function() {
             frame.defer(function() {
                 assert.isFalse(dom(view.el).hasClass('nps-is-powered-by'));
                 view.remove();
-                done();                
+                done();
             });
         });
     });
@@ -146,9 +146,9 @@ describe('view', function() {
         it('should close window', function(done) {
             happen.click($feedback.find('.nps-close')[0]);
             frame.defer(function() {
-                assert.isFalse(dom(view.el).hasClass('nps-visible'));            
+                assert.isFalse(dom(view.el).hasClass('nps-visible'));
                done();
-           }); 
+           });
         });
         it('should set feedback', function() {
             $feedback.find('.nps-text').value('Rubish');
@@ -217,6 +217,16 @@ describe('view', function() {
         });
     });
 
+describe('filled screen', function() {
+    var $filled;
+    beforeEach(function() {
+        view.set('state', view.FILLED_STATE);
+        $filled = dom(view.el).find('.nps-filled');
+    });
+    it('should display filled message', function() {
+        assert.match($filled.text(), /filled the survey/);
+    });
+});
     describe('translations', function() {
         it('should use en as default', function() {
             assert.match(dom(view.el).text(), /How likely/);
