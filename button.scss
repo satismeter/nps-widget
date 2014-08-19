@@ -93,14 +93,22 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 .nps-button-selected,
 a.nps-button-primary,
 a.nps-button-selected {
-    background-color: $base;
     color: #fff;
+}
+@each $theme, $base in $themes {
+    .nps.nps-#{$theme} {
+        .nps-button-primary,
+        .nps-button-selected,
+        a.nps-button-primary,
+        a.nps-button-selected {
+            background-color: $base;
+        }
+    }
 }
 
 .nps-textarea {
     padding: 0.5em 0.6em;
     display: inline-block;
-    border: 2px solid #ccc;
     border-radius: 4px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -110,5 +118,15 @@ a.nps-button-selected {
 .nps-textarea:focus {
     outline: 0;
     outline: thin dotted \9; /* IE6-9 */
-    border-color: #999;
+}
+@each $theme, $base in $themes {
+    .nps.nps-#{$theme} {
+        .nps-textarea {
+            border: 2px solid mix($base, white, 20%);
+        }
+        .nps-textarea:focus {
+            border-color: mix($base, white, 80%);
+            background-color: mix($base, white, 4%);
+        }
+    }
 }

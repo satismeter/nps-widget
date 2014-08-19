@@ -1,5 +1,13 @@
-/* \$base: #ff4981; */
-$base: #666;
+$themes: (
+    gray: #666,
+	pink: #ff4981,
+	green: #4CD964,
+	blue: #34AADC,
+	red: #FF3A2D,
+	yellow: #FFCC00,
+	orange: #FF9500,
+	violet: #C643FC
+);
 
 @import 'button';
 
@@ -24,14 +32,18 @@ $base: #666;
 	font-size: 16px;
 	width: 30px;
 	height: 30px;
-	background-color: $base;
 	color: white;
 	position: absolute;
 	right: 0;
 	top: 0;
 }
-.nps .nps-icon:hover {
-	background-color: darken($base, 10%);
+@each $theme, $base in $themes {
+	.nps.nps-#{$theme} .nps-icon {
+		background-color: $base;
+	}
+	.nps.nps-#{$theme} .nps-icon:hover {
+		background-color: darken($base, 10%);
+	}
 }
 
 .nps .nps-feedback, .nps .nps-rating, .nps .nps-thanks, .nps .nps-filled {
@@ -64,22 +76,28 @@ $base: #666;
 	cursor: pointer;
 	width: 32px;
 	height: 32px;
-	background-color: mix($base, white, 20%);
 	border-radius: 16px;
 	margin-right: 2px;
 }
 .nps-value:last-of-type {
 	margin-right: 0;
 }
-.nps-value.nps-selected {
-	background-color: $base;
+@each $theme, $base in $themes {
+	.nps.nps-#{$theme} .nps-value {
+		background-color: mix($base, white, 20%);
+	}
+	.nps.nps-#{$theme} .nps-value.nps-selected {
+		background-color: $base;
+	}
+	.nps.nps-#{$theme} .nps-value:hover:not(.nps-selected) {
+		background-color: mix($base, white, 30%);
+	}
+	.nps.nps-#{$theme} .nps-value.nps-selected:hover {
+		background-color: darken($base, 10%);
+	}
+
 }
-.nps-value:hover:not(.nps-selected) {
-	background-color: mix($base, white, 30%);
-}
-.nps-value.nps-selected:hover {
-	background-color: darken($base, 10%);
-}
+
 .nps-hint {
 	display: inline-block;
 	width: 121px;
@@ -111,10 +129,15 @@ $base: #666;
 	visibility: hidden;
 }
 .nps-powered-by > a {
-	color: $base;
 	text-decoration: none;
 	font-weight: bold;
 }
+@each $theme, $base in $themes {
+	.nps.nps-#{$theme} .nps-powered-by > a {
+		color: $base;
+	}
+}
+
 .nps-is-powered-by .nps-powered-by {
 	visibility: visible;
 }
@@ -123,7 +146,7 @@ $base: #666;
 	margin-bottom: 0;
 }
 
-/* Dialog skin */
+/* Dialog theme */
 
 .nps.nps-dialog {
 	width: 417px;
@@ -136,14 +159,19 @@ $base: #666;
 	padding: 20px;
 	margin: 20px;
 
-	border: 2px solid $base;
-	box-shadow: rgba($base, 0.4) 0 1px 4px 0;
 	background-color: #fff;
 	color: #333;
 
 	font-size: 14px;
 	transition: right 500ms;
 }
+@each $theme, $base in $themes {
+	.nps.nps-#{$theme}.nps-dialog {
+		border: 2px solid $base;
+		box-shadow: rgba($base, 0.4) 0 1px 4px 0;
+	}
+}
+
 .nps.nps-dialog.nps-visible {
 	right: 0;
 }
@@ -152,7 +180,7 @@ $base: #666;
 	font-size: 16px;
 }
 
-/* In-page skin */
+/* In-page theme */
 
 .nps.nps-page {
 	font-size: 16px;

@@ -53,6 +53,7 @@ View.parse = function(options) {
         rating: typeof options.rating === 'number' ? options.rating : null,
         visible: !!options.visible,
         skin: options.skin || 'dialog',
+        theme: options.theme || 'gray',
         us: options.us
     };
 };
@@ -85,6 +86,7 @@ View.computed('classes', ['state', 'visible', 'poweredBy', 'skin'], function() {
     if (this.get('skin') === 'page') {
         result.push('nps-page');
     }
+    result.push('nps-' + this.get('theme'));
     return result.join(' ');
 });
 

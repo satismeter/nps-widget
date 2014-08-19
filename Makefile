@@ -2,7 +2,7 @@ build: index.js style.css template.html languages/*.json
 	component build --dev
 
 style.css: style.scss button.scss
-	node-sass $< $@
+	sass $< $@
 
 test: build
 	component-test phantom
