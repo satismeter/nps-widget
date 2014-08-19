@@ -1,6 +1,6 @@
 <div class="nps {{classes}}">
 	<div class="nps-rating nps-cf">
-		<button class="nps-icon" on-click="{{this.dismiss}}">&#x2715;</button>
+		<button class="nps-icon nps-dismiss" on-click="{{this.dismiss}}">&#x2715;</button>
 		<div class="nps-top">
 			<div class="nps-question">{{translation.HOW_LIKELY}}</div>
 			<div class="nps-scale">
@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="nps-feedback nps-cf">
-		<button class="nps-icon" on-click="{{this.hide}}">&#x2715;</button>
+		<button class="nps-icon nps-close" on-click="{{this.hide}}">&#x2715;</button>
 		<div class="nps-top">
 			<div class="nps-question">{{translation.THANKS_IMPROVE}}</div>
 			<textarea class="nps-textarea nps-text"
@@ -49,7 +49,7 @@
 	</div>
 
 	<div class="nps-thanks nps-cf">
-		<button class="nps-icon" on-click="{{this.hide}}">&#x2715;</button>
+		<button class="nps-icon nps-close" on-click="{{this.hide}}">&#x2715;</button>
 		<div class="nps-top">
 			<div class="nps-question">{{translation.THANKS}}</div>
 		</div>
