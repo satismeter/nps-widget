@@ -1,165 +1,263 @@
+/* \$base: #ff4981; */
+/*!
+Pure v0.4.2
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/pure/blob/master/LICENSE.md
+*/
+.nps-button {
+  /* Structure */
+  display: inline-block;
+  *display: inline;
+  /*IE 6/7*/
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/* Firefox: Get rid of the inner focus border */
+.nps-button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+/*csslint outline-none:false*/
+.nps-button {
+  font-family: inherit;
+  font-size: 100%;
+  *font-size: 90%;
+  /*IE 6/7 - To reduce IE's oversized button text*/
+  *overflow: visible;
+  /*IE 6/7 - Because of IE's overly large left/right padding on buttons */
+  padding: 0.5em 1em;
+  color: #444;
+  /* rgba not supported (IE 8) */
+  color: rgba(0, 0, 0, 0.8);
+  /* rgba supported */
+  *color: #444;
+  /* IE 6 & 7 */
+  border: 1px solid #999;
+  /*IE 6/7/8*/
+  border: none rgba(0, 0, 0, 0);
+  /*IE9 + everything else*/
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px; }
+
+.nps-button-hover, .nps-button:hover, .nps-button:focus {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.1)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1));
+  background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1)); }
+
+.nps-button:focus {
+  outline: 0; }
+
+.nps-button-active, .nps-button:active {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset; }
+
+.nps-button[disabled], .nps-button-disabled, .nps-button-disabled:hover, .nps-button-disabled:focus, .nps-button-disabled:active {
+  border: none;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  filter: alpha(opacity=40);
+  -khtml-opacity: 0.4;
+  -moz-opacity: 0.4;
+  opacity: 0.4;
+  cursor: default;
+  box-shadow: none; }
+
+.nps-button-hidden {
+  display: none; }
+
+/* Firefox: Get rid of the inner focus border */
+.nps-button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+.nps-button-primary, .nps-button-selected, a.nps-button-primary, a.nps-button-selected {
+  background-color: #666;
+  color: #fff; }
+
+.nps-textarea {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px; }
+
+.nps-textarea:focus {
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+  border-color: #666; }
+
 .nps {
-	font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
-	line-height: 1.42857143;
-}
-.nps,
-.nps * {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-}
+  font-family: "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+  line-height: 1.42857; }
+
+.nps, .nps * {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; }
+
+.nps .nps-icon {
+  float: right;
+  font-weight: bold;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  background-color: #666;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.nps .nps-icon:hover {
+  background-color: #4d4d4d; }
 
 .nps .nps-feedback, .nps .nps-rating, .nps .nps-thanks, .nps .nps-filled {
-	display: none;
-}
+  display: none; }
+
 .nps.nps-rating-visible .nps-rating {
-	display: block;
-}
+  display: block; }
+
 .nps.nps-feedback-visible .nps-feedback {
-	display: block;
-}
+  display: block; }
+
 .nps.nps-thanks-visible .nps-thanks {
-	display: block;
-}
+  display: block; }
+
 .nps.nps-filled-visible .nps-filled {
-	display: block;
-}
+  display: block; }
 
 .nps-top {
-	min-height: 120px;
-}
+  min-height: 124px; }
+
 .nps-question {
-	margin-bottom: 14px;
-}
+  margin-bottom: 14px; }
+
 .nps-scale {
-	font-size: 0;
-}
+  font-size: 0; }
+
 .nps-value {
-	display: inline-block;
-	cursor: pointer;
-	width: 34px;
-	height: 32px;
-	border: 1px solid #666;
-	border-right: 1px dotted #666;
-	border-left: none;
-	background-color: white;
-}
-.nps-value.nps-selected {
-	background-color: #666;
-	border-right: 1px dotted white;
-}
-.nps-value:first-of-type {
-	border-left: 1px solid #666;
-	border-top-left-radius: 16px;
-	border-bottom-left-radius: 16px;
-}
+  display: inline-block;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  background-color: #e0e0e0;
+  border-radius: 16px;
+  margin-right: 2px; }
+
 .nps-value:last-of-type {
-	border-right: 1px solid #666;
-	border-top-right-radius: 16px;
-	border-bottom-right-radius: 16px;
-}
+  margin-right: 0; }
+
+.nps-value.nps-selected {
+  background-color: #666; }
+
 .nps-value:hover:not(.nps-selected) {
-	background-color: #eee;
-}
+  background-color: #d1d1d1; }
+
 .nps-value.nps-selected:hover {
-	background-color: #555;
-}
+  background-color: #4d4d4d; }
+
 .nps-hint {
-	display: inline-block;
-	width: 122px;
-	font-size: 12px;
-	font-style: italic;
-}
+  display: inline-block;
+  width: 121px;
+  font-size: 12px;
+  font-style: italic;
+  color: #999; }
+
 .nps-neutral {
-	text-align: center;
-}
+  text-align: center; }
+
 .nps-likely {
-	text-align: right;
-}
+  text-align: right; }
 
 .nps-text {
-	height: 60px;
-	width: 100%;
-}
+  height: 60px;
+  width: 100%; }
+
 .nps-buttons {
-	float: right;
-	margin-top: 14px;
-}
+  float: right;
+  margin-top: 14px; }
 
 .nps-powered-by {
-	color: #666;
-	margin-top: 14px;
-	font-size: 12px;
-	line-height: 30px;
-	float: left;
-	visibility: hidden;
-}
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 34px;
+  float: left;
+  visibility: hidden; }
+
 .nps-powered-by > a {
-	color: #666;
-	font-weight: bold;
-}
+  color: #666;
+  text-decoration: none;
+  font-weight: bold; }
+
 .nps-is-powered-by .nps-powered-by {
-	visibility: visible;
-}
+  visibility: visible; }
 
 .nps-thanks .nps-question {
-	margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 /* Dialog skin */
-
 .nps.nps-dialog {
-	width: 417px;
-	position: fixed;
-	z-index: 2147483646;
+  width: 417px;
+  position: fixed;
+  z-index: 2147483646;
+  top: 60px;
+  right: -500px;
+  padding: 20px;
+  margin: 20px;
+  border: 2px solid #666;
+  box-shadow: rgba(102, 102, 102, 0.4) 0 1px 4px 0;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  transition: right 500ms; }
 
-	top: 60px;
-	right: -500px;
-
-	padding: 20px;
-	margin: 20px;
-
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	box-shadow: rgba(0, 0, 0, 0.4) 0 1px 4px 0;
-
-	background-color: #f8f8f8;
-	color: #333;
-
-	font-size: 14px;
-	transition: right 500ms;
-}
 .nps.nps-dialog.nps-visible {
-	right: 0;
-}
+  right: 0; }
+
+.nps.nps-dialog .nps-question {
+  margin-right: 20px;
+  font-size: 16px; }
 
 /* In-page skin */
-
 .nps.nps-page {
-	font-size: 16px;
-	color: #333;
-	max-width: 500px;
-	min-width: 375px;
-	margin: 20px auto;
-	padding: 20px;
-    border: 1px solid #d8d8d8;
-    background-color: white;
-}
+  font-size: 16px;
+  color: #333;
+  max-width: 500px;
+  min-width: 375px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #d8d8d8;
+  background-color: white; }
 
-.nps.nps-page .nps-dismiss,
-.nps.nps-page .nps-close {
-	display: none;
-}
+.nps.nps-page .nps-icon, .nps.nps-page .nps-close {
+  display: none; }
 
 /* Utils */
-
-.nps-cf:before,
-.nps-cf:after {
+.nps-cf:before, .nps-cf:after {
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */
-}
+  /* 2 */ }
 
 .nps-cf:after {
-  clear: both;
-}
+  clear: both; }

@@ -22,7 +22,6 @@ var translations = {
 };
 
 loadStyles(require('./style'));
-loadStyles(require('./button'));
 
 var View = ripple(require('./template'))
 .use(each)

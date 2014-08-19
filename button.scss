@@ -93,15 +93,14 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 .nps-button-selected,
 a.nps-button-primary,
 a.nps-button-selected {
-    background-color: #777777;
+    background-color: $base;
     color: #fff;
 }
 
 .nps-textarea {
     padding: 0.5em 0.6em;
     display: inline-block;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
+    border: 2px solid #ccc;
     border-radius: 4px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -111,5 +110,5 @@ a.nps-button-selected {
 .nps-textarea:focus {
     outline: 0;
     outline: thin dotted \9; /* IE6-9 */
-    border-color: #129FEA;
+    border-color: #666;
 }

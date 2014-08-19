@@ -34,7 +34,6 @@
   ],
   "templates": [
     "*.html",
-    "style.css",
-    "button.css"
+    "style.css"
   ]
 }

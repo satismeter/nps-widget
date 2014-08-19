@@ -4,6 +4,7 @@ node_js:
 install:
 - "npm install component@^1.0.0-rc5"
 - "npm install component-test"
+- "npm install sass"
 script:
 - "node_modules/.bin/component-build --dev"
 - "node_modules/.bin/component-test phantom"

@@ -1,5 +1,8 @@
-build: *.js *.css *.html languages/*.json
+build: index.js style.css template.html languages/*.json
 	component build --dev
+
+style.css: style.scss button.scss
+	node-sass $< $@
 
 test: build
 	component-test phantom
@@ -7,4 +10,7 @@ test: build
 clean:
 	rm -rf build
 
-.PHONY: test clean
+watch:
+	wach make -e "build/**"
+
+.PHONY: test clean watch
