@@ -117,7 +117,7 @@ a.nps-button-selected {
 .nps.nps-blue .nps-button-selected,
 .nps.nps-blue a.nps-button-primary,
 .nps.nps-blue a.nps-button-selected {
-  background-color: #34AADC; }
+  background-color: #007AFF; }
 
 .nps.nps-red .nps-button-primary,
 .nps.nps-red .nps-button-selected,
@@ -176,10 +176,10 @@ a.nps-button-selected {
   background-color: #f7fdf8; }
 
 .nps.nps-blue .nps-textarea {
-  border: 2px solid #d6eef8; }
+  border: 2px solid #cce4ff; }
 .nps.nps-blue .nps-textarea:focus {
-  border-color: #5cbbe3;
-  background-color: #f6fbfd; }
+  border-color: #3294ff;
+  background-color: #f4f9fe; }
 
 .nps.nps-red .nps-textarea {
   border: 2px solid #ffd7d5; }
@@ -249,10 +249,10 @@ a.nps-button-selected {
   background-color: #2ac845; }
 
 .nps.nps-blue .nps-icon {
-  background-color: #34AADC; }
+  background-color: #007AFF; }
 
 .nps.nps-blue .nps-icon:hover {
-  background-color: #218ebd; }
+  background-color: #0062cc; }
 
 .nps.nps-red .nps-icon {
   background-color: #FF3A2D; }
@@ -350,16 +350,16 @@ a.nps-button-selected {
   background-color: #2ac845; }
 
 .nps.nps-blue .nps-value {
-  background-color: #d6eef8; }
+  background-color: #cce4ff; }
 
 .nps.nps-blue .nps-value.nps-selected {
-  background-color: #34AADC; }
+  background-color: #007AFF; }
 
 .nps.nps-blue .nps-value:hover:not(.nps-selected) {
-  background-color: #c2e5f4; }
+  background-color: #b2d7ff; }
 
 .nps.nps-blue .nps-value.nps-selected:hover {
-  background-color: #218ebd; }
+  background-color: #0062cc; }
 
 .nps.nps-red .nps-value {
   background-color: #ffd7d5; }
@@ -451,7 +451,7 @@ a.nps-button-selected {
   color: #4CD964; }
 
 .nps.nps-blue .nps-powered-by > a {
-  color: #34AADC; }
+  color: #007AFF; }
 
 .nps.nps-red .nps-powered-by > a {
   color: #FF3A2D; }
@@ -498,8 +498,8 @@ a.nps-button-selected {
   box-shadow: rgba(76, 217, 100, 0.4) 0 1px 4px 0; }
 
 .nps.nps-blue.nps-dialog {
-  border: 2px solid #34AADC;
-  box-shadow: rgba(52, 170, 220, 0.4) 0 1px 4px 0; }
+  border: 2px solid #007AFF;
+  box-shadow: rgba(0, 122, 255, 0.4) 0 1px 4px 0; }
 
 .nps.nps-red.nps-dialog {
   border: 2px solid #FF3A2D;
