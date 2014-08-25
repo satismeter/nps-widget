@@ -2,7 +2,6 @@ language: node_js
 node_js:
   - "0.11"
 install:
-- "ln -s /usr/bin/nodejs /usr/bin/node"
 - "npm install duo"
 - "npm install duo-test -g"
 - "gem install sass"
