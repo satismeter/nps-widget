@@ -1,9 +1,13 @@
+
 var assert = require('chai').assert;
 var dom = require('dom');
 var happen = require('happen');
 var frame = require('raf-queue');
 
-var View = require('nps-widget');
+// Function.bind polyfill for phantomjs testing
+require('./bind');
+
+var View = require('../index');
 
 describe('view', function() {
     var view;
@@ -217,16 +221,16 @@ describe('view', function() {
         });
     });
 
-describe('filled screen', function() {
-    var $filled;
-    beforeEach(function() {
-        view.set('state', view.FILLED_STATE);
-        $filled = dom(view.el).find('.nps-filled');
+    describe('filled screen', function() {
+        var $filled;
+        beforeEach(function() {
+            view.set('state', view.FILLED_STATE);
+            $filled = dom(view.el).find('.nps-filled');
+        });
+        it('should display filled message', function() {
+            assert.match($filled.text(), /filled the survey/);
+        });
     });
-    it('should display filled message', function() {
-        assert.match($filled.text(), /filled the survey/);
-    });
-});
     describe('translations', function() {
         it('should use en as default', function() {
             assert.match(dom(view.el).text(), /How likely/);
