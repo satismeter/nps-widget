@@ -10,7 +10,7 @@ style.css: style.scss button.scss
 	sass $< $@
 
 test: build/test.js
-	duo-test -B build/test.js phantomjs -R spec
+	node --harmony node_modules/.bin/duo-test -B build/test.js phantomjs -R spec
 
 run: build/build.js
 	serve
