@@ -3,7 +3,7 @@ node_js:
   - "0.11"
 install:
 - "npm install duo"
-- "npm install duo-test -g"
+- "npm install duo-test"
 - "gem install sass"
 script:
 - "make test"
