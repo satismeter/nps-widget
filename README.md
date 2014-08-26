@@ -2,7 +2,7 @@
 
 
 A lightweight web widget for gathering Net Promoter Score. Built on top of
-[Component](https://github.com/component/component) framework.
+[Duo](http://duojs.org) package manager.
 
 The widget was created for [SatisMeter](http://www.satismeter.com) SaaS app
 that provides Net Promoter Score analytics.
@@ -22,8 +22,8 @@ view.show();
 ## Install
 
 ```
-npm install -g component@^1.0.0-rc5
-component install satismeter/nps-widget
+npm install -g duo
+make
 ```
 
 ## Browser support
@@ -31,9 +31,8 @@ Supports all modern browsers and Internet explorer 9+.
 
 ## Testing
 ```
-npm install -g component-test
-component build --dev
-component test phantomjs
+npm install -g duo-test
+make test
 ```
 
 ## Copyright

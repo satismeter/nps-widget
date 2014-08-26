@@ -6,25 +6,25 @@ var clone = require('clone');
 var fmt = require('fmt');
 var query = require('query');
 
-import loadStyles from 'load-styles';
+var loadStyles = require('load-styles');
 
 var translations = {
-    cz: require('./languages/cz'),
-    de: require('./languages/de'),
-    en: require('./languages/en'),
-    es: require('./languages/es'),
-    fr: require('./languages/fr'),
-    it: require('./languages/it'),
-    pl: require('./languages/pl'),
-    'pt-br': require('./languages/pt-br'),
-    ru: require('./languages/ru'),
-    sk: require('./languages/sk'),
-    tr: require('./languages/tr')
+    cz: require('./languages/cz.json'),
+    de: require('./languages/de.json'),
+    en: require('./languages/en.json'),
+    es: require('./languages/es.json'),
+    fr: require('./languages/fr.json'),
+    it: require('./languages/it.json'),
+    pl: require('./languages/pl.json'),
+    'pt-br': require('./languages/pt-br.json'),
+    ru: require('./languages/ru.json'),
+    sk: require('./languages/sk.json'),
+    tr: require('./languages/tr.json')
 };
 
-loadStyles(require('./style'));
+loadStyles(require('./style.css'));
 
-var View = ripple(require('./template'))
+var View = ripple(require('./template.html'))
 .use(each)
 .use(computed)
 .use(events);
@@ -142,4 +142,4 @@ View.prototype.setFeedback = function(event) {
   this.set('feedback', event.target.value);
 };
 
-export default View;
+module.exports = View;

@@ -19,12 +19,10 @@
     "component/query": "~0.0.1"
   },
   "development": {
-    "dependencies": {
       "chaijs/chai": "^1.9.1",
       "tmcw/happen": "master",
       "anthonyshort/raf-queue": "*",
       "component/dom": "1.0.5"
-    }
   },
   "main": "index.js",
   "scripts": [
