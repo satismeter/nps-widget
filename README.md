@@ -7,7 +7,7 @@ A lightweight web widget for gathering Net Promoter Score. Built on top of
 The widget was created for [SatisMeter](http://www.satismeter.com) SaaS app
 that provides Net Promoter Score analytics.
 
-![NPS widget](http://satismeter.github.io/nps-widget/rating.png)
+![NPS widget](https://raw.githubusercontent.com/satismeter/nps-widget/gh-pages/rating.png)
 
 ```js
 view = new View();
