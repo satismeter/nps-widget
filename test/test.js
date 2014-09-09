@@ -136,15 +136,21 @@ describe('view', function() {
                 done();
             });
         });
-        it('should display disabled submit', function() {
-            assert.isNotNull($feedback.find('.nps-submit').attr('disabled'));
+        it('should display enabled submit', function() {
+            assert.isNull($feedback.find('.nps-submit').attr('disabled'));
         });
-        it('should enable submit', function(done) {
-            $feedback.find('.nps-text').value('Rubish');
-            happen.keyup($feedback.find('.nps-text')[0]);
+        it('should submit empty feedback', function(done) {
+            var called = false;
+            view.on('submit', function() {
+                called = true;
+            });
             frame.defer(function() {
-                assert.isNull($feedback.find('.nps-submit').attr('disabled'));
-                done();
+                happen.click($feedback.find('.nps-submit')[0]);
+                frame.defer(function() {
+                    assert.isTrue(called);
+                    assert.equal(view.get('feedback'), '');
+                    done();
+                });
             });
         });
         it('should close window', function(done) {

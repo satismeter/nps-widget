@@ -108,9 +108,6 @@ View.computed('ratings', ['rating'], function() {
 View.computed('ratingDisabled', ['rating'], function() {
     return this.get('rating') === null;
 });
-View.computed('feedbackDisabled', ['feedback'], function() {
-    return this.get('feedback') === '';
-});
 
 View.prototype.show = function() {
     // Make sure the initial position is applied for animation start.
