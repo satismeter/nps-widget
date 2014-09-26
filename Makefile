@@ -1,16 +1,18 @@
+NODE-BIN=node_modules/.bin
+
 build/build.js: index.js style.css template.html languages/*.json
 	@mkdir -p $(@D)
-	node_modules/.bin/duo -g View index.js > $@
+	$(NODE-BIN)/duo -g View index.js > $@
 
 build/test.js: test/test.js index.js style.css template.html languages/*.json
 	@mkdir -p $(@D)
-	node_modules/.bin/duo -d -g View $< > $@
+	$(NODE-BIN)/duo -d -g View $< > $@
 
 style.css: style.scss button.scss
 	sass $< $@
 
 test: build/test.js
-	node_modules/.bin/duo-test -B build/test.js phantomjs -R spec
+	$(NODE-BIN)/duo-test -B build/test.js phantomjs -R spec
 
 run: build/build.js
 	serve
