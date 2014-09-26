@@ -22,5 +22,6 @@
       "tmcw/happen": "master",
       "anthonyshort/raf-queue": "*",
       "component/dom": "1.0.5"
-  }
+  },
+  "main": "index.js"
 }
