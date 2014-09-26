@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "0.11"
+  - "0.10"
 install:
 - "npm install duo"
 - "npm install duo-test"
@@ -9,3 +9,4 @@ script:
 - "make test"
 env:
   secure: "PoWO3ZE6tRR3ffxndNf1n7OnP5MTtxRYd+o0IJ96Xwvqd7bqWcluHTsLyZ4P/vZ5D2zk1TTzFZBgzha2GHeNsWjHsatGXAMISy+EatBsPTjVMi24+m1GD0eEL/DeSoVDZohRpUSZNkg46Ct5Rvi6F7+O0vzYf5/BJjAlZSAN31E="
+  
