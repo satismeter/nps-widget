@@ -51,10 +51,8 @@ $themes: (
 .nps-Survey-body {
 	min-height: 124px;
 }
-.nps-Survey-question {
-	margin-bottom: 14px;
-}
 .nps-Scale {
+    margin-top: 14px;
 	font-size: 0;
 }
 .nps-Scale-value {
@@ -82,6 +80,9 @@ $themes: (
 		}
 	}
 }
+.nps-Scale-ratings {
+    margin-bottom: 4px;
+}
 
 .nps-Survey-hint {
 	float: left;
@@ -101,6 +102,7 @@ $themes: (
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 14px;
+    margin-top: 14px;
 }
 .nps-Survey-feedback:focus {
     outline: 0;

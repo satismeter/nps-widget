@@ -137,10 +137,8 @@
 .nps-Survey-body {
   min-height: 124px; }
 
-.nps-Survey-question {
-  margin-bottom: 14px; }
-
 .nps-Scale {
+  margin-top: 14px;
   font-size: 0; }
 
 .nps-Scale-value {
@@ -226,6 +224,9 @@
   .nps-Survey--violet .nps-Scale-value.nps-is-selected:hover {
     background-color: #b711fb; }
 
+.nps-Scale-ratings {
+  margin-bottom: 4px; }
+
 .nps-Survey-hint {
   float: left;
   font-size: 12px;
@@ -242,7 +243,8 @@
   display: inline-block;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 14px; }
+  font-size: 14px;
+  margin-top: 14px; }
 
 .nps-Survey-feedback:focus {
   outline: 0; }
