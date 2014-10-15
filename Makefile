@@ -22,7 +22,10 @@ run: build/build.js
 clean:
 	rm -rf build
 
+clean-all: clean
+	rm -rf components
+
 watch: build
 	wach make -e "build/**"
 
-.PHONY: run test clean watch build
+.PHONY: run test clean clean-all watch build

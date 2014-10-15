@@ -11,24 +11,23 @@ $themes: (
 
 @import 'button';
 
-.nps {
-	font-family: "Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+.nps-Survey {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	line-height: 1.42857143;
 }
-.nps,
-.nps * {
+.nps-Survey,
+.nps-Survey * {
 	box-sizing: border-box;
-	-moz-box-sizing: border-box;
 }
 
-.nps .nps-icon {
+.nps-Survey-closeIcon {
 	float: right;
 	font-weight: bold;
 	padding: 0;
 	cursor: pointer;
 	background: transparent;
 	border: 0;
-	-webkit-appearance: none;
+
 	font-size: 16px;
 	width: 30px;
 	height: 30px;
@@ -37,19 +36,22 @@ $themes: (
 	right: 0;
 	top: 0;
 }
+.nps-Survey-closeIcon:focus {
+	outline: 0;
+}
 @each $theme, $base in $themes {
-	.nps.nps-#{$theme} .nps-icon {
+	.nps-Survey--#{$theme} .nps-Survey-closeIcon {
 		background-color: $base;
-	}
-	.nps.nps-#{$theme} .nps-icon:hover {
-		background-color: darken($base, 10%);
+        &:hover {
+			background-color: mix($base, white, 90%);
+        }
 	}
 }
 
-.nps-top {
+.nps-Survey-body {
 	min-height: 124px;
 }
-.nps-question {
+.nps-Survey-question {
 	margin-bottom: 14px;
 }
 .nps-Scale {
@@ -67,63 +69,73 @@ $themes: (
 	margin-right: 0;
 }
 @each $theme, $base in $themes {
-	.nps-#{$theme} .nps-Scale-value {
+	.nps-Survey--#{$theme} .nps-Scale-value {
 		background-color: mix($base, white, 20%);
-	}
-	.nps-#{$theme} .nps-Scale-value.nps-is-selected {
-		background-color: $base;
-	}
-	.nps-#{$theme} .nps-Scale-value:hover {
-		background-color: mix($base, white, 30%);
-	}
-	.nps-#{$theme} .nps-Scale-value.nps-is-selected:hover {
-		background-color: darken($base, 10%);
+		&.nps-is-selected {
+			background-color: $base;
+		}
+		&:hover {
+			background-color: mix($base, white, 30%);
+		}
+		&.nps-is-selected:hover {
+			background-color: darken($base, 10%);
+		}
 	}
 }
 
-
-.nps-hint {
-	display: inline-block;
-	width: 121px;
+.nps-Survey-hint {
+	float: left;
 	font-size: 12px;
 	font-style: italic;
 	color: #999;
 }
-.nps-neutral {
-	text-align: center;
-}
-.nps-likely {
-	text-align: right;
+.nps-Survey-hint--likely {
+	float: right;
 }
 
-.nps-text {
+.nps-Survey-feedback {
 	height: 60px;
 	width: 100%;
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
 }
-.nps-buttons {
+.nps-Survey-feedback:focus {
+    outline: 0;
+}
+@each $theme, $base in $themes {
+    .nps-Survey--#{$theme} {
+        .nps-Survey-feedback {
+            border: 2px solid mix($base, white, 20%);
+        }
+        .nps-Survey-feedback:focus {
+            border-color: mix($base, white, 80%);
+            background-color: mix($base, white, 4%);
+        }
+    }
+}
+
+.nps-Survey-buttons {
 	float: right;
 	margin-top: 14px;
 }
 
-.nps-powered-by {
+.nps-Survey-poweredBy {
 	margin-top: 14px;
 	font-size: 12px;
 	line-height: 34px;
 	float: left;
-	visibility: hidden;
 }
-.nps-powered-by > a {
+.nps-Survey-poweredBy > a {
 	text-decoration: none;
 	font-weight: bold;
 }
 @each $theme, $base in $themes {
-	.nps.nps-#{$theme} .nps-powered-by > a {
+	.nps-Survey--#{$theme} .nps-Survey-poweredBy > a {
 		color: $base;
 	}
-}
-
-.nps-is-powered-by .nps-powered-by {
-	visibility: visible;
 }
 
 .nps-thanks .nps-question {
@@ -132,7 +144,7 @@ $themes: (
 
 /* Dialog theme */
 
-.nps.nps-dialog {
+.nps-Survey--dialog {
 	width: 417px;
 	position: fixed;
 	z-index: 2147483646;
@@ -150,23 +162,23 @@ $themes: (
 	transition: right 500ms;
 }
 @each $theme, $base in $themes {
-	.nps.nps-#{$theme}.nps-dialog {
+	.nps-Survey--dialog.nps-Survey--#{$theme} {
 		border: 2px solid $base;
 		box-shadow: rgba($base, 0.4) 0 1px 4px 0;
 	}
 }
 
-.nps.nps-dialog.nps-visible {
+.nps-Survey--dialog.nps-is-visible {
 	right: 0;
 }
-.nps.nps-dialog .nps-question {
+.nps-Survey--dialog .nps-Survey-question {
 	margin-right: 20px;
 	font-size: 16px;
 }
 
 /* In-page theme */
 
-.nps.nps-page {
+.nps-Survey--page {
 	font-size: 16px;
 	color: #333;
 	max-width: 500px;
@@ -177,11 +189,11 @@ $themes: (
     background-color: white;
 }
 
-.nps.nps-page .nps-icon,
-.nps.nps-page .nps-close {
+.nps-Survey--page .nps-Survey-closeIcon,
+.nps-Survey--page .nps-Survey-close {
 	display: none;
 }
-.nps.nps-page .nps-powered-by {
+.nps-Survey-page .nps-Survey--powered-by {
 	line-height: 38px;
 }
 

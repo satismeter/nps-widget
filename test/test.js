@@ -23,16 +23,15 @@ describe('view', function() {
 
     describe('widget initialization', function() {
         it('should render widget into root element', function() {
-            assert.equal(dom(document.body).find('.nps').length, 1);
+            assert.equal(dom(document.body).find('.nps-Survey').length, 1);
         });
         it('should be visible', function() {
-            assert.isTrue(dom(view.$el).hasClass('nps-visible'));
+            assert.isTrue(dom(view.$el).hasClass('nps-is-visible'));
         });
         it('should show first screen', function() {
             assert.match(dom(view.$el).text(), /How likely are you to recommend/);
         });
         it('should display powered by message', function() {
-            assert.isTrue(dom(view.$el).hasClass('nps-is-powered-by'));
             assert.match(dom(view.$el).text(), /Powered by/);
         });
     });
@@ -43,7 +42,7 @@ describe('view', function() {
             view.$appendTo(document.body);
             view.show();
             Vue.nextTick(function() {
-                assert.isFalse(dom(view.$el).hasClass('nps-is-powered-by'));
+                assert.notMatch(dom(view.$el).text(), /Powered by/);
                 view.$remove();
                 done();
             });
@@ -84,7 +83,7 @@ describe('view', function() {
             });
         });
         it('should close window', function(done) {
-            happen.click($el.find('.nps-dismiss')[0]);
+            happen.click($el.find('.nps-Survey-close')[0]);
             Vue.nextTick(function() {
                 assert.isFalse($el.hasClass('nps-visible'));
                 done();
@@ -99,7 +98,7 @@ describe('view', function() {
             view.$on('dismiss', function() {
                 called = true;
             });
-            happen.click($el.find('.nps-dismiss')[0]);
+            happen.click($el.find('.nps-Survey-close')[0]);
             Vue.nextTick(function() {
                 assert.isTrue(called);
                 done();
@@ -148,7 +147,7 @@ describe('view', function() {
             });
         });
         it('should close window', function(done) {
-            happen.click($el.find('.nps-dismiss')[0]);
+            happen.click($el.find('.nps-Survey-close')[0]);
             Vue.nextTick(function() {
                 assert.isFalse(dom(view.$el).hasClass('nps-visible'));
                 done();
@@ -176,7 +175,7 @@ describe('view', function() {
             view.$on('dismiss', function() {
                 called = true;
             });
-            happen.click($el.find('.nps-dismiss')[0]);
+            happen.click($el.find('.nps-Survey-close')[0]);
             assert.isFalse(called);
         });
         it('should emit submit event', function(done) {
@@ -216,7 +215,7 @@ describe('view', function() {
             view.$on('dismiss', function() {
                 called = true;
             });
-            happen.click($el.find('.nps-close')[0]);
+            happen.click($el.find('.nps-Survey-close')[0]);
             assert.isFalse(called);
         });
     });

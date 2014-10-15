@@ -64,7 +64,7 @@ var View = Vue.extend({
             window.getComputedStyle(this.$el).right; //jshint ignore:line
             this.visible = true;
         },
-        dismiss: function() {
+        close: function() {
             this.hide();
             if (this.state === RATING_STATE) {
                 this.$dispatch('dismiss');
@@ -77,7 +77,7 @@ var View = Vue.extend({
             this.$dispatch('submit');
             this.state = FEEDBACK_STATE;
             Vue.nextTick(function () {
-                query('.nps-text', this.$el).focus();
+                query('.nps-Survey-feedback', this.$el).focus();
             }.bind(this));
         },
         feedbackSubmit: function() {
