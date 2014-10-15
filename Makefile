@@ -1,5 +1,7 @@
 NODE-BIN=node_modules/.bin
 
+build: build/build.js build/test.js
+
 build/build.js: index.js style.css template.html component.json languages/*.json
 	@mkdir -p $(@D)
 	$(NODE-BIN)/duo -g View index.js > $@
@@ -20,7 +22,7 @@ run: build/build.js
 clean:
 	rm -rf build
 
-watch:
+watch: build
 	wach make -e "build/**"
 
-.PHONY: run test clean watch
+.PHONY: run test clean watch build

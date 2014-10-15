@@ -12,9 +12,10 @@
 <body>
     <script src="build/build.js"></script>
     <script>
-        var view = new View({language: 'en', skin: 'dialog', theme: 'pink'});
-        view.appendTo(document.body);
+        var view = new View({data: {language: 'en'}});
+        view.$appendTo(document.body);
         view.show();
+        window.view = view;
     </script>
 </body>
 </html>

@@ -278,31 +278,16 @@ a.nps-button-selected {
 .nps.nps-violet .nps-icon:hover {
   background-color: #b711fb; }
 
-.nps .nps-feedback, .nps .nps-rating, .nps .nps-thanks, .nps .nps-filled {
-  display: none; }
-
-.nps.nps-rating-visible .nps-rating {
-  display: block; }
-
-.nps.nps-feedback-visible .nps-feedback {
-  display: block; }
-
-.nps.nps-thanks-visible .nps-thanks {
-  display: block; }
-
-.nps.nps-filled-visible .nps-filled {
-  display: block; }
-
 .nps-top {
   min-height: 124px; }
 
 .nps-question {
   margin-bottom: 14px; }
 
-.nps-scale {
+.nps-Scale {
   font-size: 0; }
 
-.nps-value {
+.nps-Scale-value {
   display: inline-block;
   cursor: pointer;
   width: 32px;
@@ -310,103 +295,103 @@ a.nps-button-selected {
   border-radius: 16px;
   margin-right: 2px; }
 
-.nps-value:last-of-type {
+.nps-Scale-value:last-of-type {
   margin-right: 0; }
 
-.nps.nps-gray .nps-value {
+.nps-gray .nps-Scale-value {
   background-color: #e0e0e0; }
 
-.nps.nps-gray .nps-value.nps-selected {
+.nps-gray .nps-Scale-value.nps-is-selected {
   background-color: #666; }
 
-.nps.nps-gray .nps-value:hover:not(.nps-selected) {
+.nps-gray .nps-Scale-value:hover {
   background-color: #d1d1d1; }
 
-.nps.nps-gray .nps-value.nps-selected:hover {
+.nps-gray .nps-Scale-value.nps-is-selected:hover {
   background-color: #4d4d4d; }
 
-.nps.nps-pink .nps-value {
+.nps-pink .nps-Scale-value {
   background-color: #ffdae5; }
 
-.nps.nps-pink .nps-value.nps-selected {
+.nps-pink .nps-Scale-value.nps-is-selected {
   background-color: #ff4981; }
 
-.nps.nps-pink .nps-value:hover:not(.nps-selected) {
+.nps-pink .nps-Scale-value:hover {
   background-color: #ffc8d9; }
 
-.nps.nps-pink .nps-value.nps-selected:hover {
+.nps-pink .nps-Scale-value.nps-is-selected:hover {
   background-color: #ff165e; }
 
-.nps.nps-green .nps-value {
+.nps-green .nps-Scale-value {
   background-color: #dbf7e0; }
 
-.nps.nps-green .nps-value.nps-selected {
+.nps-green .nps-Scale-value.nps-is-selected {
   background-color: #4CD964; }
 
-.nps.nps-green .nps-value:hover:not(.nps-selected) {
+.nps-green .nps-Scale-value:hover {
   background-color: #c9f3d0; }
 
-.nps.nps-green .nps-value.nps-selected:hover {
+.nps-green .nps-Scale-value.nps-is-selected:hover {
   background-color: #2ac845; }
 
-.nps.nps-blue .nps-value {
+.nps-blue .nps-Scale-value {
   background-color: #cce4ff; }
 
-.nps.nps-blue .nps-value.nps-selected {
+.nps-blue .nps-Scale-value.nps-is-selected {
   background-color: #007AFF; }
 
-.nps.nps-blue .nps-value:hover:not(.nps-selected) {
+.nps-blue .nps-Scale-value:hover {
   background-color: #b2d7ff; }
 
-.nps.nps-blue .nps-value.nps-selected:hover {
+.nps-blue .nps-Scale-value.nps-is-selected:hover {
   background-color: #0062cc; }
 
-.nps.nps-red .nps-value {
+.nps-red .nps-Scale-value {
   background-color: #ffd7d5; }
 
-.nps.nps-red .nps-value.nps-selected {
+.nps-red .nps-Scale-value.nps-is-selected {
   background-color: #FF3A2D; }
 
-.nps.nps-red .nps-value:hover:not(.nps-selected) {
+.nps-red .nps-Scale-value:hover {
   background-color: #ffc3c0; }
 
-.nps.nps-red .nps-value.nps-selected:hover {
+.nps-red .nps-Scale-value.nps-is-selected:hover {
   background-color: #f90f00; }
 
-.nps.nps-yellow .nps-value {
+.nps-yellow .nps-Scale-value {
   background-color: #fff4cc; }
 
-.nps.nps-yellow .nps-value.nps-selected {
+.nps-yellow .nps-Scale-value.nps-is-selected {
   background-color: #FFCC00; }
 
-.nps.nps-yellow .nps-value:hover:not(.nps-selected) {
+.nps-yellow .nps-Scale-value:hover {
   background-color: #ffefb2; }
 
-.nps.nps-yellow .nps-value.nps-selected:hover {
+.nps-yellow .nps-Scale-value.nps-is-selected:hover {
   background-color: #cca300; }
 
-.nps.nps-orange .nps-value {
+.nps-orange .nps-Scale-value {
   background-color: #ffe9cc; }
 
-.nps.nps-orange .nps-value.nps-selected {
+.nps-orange .nps-Scale-value.nps-is-selected {
   background-color: #FF9500; }
 
-.nps.nps-orange .nps-value:hover:not(.nps-selected) {
+.nps-orange .nps-Scale-value:hover {
   background-color: #ffdfb2; }
 
-.nps.nps-orange .nps-value.nps-selected:hover {
+.nps-orange .nps-Scale-value.nps-is-selected:hover {
   background-color: #cc7700; }
 
-.nps.nps-violet .nps-value {
+.nps-violet .nps-Scale-value {
   background-color: #f3d9fe; }
 
-.nps.nps-violet .nps-value.nps-selected {
+.nps-violet .nps-Scale-value.nps-is-selected {
   background-color: #C643FC; }
 
-.nps.nps-violet .nps-value:hover:not(.nps-selected) {
+.nps-violet .nps-Scale-value:hover {
   background-color: #edc6fe; }
 
-.nps.nps-violet .nps-value.nps-selected:hover {
+.nps-violet .nps-Scale-value.nps-is-selected:hover {
   background-color: #b711fb; }
 
 .nps-hint {

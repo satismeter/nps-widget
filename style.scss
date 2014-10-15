@@ -46,32 +46,16 @@ $themes: (
 	}
 }
 
-.nps .nps-feedback, .nps .nps-rating, .nps .nps-thanks, .nps .nps-filled {
-	display: none;
-}
-.nps.nps-rating-visible .nps-rating {
-	display: block;
-}
-.nps.nps-feedback-visible .nps-feedback {
-	display: block;
-}
-.nps.nps-thanks-visible .nps-thanks {
-	display: block;
-}
-.nps.nps-filled-visible .nps-filled {
-	display: block;
-}
-
 .nps-top {
 	min-height: 124px;
 }
 .nps-question {
 	margin-bottom: 14px;
 }
-.nps-scale {
+.nps-Scale {
 	font-size: 0;
 }
-.nps-value {
+.nps-Scale-value {
 	display: inline-block;
 	cursor: pointer;
 	width: 32px;
@@ -79,24 +63,24 @@ $themes: (
 	border-radius: 16px;
 	margin-right: 2px;
 }
-.nps-value:last-of-type {
+.nps-Scale-value:last-of-type {
 	margin-right: 0;
 }
 @each $theme, $base in $themes {
-	.nps.nps-#{$theme} .nps-value {
+	.nps-#{$theme} .nps-Scale-value {
 		background-color: mix($base, white, 20%);
 	}
-	.nps.nps-#{$theme} .nps-value.nps-selected {
+	.nps-#{$theme} .nps-Scale-value.nps-is-selected {
 		background-color: $base;
 	}
-	.nps.nps-#{$theme} .nps-value:hover:not(.nps-selected) {
+	.nps-#{$theme} .nps-Scale-value:hover {
 		background-color: mix($base, white, 30%);
 	}
-	.nps.nps-#{$theme} .nps-value.nps-selected:hover {
+	.nps-#{$theme} .nps-Scale-value.nps-is-selected:hover {
 		background-color: darken($base, 10%);
 	}
-
 }
+
 
 .nps-hint {
 	display: inline-block;
