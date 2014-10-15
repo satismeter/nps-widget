@@ -1,10 +1,10 @@
 NODE-BIN=node_modules/.bin
 
-build/build.js: index.js style.css template.html languages/*.json
+build/build.js: index.js style.css template.html component.json languages/*.json
 	@mkdir -p $(@D)
 	$(NODE-BIN)/duo -g View index.js > $@
 
-build/test.js: test/test.js index.js style.css template.html languages/*.json
+build/test.js: test/test.js index.js style.css template.html component.json languages/*.json
 	@mkdir -p $(@D)
 	$(NODE-BIN)/duo -d -g View $< > $@
 
