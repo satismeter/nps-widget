@@ -66,7 +66,7 @@ describe('view', function() {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
 
             Vue.nextTick(function() {
-                assert.isNull($el.find('.nps-submit').attr('disabled'));
+                assert.isNull($el.find('.nps-Survey-submit').attr('disabled'));
                 done();
             });
         });
@@ -74,7 +74,7 @@ describe('view', function() {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
 
             Vue.nextTick(function() {
-                happen.click($el.find('.nps-submit')[0]);
+                happen.click($el.find('.nps-Survey-submit')[0]);
                 Vue.nextTick(function() {
                     assert.match($el.text(),
                         /Thanks for your feedback\. What could we do to improve\?/);
@@ -83,9 +83,9 @@ describe('view', function() {
             });
         });
         it('should close window', function(done) {
-            happen.click($el.find('.nps-Survey-close')[0]);
+            happen.click($el.find('.nps-Survey-closeIcon')[0]);
             Vue.nextTick(function() {
-                assert.isFalse($el.hasClass('nps-visible'));
+                assert.isFalse($el.hasClass('nps-is-visible'));
                 done();
             });
         });
@@ -98,7 +98,7 @@ describe('view', function() {
             view.$on('dismiss', function() {
                 called = true;
             });
-            happen.click($el.find('.nps-Survey-close')[0]);
+            happen.click($el.find('.nps-Survey-closeIcon')[0]);
             Vue.nextTick(function() {
                 assert.isTrue(called);
                 done();
@@ -113,7 +113,7 @@ describe('view', function() {
             });
 
             Vue.nextTick(function() {
-                happen.click($el.find('.nps-submit')[0]);
+                happen.click($el.find('.nps-Survey-submit')[0]);
                 Vue.nextTick(function() {
                     assert.isTrue(called);
                     done();
@@ -130,7 +130,7 @@ describe('view', function() {
             });
         });
         it('should display enabled submit', function() {
-            assert.isNull($el.find('.nps-submit').attr('disabled'));
+            assert.isNull($el.find('.nps-Survey-submit').attr('disabled'));
         });
         it('should submit empty feedback', function(done) {
             var called = false;
@@ -138,7 +138,7 @@ describe('view', function() {
                 called = true;
             });
             Vue.nextTick(function() {
-                happen.click($el.find('.nps-submit')[0]);
+                happen.click($el.find('.nps-Survey-submit')[0]);
                 Vue.nextTick(function() {
                     assert.isTrue(called);
                     assert.equal(view.feedback, '');
@@ -147,22 +147,22 @@ describe('view', function() {
             });
         });
         it('should close window', function(done) {
-            happen.click($el.find('.nps-Survey-close')[0]);
+            happen.click($el.find('.nps-Survey-closeIcon')[0]);
             Vue.nextTick(function() {
-                assert.isFalse(dom(view.$el).hasClass('nps-visible'));
+                assert.isFalse(dom(view.$el).hasClass('nps-is-visible'));
                 done();
             });
         });
         it('should set feedback', function() {
-            $el.find('.nps-text').value('Rubish');
-            happen.once($el.find('.nps-text')[0], {type: 'input'});
+            $el.find('.nps-Survey-feedback').value('Rubish');
+            happen.once($el.find('.nps-Survey-feedback')[0], {type: 'input'});
             assert.equal(view.feedback, 'Rubish');
         });
         it('should go to thanks screen', function(done) {
-            $el.find('.nps-text').value('Rubish');
-            happen.keyup($el.find('.nps-text')[0]);
+            $el.find('.nps-Survey-feedback').value('Rubish');
+            happen.keyup($el.find('.nps-Survey-feedback')[0]);
             Vue.nextTick(function() {
-                happen.click($el.find('.nps-submit')[0]);
+                happen.click($el.find('.nps-Survey-submit')[0]);
                 Vue.nextTick(function() {
                     assert.match(dom(view.$el).text(),
                         /Thank you for your feedback/);
@@ -175,18 +175,18 @@ describe('view', function() {
             view.$on('dismiss', function() {
                 called = true;
             });
-            happen.click($el.find('.nps-Survey-close')[0]);
+            happen.click($el.find('.nps-Survey-closeIcon')[0]);
             assert.isFalse(called);
         });
         it('should emit submit event', function(done) {
-            $el.find('.nps-text').value('Rubish');
-            happen.keyup($el.find('.nps-text')[0]);
+            $el.find('.nps-Survey-feedback').value('Rubish');
+            happen.keyup($el.find('.nps-Survey-feedback')[0]);
             var called = false;
             view.$on('submit', function() {
                 called = true;
             });
             Vue.nextTick(function() {
-                happen.click($el.find('.nps-submit')[0]);
+                happen.click($el.find('.nps-Survey-submit')[0]);
                 Vue.nextTick(function() {
                     assert.isTrue(called);
                     done();
@@ -204,7 +204,7 @@ describe('view', function() {
             assert.match($el.text(), /Thank you/);
         });
         it('should close window', function(done) {
-            happen.click($el.find('.nps-close')[0]);
+            happen.click($el.find('.nps-Survey-close')[0]);
             Vue.nextTick(function() {
                 assert.isFalse(dom(view.$el).hasClass('nps-visible'));
                 done();
