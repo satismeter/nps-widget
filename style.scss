@@ -54,6 +54,7 @@ $themes: (
 .nps-Scale {
     margin-top: 14px;
 	font-size: 0;
+    width: 372px;
 }
 .nps-Scale-value {
 	display: inline-block;
@@ -138,10 +139,6 @@ $themes: (
 	.nps-Survey--#{$theme} .nps-Survey-poweredBy > a {
 		color: $base;
 	}
-}
-
-.nps-thanks .nps-question {
-	margin-bottom: 0;
 }
 
 /* Dialog theme */
