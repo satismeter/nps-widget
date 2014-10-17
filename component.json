@@ -9,8 +9,6 @@
   ],
   "dependencies": {
     "component/load-styles": "1.0.1",
-    "component/clone": "~0.2.2",
-    "yields/fmt": "~0.0.2",
     "component/query": "~0.0.1",
     "yyx990803/vue": "v0.10.6"
   },

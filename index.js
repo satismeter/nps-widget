@@ -1,10 +1,8 @@
 var Vue = require('vue');
-var clone = require('clone');
-var fmt = require('fmt');
 var query = require('query');
 var loadStyles = require('load-styles');
 
-var translations = {
+var messages = {
     cz: require('./languages/cz.json'),
     de: require('./languages/de.json'),
     en: require('./languages/en.json'),
@@ -41,11 +39,6 @@ var View = Vue.extend({
         feedback: ''
     },
     computed: {
-        translation: function() {
-            var translation = clone(translations[this.language]);
-            translation.HOW_LIKELY = fmt(translation.HOW_LIKELY, this.us || translation.US);
-            return translation;
-        },
         ratings: function() {
             var selectedRating = this.rating;
             return [0,1,2,3,4,5,6,7,8,9,10].map(function(rating) {
@@ -56,6 +49,9 @@ var View = Vue.extend({
         }
     },
     methods: {
+        t: function(key, param) {
+            return messages[this.language][key].replace('%s', param);
+        },
         selectRating: function (rating) {
             this.rating = rating;
         },

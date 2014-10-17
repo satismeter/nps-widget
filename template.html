@@ -6,7 +6,9 @@
 	<div class="nps-Survey-body">
 
 		<div v-if="state === 'rating'">
-			<div class="nps-Survey-question">{{translation.HOW_LIKELY}}</div>
+			<div class="nps-Survey-question">
+				{{t('HOW_LIKELY', us || t('US'))}}
+			</div>
 			<div class="nps-Scale">
 				<div class="nps-Scale-ratings">
 				    <div v-repeat="ratings"
@@ -16,26 +18,26 @@
 			    </div>
 		 		<div class="nps-cf">
 					<div class="nps-Survey-hint nps-Survey-hint--notLikely">
-						{{translation.NOT_AT_ALL}}</div>
+						{{t('NOT_AT_ALL')}}</div>
 					<div class="nps-Survey-hint nps-Survey-hint--likely">
-						{{translation.EXTREMLY}}</div>
+						{{t('EXTREMLY')}}</div>
 		 		</div>
  			</div>
 		</div>
 
 		<div v-if="state==='feedback'">
-			<div class="nps-Survey-question">{{translation.THANKS_IMPROVE}}</div>
+			<div class="nps-Survey-question">{{t('THANKS_IMPROVE')}}</div>
 			<textarea class="nps-Survey-feedback"
-				placeholder="{{translation.GIVE_FEEDBACK}}"
+				placeholder="{{t('GIVE_FEEDBACK')}}"
 				v-model="feedback"></textarea>
 		</div>
 
 		<div v-if="state==='thanks'">
-			<div class="nps-Survey-question">{{translation.THANKS}}</div>
+			<div class="nps-Survey-question">{{t('THANKS')}}</div>
 		</div>
 
 		<div v-if="state==='filled'">
-			<div class="nps-Survey-question">{{translation.FILLED}}</div>
+			<div class="nps-Survey-question">{{t('FILLED')}}</div>
 		</div>
 
 	</div>
@@ -49,15 +51,15 @@
 			<button class="nps-Button nps-Survey-submit"
 				v-if="state==='rating'"
 				v-on="click: ratingSubmit" disabled="{{rating === null}}">
-				{{translation.SUBMIT}}</button>
+				{{t('SUBMIT')}}</button>
 			<button class="nps-Button nps-Survey-submit"
 				v-if="state==='feedback'"
 				v-on="click: feedbackSubmit">
-				{{translation.SUBMIT}}</button>
+				{{t('SUBMIT')}}</button>
 			<button class="nps-Button nps-Survey-close"
 				v-if="state==='thanks'"
 				v-on="click: close">
-				{{translation.DISMISS}}</button>
+				{{t('DISMISS')}}</button>
 
 		</div>
 	</div>
