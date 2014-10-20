@@ -14,10 +14,19 @@ $themes: (
 .nps-Survey {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	line-height: 1.42857143;
+    background-color: #fff;
+    color: #333;
 }
 .nps-Survey,
 .nps-Survey * {
 	box-sizing: border-box;
+}
+
+@each $theme, $base in $themes {
+    .nps-Survey--#{$theme} {
+        border: 2px solid $base;
+        box-shadow: rgba($base, 0.4) 0 1px 4px 0;
+    }
 }
 
 .nps-Survey-closeIcon {
@@ -48,9 +57,6 @@ $themes: (
 	}
 }
 
-.nps-Survey-body {
-	min-height: 124px;
-}
 .nps-Scale {
     margin-top: 14px;
 	font-size: 0;
@@ -96,24 +102,33 @@ $themes: (
 }
 
 .nps-Survey-feedback {
-	height: 60px;
-	width: 100%;
-    padding: 0.5em 0.6em;
-    display: inline-block;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
+    height: 80px;
     margin-top: 14px;
+    overflow: hidden;
+    transition: height 500ms;
 }
-.nps-Survey-feedback:focus {
+.nps-Survey-feedback.nps-enter, .nps-Survey-feedback.nps-leave {
+    height: 0px;
+}
+
+.nps-Survey-feedbackText {
+    border-width: 2px;
+    border-style: solid;
+    font-size: 14px;
+    padding: 7px 10px;
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+.nps-Survey-feedbackText:focus {
     outline: 0;
 }
 @each $theme, $base in $themes {
     .nps-Survey--#{$theme} {
-        .nps-Survey-feedback {
-            border: 2px solid mix($base, white, 20%);
+        .nps-Survey-feedbackText {
+            border-color: mix($base, white, 20%);
         }
-        .nps-Survey-feedback:focus {
+        .nps-Survey-feedbackText:focus {
             border-color: mix($base, white, 80%);
             background-color: mix($base, white, 4%);
         }
@@ -141,6 +156,24 @@ $themes: (
 	}
 }
 
+.nps-Survey-rating {
+    max-height: 400px;
+    overflow: hidden;
+    transition: max-height 500ms;
+}
+.nps-Survey-rating.nps-enter, .nps-Survey-rating.nps-leave {
+    max-height: 0;
+}
+
+.nps-Survey-thanks {
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height 500ms;
+}
+.nps-Survey-thanks.nps-enter, .nps-Survey-thanks.nps-leave {
+    max-height: 0;
+}
+
 /* Dialog theme */
 
 .nps-Survey--dialog {
@@ -154,17 +187,8 @@ $themes: (
 	padding: 20px;
 	margin: 20px;
 
-	background-color: #fff;
-	color: #333;
-
 	font-size: 14px;
 	transition: right 500ms;
-}
-@each $theme, $base in $themes {
-	.nps-Survey--dialog.nps-Survey--#{$theme} {
-		border: 2px solid $base;
-		box-shadow: rgba($base, 0.4) 0 1px 4px 0;
-	}
 }
 
 .nps-Survey--dialog.nps-enter, .nps-Survey--dialog.nps-leave {
@@ -184,8 +208,6 @@ $themes: (
 	min-width: 375px;
 	margin: 20px auto;
 	padding: 20px;
-    border: 1px solid #d8d8d8;
-    background-color: white;
 }
 
 .nps-Survey--page .nps-Survey-closeIcon,

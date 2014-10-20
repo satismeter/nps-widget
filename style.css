@@ -70,11 +70,45 @@
 
 .nps-Survey {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  line-height: 1.42857143; }
+  line-height: 1.42857143;
+  background-color: #fff;
+  color: #333; }
 
 .nps-Survey,
 .nps-Survey * {
   box-sizing: border-box; }
+
+.nps-Survey--gray {
+  border: 2px solid #666;
+  box-shadow: rgba(102, 102, 102, 0.4) 0 1px 4px 0; }
+
+.nps-Survey--pink {
+  border: 2px solid #ff4981;
+  box-shadow: rgba(255, 73, 129, 0.4) 0 1px 4px 0; }
+
+.nps-Survey--green {
+  border: 2px solid #4CD964;
+  box-shadow: rgba(76, 217, 100, 0.4) 0 1px 4px 0; }
+
+.nps-Survey--blue {
+  border: 2px solid #007AFF;
+  box-shadow: rgba(0, 122, 255, 0.4) 0 1px 4px 0; }
+
+.nps-Survey--red {
+  border: 2px solid #FF3A2D;
+  box-shadow: rgba(255, 58, 45, 0.4) 0 1px 4px 0; }
+
+.nps-Survey--yellow {
+  border: 2px solid #FFCC00;
+  box-shadow: rgba(255, 204, 0, 0.4) 0 1px 4px 0; }
+
+.nps-Survey--orange {
+  border: 2px solid #FF9500;
+  box-shadow: rgba(255, 149, 0, 0.4) 0 1px 4px 0; }
+
+.nps-Survey--violet {
+  border: 2px solid #C643FC;
+  box-shadow: rgba(198, 67, 252, 0.4) 0 1px 4px 0; }
 
 .nps-Survey-closeIcon {
   float: right;
@@ -133,9 +167,6 @@
   background-color: #C643FC; }
   .nps-Survey--violet .nps-Survey-closeIcon:hover {
     background-color: #cb55fc; }
-
-.nps-Survey-body {
-  min-height: 124px; }
 
 .nps-Scale {
   margin-top: 14px;
@@ -238,63 +269,71 @@
   float: right; }
 
 .nps-Survey-feedback {
-  height: 60px;
-  width: 100%;
-  padding: 0.5em 0.6em;
-  display: inline-block;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 14px;
-  margin-top: 14px; }
+  height: 80px;
+  margin-top: 14px;
+  overflow: hidden;
+  transition: height 500ms; }
 
-.nps-Survey-feedback:focus {
+.nps-Survey-feedback.nps-enter, .nps-Survey-feedback.nps-leave {
+  height: 0px; }
+
+.nps-Survey-feedbackText {
+  border-width: 2px;
+  border-style: solid;
+  font-size: 14px;
+  padding: 7px 10px;
+  width: 100%;
+  height: 100%;
+  resize: none; }
+
+.nps-Survey-feedbackText:focus {
   outline: 0; }
 
-.nps-Survey--gray .nps-Survey-feedback {
-  border: 2px solid #e0e0e0; }
-.nps-Survey--gray .nps-Survey-feedback:focus {
+.nps-Survey--gray .nps-Survey-feedbackText {
+  border-color: #e0e0e0; }
+.nps-Survey--gray .nps-Survey-feedbackText:focus {
   border-color: #848484;
   background-color: #f8f8f8; }
 
-.nps-Survey--pink .nps-Survey-feedback {
-  border: 2px solid #ffdae5; }
-.nps-Survey--pink .nps-Survey-feedback:focus {
+.nps-Survey--pink .nps-Survey-feedbackText {
+  border-color: #ffdae5; }
+.nps-Survey--pink .nps-Survey-feedbackText:focus {
   border-color: #ff6d9a;
   background-color: #fef7f9; }
 
-.nps-Survey--green .nps-Survey-feedback {
-  border: 2px solid #dbf7e0; }
-.nps-Survey--green .nps-Survey-feedback:focus {
+.nps-Survey--green .nps-Survey-feedbackText {
+  border-color: #dbf7e0; }
+.nps-Survey--green .nps-Survey-feedbackText:focus {
   border-color: #6fe083;
   background-color: #f7fdf8; }
 
-.nps-Survey--blue .nps-Survey-feedback {
-  border: 2px solid #cce4ff; }
-.nps-Survey--blue .nps-Survey-feedback:focus {
+.nps-Survey--blue .nps-Survey-feedbackText {
+  border-color: #cce4ff; }
+.nps-Survey--blue .nps-Survey-feedbackText:focus {
   border-color: #3294ff;
   background-color: #f4f9fe; }
 
-.nps-Survey--red .nps-Survey-feedback {
-  border: 2px solid #ffd7d5; }
-.nps-Survey--red .nps-Survey-feedback:focus {
+.nps-Survey--red .nps-Survey-feedbackText {
+  border-color: #ffd7d5; }
+.nps-Survey--red .nps-Survey-feedbackText:focus {
   border-color: #ff6156;
   background-color: #fef7f6; }
 
-.nps-Survey--yellow .nps-Survey-feedback {
-  border: 2px solid #fff4cc; }
-.nps-Survey--yellow .nps-Survey-feedback:focus {
+.nps-Survey--yellow .nps-Survey-feedbackText {
+  border-color: #fff4cc; }
+.nps-Survey--yellow .nps-Survey-feedbackText:focus {
   border-color: #ffd632;
   background-color: #fefcf4; }
 
-.nps-Survey--orange .nps-Survey-feedback {
-  border: 2px solid #ffe9cc; }
-.nps-Survey--orange .nps-Survey-feedback:focus {
+.nps-Survey--orange .nps-Survey-feedbackText {
+  border-color: #ffe9cc; }
+.nps-Survey--orange .nps-Survey-feedbackText:focus {
   border-color: #ffaa32;
   background-color: #fefaf4; }
 
-.nps-Survey--violet .nps-Survey-feedback {
-  border: 2px solid #f3d9fe; }
-.nps-Survey--violet .nps-Survey-feedback:focus {
+.nps-Survey--violet .nps-Survey-feedbackText {
+  border-color: #f3d9fe; }
+.nps-Survey--violet .nps-Survey-feedbackText:focus {
   border-color: #d168fc;
   background-color: #fcf7fe; }
 
@@ -336,6 +375,22 @@
 .nps-Survey--violet .nps-Survey-poweredBy > a {
   color: #C643FC; }
 
+.nps-Survey-rating {
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 500ms; }
+
+.nps-Survey-rating.nps-enter, .nps-Survey-rating.nps-leave {
+  max-height: 0; }
+
+.nps-Survey-thanks {
+  max-height: 200px;
+  overflow: hidden;
+  transition: max-height 500ms; }
+
+.nps-Survey-thanks.nps-enter, .nps-Survey-thanks.nps-leave {
+  max-height: 0; }
+
 /* Dialog theme */
 .nps-Survey--dialog {
   width: 417px;
@@ -345,42 +400,8 @@
   right: 0;
   padding: 20px;
   margin: 20px;
-  background-color: #fff;
-  color: #333;
   font-size: 14px;
   transition: right 500ms; }
-
-.nps-Survey--dialog.nps-Survey--gray {
-  border: 2px solid #666;
-  box-shadow: rgba(102, 102, 102, 0.4) 0 1px 4px 0; }
-
-.nps-Survey--dialog.nps-Survey--pink {
-  border: 2px solid #ff4981;
-  box-shadow: rgba(255, 73, 129, 0.4) 0 1px 4px 0; }
-
-.nps-Survey--dialog.nps-Survey--green {
-  border: 2px solid #4CD964;
-  box-shadow: rgba(76, 217, 100, 0.4) 0 1px 4px 0; }
-
-.nps-Survey--dialog.nps-Survey--blue {
-  border: 2px solid #007AFF;
-  box-shadow: rgba(0, 122, 255, 0.4) 0 1px 4px 0; }
-
-.nps-Survey--dialog.nps-Survey--red {
-  border: 2px solid #FF3A2D;
-  box-shadow: rgba(255, 58, 45, 0.4) 0 1px 4px 0; }
-
-.nps-Survey--dialog.nps-Survey--yellow {
-  border: 2px solid #FFCC00;
-  box-shadow: rgba(255, 204, 0, 0.4) 0 1px 4px 0; }
-
-.nps-Survey--dialog.nps-Survey--orange {
-  border: 2px solid #FF9500;
-  box-shadow: rgba(255, 149, 0, 0.4) 0 1px 4px 0; }
-
-.nps-Survey--dialog.nps-Survey--violet {
-  border: 2px solid #C643FC;
-  box-shadow: rgba(198, 67, 252, 0.4) 0 1px 4px 0; }
 
 .nps-Survey--dialog.nps-enter, .nps-Survey--dialog.nps-leave {
   right: -500px; }
@@ -396,9 +417,7 @@
   max-width: 500px;
   min-width: 375px;
   margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #d8d8d8;
-  background-color: white; }
+  padding: 20px; }
 
 .nps-Survey--page .nps-Survey-closeIcon,
 .nps-Survey--page .nps-Survey-close {

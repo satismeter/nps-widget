@@ -1,5 +1,6 @@
 var Vue = require('vue');
 var query = require('query');
+var bind = require('bind');
 var loadStyles = require('load-styles');
 
 Vue.config({
@@ -24,7 +25,6 @@ var messages = {
 loadStyles(require('./style.css'));
 
 var RATING_STATE = 'rating';
-var FEEDBACK_STATE = 'feedback';
 var THANKS_STATE = 'thanks';
 var FILLED_STATE = 'filled';
 
@@ -43,6 +43,11 @@ var View = Vue.extend({
         ratingDisabled: true,
         feedback: ''
     },
+    attached: function() {
+        if (this.rating !== null) {
+            this.focusFeedback();
+        }
+    },
     computed: {
         ratings: function() {
             var selectedRating = this.rating;
@@ -59,6 +64,13 @@ var View = Vue.extend({
         },
         selectRating: function (rating) {
             this.rating = rating;
+            this.focusFeedback();
+        },
+        focusFeedback: function() {
+            var el = this.$el;
+            Vue.nextTick(function () {
+                query('.nps-Survey-feedbackText', el).focus();
+            });
         },
         show: function() {
             this.visible = true;
@@ -74,17 +86,12 @@ var View = Vue.extend({
         },
         ratingSubmit: function() {
             this.$dispatch('submit');
-            this.state = FEEDBACK_STATE;
-            Vue.nextTick(function () {
-                query('.nps-Survey-feedback', this.$el).focus();
-            }.bind(this));
-        },
-        feedbackSubmit: function() {
-            this.$dispatch('submit');
             this.state = THANKS_STATE;
+            if (this.skin !== 'page') {
+                setTimeout(bind(this, this.hide), 850);
+            }
         }
     }
-
 });
 
 module.exports = View;

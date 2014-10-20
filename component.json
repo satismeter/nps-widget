@@ -8,9 +8,10 @@
     "widget"
   ],
   "dependencies": {
+    "yyx990803/vue": "v0.10.6",
     "component/load-styles": "1.0.1",
     "component/query": "~0.0.1",
-    "yyx990803/vue": "v0.10.6"
+    "component/bind": "1.0.0"
   },
   "development": {
       "chaijs/chai": "^1.9.1",
