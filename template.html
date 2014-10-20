@@ -1,5 +1,5 @@
 <div class="nps-Survey nps-Survey--{{theme}} nps-Survey--{{skin}}"
-	v-class="nps-is-visible: visible">
+	v-show="visible" v-transition>
 
 	<button class="nps-Survey-closeIcon" v-on="click: close">&#x2715;</button>
 

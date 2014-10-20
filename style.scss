@@ -149,7 +149,7 @@ $themes: (
 	z-index: 2147483646;
 
 	top: 60px;
-	right: -500px;
+    right: 0;
 
 	padding: 20px;
 	margin: 20px;
@@ -167,8 +167,8 @@ $themes: (
 	}
 }
 
-.nps-Survey--dialog.nps-is-visible {
-	right: 0;
+.nps-Survey--dialog.nps-enter, .nps-Survey--dialog.nps-leave {
+    right: -500px;
 }
 .nps-Survey--dialog .nps-Survey-question {
 	margin-right: 20px;

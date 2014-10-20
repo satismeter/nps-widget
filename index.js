@@ -2,6 +2,11 @@ var Vue = require('vue');
 var query = require('query');
 var loadStyles = require('load-styles');
 
+Vue.config({
+    enterClass: 'nps-enter',
+    leaveClass: 'nps-leave'
+});
+
 var messages = {
     cz: require('./languages/cz.json'),
     de: require('./languages/de.json'),
@@ -56,8 +61,6 @@ var View = Vue.extend({
             this.rating = rating;
         },
         show: function() {
-            // Make sure the initial position is applied for animation start.
-            window.getComputedStyle(this.$el).right; //jshint ignore:line
             this.visible = true;
         },
         close: function() {

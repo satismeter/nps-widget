@@ -342,7 +342,7 @@
   position: fixed;
   z-index: 2147483646;
   top: 60px;
-  right: -500px;
+  right: 0;
   padding: 20px;
   margin: 20px;
   background-color: #fff;
@@ -382,8 +382,8 @@
   border: 2px solid #C643FC;
   box-shadow: rgba(198, 67, 252, 0.4) 0 1px 4px 0; }
 
-.nps-Survey--dialog.nps-is-visible {
-  right: 0; }
+.nps-Survey--dialog.nps-enter, .nps-Survey--dialog.nps-leave {
+  right: -500px; }
 
 .nps-Survey--dialog .nps-Survey-question {
   margin-right: 20px;
