@@ -1,28 +1,27 @@
 # Net Promoter Score widget [![Build Status](https://travis-ci.org/satismeter/nps-widget.svg?branch=master)](https://travis-ci.org/satismeter/nps-widget)
 
 
-A lightweight web widget for gathering Net Promoter Score. Built on top of
-[Duo](http://duojs.org) package manager.
+A lightweight web widget for gathering Net Promoter Score surveys.
 
-The widget was created for [SatisMeter](http://www.satismeter.com) SaaS app
-that provides Net Promoter Score analytics.
+The widget was created for [SatisMeter](http://www.satismeter.com)
+Net Promoter Score analytics SaaS app.
 
 ![NPS widget](https://raw.githubusercontent.com/satismeter/nps-widget/gh-pages/rating.png)
 
 ```js
 view = new View();
-view.on('dismiss', function() { /* Handle dismiss */ });
-view.on('submit', function() {
-    console.log(view.get('rating'), view.get('feedback'));
+view.$on('dismiss', function() { /* Handle dismiss */ });
+view.$on('submit', function() {
+    console.log(view.rating, view.feedback);
 });
-view.appendTo(document.body);
+view.$appendTo(document.body);
 view.show();
 ```
 
 ## Install
 
 ```
-npm install -g duo
+npm install duo
 make
 ```
 
@@ -31,7 +30,7 @@ Supports all modern browsers and Internet explorer 9+.
 
 ## Testing
 ```
-npm install -g duo-test
+npm install duo-test
 make test
 ```
 
