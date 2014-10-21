@@ -200,6 +200,13 @@ describe('view', function() {
                 });
             });
         });
+        it('should close window', function(done) {
+            happen.click($el.find('.nps-Survey-submit')[0]);
+            setTimeout(function() {
+                assert.isFalse(view.visible);
+                done();
+            }, 800 /* wait */ + 500 /* animation */ + 100 /* buffer */);
+        });
     });
 
     describe('thanks screen', function() {
@@ -209,13 +216,6 @@ describe('view', function() {
         });
         it('should display thanks message', function() {
             assert.match($el.text(), /Thank you/);
-        });
-        it('should close window', function(done) {
-            happen.click($el.find('.nps-Survey-closeIcon')[0]);
-            wait(function() {
-                assert.isFalse(view.visible);
-                done();
-            });
         });
         it('should not emit dismiss event', function() {
             var called = false;
