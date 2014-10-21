@@ -16,6 +16,8 @@ $themes: (
 	line-height: 1.42857143;
     background-color: #fff;
     color: #333;
+    border-width: 2px;
+    border-style: solid;
 }
 .nps-Survey,
 .nps-Survey * {
@@ -24,7 +26,7 @@ $themes: (
 
 @each $theme, $base in $themes {
     .nps-Survey--#{$theme} {
-        border: 2px solid $base;
+        border-color: $base;
         box-shadow: rgba($base, 0.4) 0 1px 4px 0;
     }
 }
@@ -44,6 +46,11 @@ $themes: (
 	position: absolute;
 	right: 0;
 	top: 0;
+    opacity: 1;
+    transition: opacity 500ms;
+}
+.nps-Survey-closeIcon.nps-enter, .nps-Survey-closeIcon.nps-leave {
+    opacity: 0;
 }
 .nps-Survey-closeIcon:focus {
 	outline: 0;
@@ -210,10 +217,6 @@ $themes: (
 	padding: 20px;
 }
 
-.nps-Survey--page .nps-Survey-closeIcon,
-.nps-Survey--page .nps-Survey-close {
-	display: none;
-}
 .nps-Survey-page .nps-Survey--powered-by {
 	line-height: 38px;
 }

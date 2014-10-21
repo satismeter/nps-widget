@@ -88,7 +88,7 @@ var View = Vue.extend({
             this.$dispatch('submit');
             this.state = THANKS_STATE;
             if (this.skin !== 'page') {
-                setTimeout(bind(this, this.hide), 850);
+                setTimeout(bind(this, this.hide), 800);
             }
         }
     }

@@ -1,7 +1,8 @@
 <div class="nps-Survey nps-Survey--{{theme}} nps-Survey--{{skin}}"
 	v-show="visible" v-transition>
 
-	<button class="nps-Survey-closeIcon" v-on="click: close">&#x2715;</button>
+	<button v-if="state==='rating' && skin==='dialog'" v-transition
+		class="nps-Survey-closeIcon" v-on="click: close">&#x2715;</button>
 
 	<div class="nps-Survey-body">
 
@@ -53,7 +54,7 @@
 
 		<div class="nps-Survey-buttons">
 			<button class="nps-Button nps-Survey-submit"
-				v-if="state==='rating'"
+				v-if="state==='rating' && rating !== null"
 				v-on="click: ratingSubmit" disabled="{{rating === null}}">
 				{{t('SUBMIT')}}</button>
 		</div>
