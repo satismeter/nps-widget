@@ -108,17 +108,17 @@ $themes: (
 	float: right;
 }
 
-.nps-Survey-feedback {
+.nps-Feedback-textContainer {
     height: 80px;
     margin-top: 14px;
     overflow: hidden;
     transition: height 500ms;
 }
-.nps-Survey-feedback.nps-enter, .nps-Survey-feedback.nps-leave {
+.nps-Feedback-textContainer.nps-enter, .nps-Feedback-textContainer.nps-leave {
     height: 0px;
 }
 
-.nps-Survey-feedbackText {
+.nps-Feedback-text {
     border-width: 2px;
     border-style: solid;
     font-size: 14px;
@@ -127,15 +127,15 @@ $themes: (
     height: 100%;
     resize: none;
 }
-.nps-Survey-feedbackText:focus {
+.nps-Feedback-text:focus {
     outline: 0;
 }
 @each $theme, $base in $themes {
     .nps-Survey--#{$theme} {
-        .nps-Survey-feedbackText {
+        .nps-Feedback-text {
             border-color: mix($base, white, 20%);
         }
-        .nps-Survey-feedbackText:focus {
+        .nps-Feedback-text:focus {
             border-color: mix($base, white, 80%);
             background-color: mix($base, white, 4%);
         }
@@ -163,21 +163,21 @@ $themes: (
 	}
 }
 
-.nps-Survey-rating {
+.nps-Feedback {
     max-height: 400px;
     overflow: hidden;
     transition: max-height 500ms;
 }
-.nps-Survey-rating.nps-enter, .nps-Survey-rating.nps-leave {
+.nps-Feedback.nps-enter, .nps-Feedback.nps-leave {
     max-height: 0;
 }
 
-.nps-Survey-thanks {
+.nps-Thanks {
     max-height: 200px;
     overflow: hidden;
     transition: max-height 500ms;
 }
-.nps-Survey-thanks.nps-enter, .nps-Survey-thanks.nps-leave {
+.nps-Thanks.nps-enter, .nps-Thanks.nps-leave {
     max-height: 0;
 }
 
@@ -201,7 +201,7 @@ $themes: (
 .nps-Survey--dialog.nps-enter, .nps-Survey--dialog.nps-leave {
     right: -500px;
 }
-.nps-Survey--dialog .nps-Survey-question {
+.nps-Survey--dialog .nps-Title {
 	margin-right: 20px;
 	font-size: 16px;
 }

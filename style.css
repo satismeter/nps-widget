@@ -275,16 +275,16 @@
 .nps-Survey-hint--likely {
   float: right; }
 
-.nps-Survey-feedback {
+.nps-Feedback-textContainer {
   height: 80px;
   margin-top: 14px;
   overflow: hidden;
   transition: height 500ms; }
 
-.nps-Survey-feedback.nps-enter, .nps-Survey-feedback.nps-leave {
+.nps-Feedback-textContainer.nps-enter, .nps-Feedback-textContainer.nps-leave {
   height: 0px; }
 
-.nps-Survey-feedbackText {
+.nps-Feedback-text {
   border-width: 2px;
   border-style: solid;
   font-size: 14px;
@@ -293,54 +293,54 @@
   height: 100%;
   resize: none; }
 
-.nps-Survey-feedbackText:focus {
+.nps-Feedback-text:focus {
   outline: 0; }
 
-.nps-Survey--gray .nps-Survey-feedbackText {
+.nps-Survey--gray .nps-Feedback-text {
   border-color: #e0e0e0; }
-.nps-Survey--gray .nps-Survey-feedbackText:focus {
+.nps-Survey--gray .nps-Feedback-text:focus {
   border-color: #848484;
   background-color: #f8f8f8; }
 
-.nps-Survey--pink .nps-Survey-feedbackText {
+.nps-Survey--pink .nps-Feedback-text {
   border-color: #ffdae5; }
-.nps-Survey--pink .nps-Survey-feedbackText:focus {
+.nps-Survey--pink .nps-Feedback-text:focus {
   border-color: #ff6d9a;
   background-color: #fef7f9; }
 
-.nps-Survey--green .nps-Survey-feedbackText {
+.nps-Survey--green .nps-Feedback-text {
   border-color: #dbf7e0; }
-.nps-Survey--green .nps-Survey-feedbackText:focus {
+.nps-Survey--green .nps-Feedback-text:focus {
   border-color: #6fe083;
   background-color: #f7fdf8; }
 
-.nps-Survey--blue .nps-Survey-feedbackText {
+.nps-Survey--blue .nps-Feedback-text {
   border-color: #cce4ff; }
-.nps-Survey--blue .nps-Survey-feedbackText:focus {
+.nps-Survey--blue .nps-Feedback-text:focus {
   border-color: #3294ff;
   background-color: #f4f9fe; }
 
-.nps-Survey--red .nps-Survey-feedbackText {
+.nps-Survey--red .nps-Feedback-text {
   border-color: #ffd7d5; }
-.nps-Survey--red .nps-Survey-feedbackText:focus {
+.nps-Survey--red .nps-Feedback-text:focus {
   border-color: #ff6156;
   background-color: #fef7f6; }
 
-.nps-Survey--yellow .nps-Survey-feedbackText {
+.nps-Survey--yellow .nps-Feedback-text {
   border-color: #fff4cc; }
-.nps-Survey--yellow .nps-Survey-feedbackText:focus {
+.nps-Survey--yellow .nps-Feedback-text:focus {
   border-color: #ffd632;
   background-color: #fefcf4; }
 
-.nps-Survey--orange .nps-Survey-feedbackText {
+.nps-Survey--orange .nps-Feedback-text {
   border-color: #ffe9cc; }
-.nps-Survey--orange .nps-Survey-feedbackText:focus {
+.nps-Survey--orange .nps-Feedback-text:focus {
   border-color: #ffaa32;
   background-color: #fefaf4; }
 
-.nps-Survey--violet .nps-Survey-feedbackText {
+.nps-Survey--violet .nps-Feedback-text {
   border-color: #f3d9fe; }
-.nps-Survey--violet .nps-Survey-feedbackText:focus {
+.nps-Survey--violet .nps-Feedback-text:focus {
   border-color: #d168fc;
   background-color: #fcf7fe; }
 
@@ -382,20 +382,20 @@
 .nps-Survey--violet .nps-Survey-poweredBy > a {
   color: #C643FC; }
 
-.nps-Survey-rating {
+.nps-Feedback {
   max-height: 400px;
   overflow: hidden;
   transition: max-height 500ms; }
 
-.nps-Survey-rating.nps-enter, .nps-Survey-rating.nps-leave {
+.nps-Feedback.nps-enter, .nps-Feedback.nps-leave {
   max-height: 0; }
 
-.nps-Survey-thanks {
+.nps-Thanks {
   max-height: 200px;
   overflow: hidden;
   transition: max-height 500ms; }
 
-.nps-Survey-thanks.nps-enter, .nps-Survey-thanks.nps-leave {
+.nps-Thanks.nps-enter, .nps-Thanks.nps-leave {
   max-height: 0; }
 
 /* Dialog theme */
@@ -413,7 +413,7 @@
 .nps-Survey--dialog.nps-enter, .nps-Survey--dialog.nps-leave {
   right: -500px; }
 
-.nps-Survey--dialog .nps-Survey-question {
+.nps-Survey--dialog .nps-Title {
   margin-right: 20px;
   font-size: 16px; }
 
