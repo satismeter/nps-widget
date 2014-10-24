@@ -1,40 +1,40 @@
 .nps-Button {
-    display: inline-block;
-    zoom: 1;
-    line-height: normal;
-    white-space: nowrap;
-    vertical-align: baseline;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    font-family: inherit;
-    font-size: 100%;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    color: #fff;
-    border: 0;
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #fff;
+  border: 0;
 }
 .nps-Button::-moz-focus-inner {
-    padding: 0;
-    border: 0;
+  padding: 0;
+  border: 0;
 }
 .nps-Button:focus {
-    outline: 0;
+  outline: 0;
 }
 
 .nps-Button[disabled] {
-    border: none;
-    background-image: none;
-    opacity: 0.40;
-    cursor: default;
-    box-shadow: none;
+  border: none;
+  background-image: none;
+  opacity: 0.40;
+  cursor: default;
+  box-shadow: none;
 }
 
 @each $theme, $base in $themes {
-    .nps-Survey--#{$theme} .nps-Button {
-        background-color: $base;
-        &:hover {
-            background-color: mix($base, white, 90%);
-        }
+  .nps-Survey--#{$theme} .nps-Button {
+    background-color: $base;
+    &:hover {
+      background-color: mix($base, white, 90%);
     }
+  }
 }

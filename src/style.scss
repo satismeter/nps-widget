@@ -14,10 +14,10 @@ $themes: (
 .nps-Survey {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	line-height: 1.42857143;
-    background-color: #fff;
-    color: #333;
-    border-width: 2px;
-    border-style: solid;
+  background-color: #fff;
+  color: #333;
+  border-width: 2px;
+  border-style: solid;
 }
 .nps-Survey,
 .nps-Survey * {
@@ -25,10 +25,10 @@ $themes: (
 }
 
 @each $theme, $base in $themes {
-    .nps-Survey--#{$theme} {
-        border-color: $base;
-        box-shadow: rgba($base, 0.4) 0 1px 4px 0;
-    }
+  .nps-Survey--#{$theme} {
+    border-color: $base;
+    box-shadow: rgba($base, 0.4) 0 1px 4px 0;
+  }
 }
 
 .nps-Survey-closeIcon {
@@ -46,11 +46,11 @@ $themes: (
 	position: absolute;
 	right: 0;
 	top: 0;
-    opacity: 1;
-    transition: opacity 500ms;
+  opacity: 1;
+  transition: opacity 500ms;
 }
 .nps-Survey-closeIcon.nps-enter, .nps-Survey-closeIcon.nps-leave {
-    opacity: 0;
+  opacity: 0;
 }
 .nps-Survey-closeIcon:focus {
 	outline: 0;
@@ -58,16 +58,16 @@ $themes: (
 @each $theme, $base in $themes {
 	.nps-Survey--#{$theme} .nps-Survey-closeIcon {
 		background-color: $base;
-        &:hover {
+    &:hover {
 			background-color: mix($base, white, 90%);
-        }
+    }
 	}
 }
 
 .nps-Scale {
-    margin-top: 14px;
+  margin-top: 14px;
 	font-size: 0;
-    width: 372px;
+  width: 372px;
 }
 .nps-Scale-value {
 	display: inline-block;
@@ -95,7 +95,7 @@ $themes: (
 	}
 }
 .nps-Scale-ratings {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .nps-Survey-hint {
@@ -109,37 +109,37 @@ $themes: (
 }
 
 .nps-Feedback-textContainer {
-    height: 80px;
-    margin-top: 14px;
-    overflow: hidden;
-    transition: height 500ms;
+  height: 80px;
+  margin-top: 14px;
+  overflow: hidden;
+  transition: height 500ms;
 }
 .nps-Feedback-textContainer.nps-enter, .nps-Feedback-textContainer.nps-leave {
-    height: 0px;
+  height: 0px;
 }
 
 .nps-Feedback-text {
-    border-width: 2px;
-    border-style: solid;
-    font-size: 14px;
-    padding: 7px 10px;
-    width: 100%;
-    height: 100%;
-    resize: none;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 14px;
+  padding: 7px 10px;
+  width: 100%;
+  height: 100%;
+  resize: none;
 }
 .nps-Feedback-text:focus {
-    outline: 0;
+  outline: 0;
 }
 @each $theme, $base in $themes {
-    .nps-Survey--#{$theme} {
-        .nps-Feedback-text {
-            border-color: mix($base, white, 20%);
-        }
-        .nps-Feedback-text:focus {
-            border-color: mix($base, white, 80%);
-            background-color: mix($base, white, 4%);
-        }
+  .nps-Survey--#{$theme} {
+    .nps-Feedback-text {
+      border-color: mix($base, white, 20%);
     }
+    .nps-Feedback-text:focus {
+      border-color: mix($base, white, 80%);
+      background-color: mix($base, white, 4%);
+    }
+  }
 }
 
 .nps-Survey-buttons {
@@ -164,21 +164,21 @@ $themes: (
 }
 
 .nps-Feedback {
-    max-height: 400px;
-    overflow: hidden;
-    transition: max-height 500ms;
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 500ms;
 }
 .nps-Feedback.nps-enter, .nps-Feedback.nps-leave {
-    max-height: 0;
+  max-height: 0;
 }
 
 .nps-Thanks {
-    max-height: 200px;
-    overflow: hidden;
-    transition: max-height 500ms;
+  max-height: 200px;
+  overflow: hidden;
+  transition: max-height 500ms;
 }
 .nps-Thanks.nps-enter, .nps-Thanks.nps-leave {
-    max-height: 0;
+  max-height: 0;
 }
 
 /* Dialog theme */
@@ -189,7 +189,7 @@ $themes: (
 	z-index: 2147483646;
 
 	top: 60px;
-    right: 0;
+  right: 0;
 
 	padding: 20px;
 	margin: 20px;
@@ -199,7 +199,7 @@ $themes: (
 }
 
 .nps-Survey--dialog.nps-enter, .nps-Survey--dialog.nps-leave {
-    right: -500px;
+  right: -500px;
 }
 .nps-Survey--dialog .nps-Title {
 	margin-right: 20px;
