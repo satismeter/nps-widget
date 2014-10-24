@@ -3,15 +3,18 @@ var dom = require('dom');
 var happen = require('happen');
 var Vue = require('vue');
 
-var View = require('../index');
+var View = require('../src/index');
 
 function wait(done) {
-    // call twice because of animations
     Vue.nextTick(function() {
-        Vue.nextTick(function() {
-            done();
-        });
+        done();
     });
+}
+function waitAnimation(done) {
+    // call twice because of animations
+    setTimeout(function() {
+        done();
+    }, 100);
 }
 
 describe('view', function() {
@@ -59,7 +62,7 @@ describe('view', function() {
         });
     });
 
-    describe('rating screen', function() {
+    describe('feedback screen', function() {
         it('should display disabled submit', function() {
             assert.isNotNull($el.find('.nps-submit').attr('disabled'));
         });
@@ -81,13 +84,13 @@ describe('view', function() {
             });
         });
         it('should not display feedback form', function() {
-            assert.equal($el.find('.nps-Survey-feedbackText').length, 0);
+            assert.equal($el.find('.nps-Feedback-text').length, 0);
         });
         it('should show feedback form', function(done) {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
 
             wait(function() {
-                assert.equal($el.find('.nps-Survey-feedbackText').length, 1);
+                assert.equal($el.find('.nps-Feedback-text').length, 1);
                 done();
             });
         });
@@ -131,7 +134,7 @@ describe('view', function() {
         });
     });
 
-    describe('feedback', function() {
+    describe('written feedback', function() {
         beforeEach(function(done) {
             view.rating = 10;
             wait(done);
@@ -161,16 +164,16 @@ describe('view', function() {
             });
         });
         it('should set feedback', function() {
-            $el.find('.nps-Survey-feedbackText').value('Rubish');
-            happen.once($el.find('.nps-Survey-feedbackText')[0], {type: 'input'});
+            $el.find('.nps-Feedback-text').value('Rubish');
+            happen.once($el.find('.nps-Feedback-text')[0], {type: 'input'});
             assert.equal(view.feedback, 'Rubish');
         });
         it('should go to thanks screen', function(done) {
-            $el.find('.nps-Survey-feedbackText').value('Rubish');
-            happen.keyup($el.find('.nps-Survey-feedbackText')[0]);
+            $el.find('.nps-Feedback-text').value('Rubish');
+            happen.keyup($el.find('.nps-Feedback-text')[0]);
             wait(function() {
                 happen.click($el.find('.nps-Survey-submit')[0]);
-                wait(function() {
+                waitAnimation(function() {
                     assert.match($el.text(),
                         /Thank you for your feedback/);
                     done();
@@ -186,8 +189,8 @@ describe('view', function() {
             assert.isTrue(called);
         });
         it('should emit submit event', function(done) {
-            $el.find('.nps-Survey-feedback').value('Rubish');
-            happen.keyup($el.find('.nps-Survey-feedback')[0]);
+            $el.find('.nps-Feedback-text').value('Rubish');
+            happen.keyup($el.find('.nps-Feedback-text')[0]);
             var called = false;
             view.$on('submit', function() {
                 called = true;
@@ -212,7 +215,7 @@ describe('view', function() {
     describe('thanks screen', function() {
         beforeEach(function(done) {
             view.state = 'thanks';
-            wait(done);
+            waitAnimation(done);
         });
         it('should display thanks message', function() {
             assert.match($el.text(), /Thank you/);
