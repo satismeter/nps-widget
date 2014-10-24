@@ -5,19 +5,22 @@ run: build
 
 build: build/build.js build/test.js
 
-build/build.js: index.js style.css *.html component.json languages/*.json
+build/build.js: src/* src/languages/*.json
 	@mkdir -p $(@D)
-	$(NODE-BIN)/duo -g View index.js > $@
+	$(NODE-BIN)/duo -g View src/index.js > $@
 
-build/test.js: test/test.js index.js style.css *.html component.json languages/*.json
+build/test.js: test/test.js src/* src/languages/*.json
 	@mkdir -p $(@D)
 	$(NODE-BIN)/duo -d -g View $< > $@
 
-style.css: style.scss button.scss
+src/style.css: src/style.scss src/button.scss
 	sass $< $@
 
 test: build/test.js
 	$(NODE-BIN)/duo-test -B build/test.js phantomjs -R spec
+
+test-chrome: build/test.js
+	$(NODE-BIN)/duo-test -B build/test.js browser chrome -R spec
 
 serve:
 	serve

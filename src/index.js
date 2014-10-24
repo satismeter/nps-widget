@@ -103,7 +103,7 @@ var View = Vue.extend({
         },
         close: function() {
             this.hide();
-            if (this.state === RATING_STATE) {
+            if (this.state === FEEDBACK_STATE) {
                 this.$dispatch('dismiss');
             }
         },
