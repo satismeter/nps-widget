@@ -1,0 +1,14 @@
+<div class="nps-Scale">
+  <div class="nps-Scale-ratings">
+      <div v-repeat="ratings"
+        class="nps-Scale-value"
+        v-class="nps-is-selected: selected"
+        v-on="click: selectRating({{$index}})"></div>
+    </div>
+  <div class="nps-cf">
+    <div class="nps-Survey-hint nps-Survey-hint--notLikely">
+      {{t('NOT_AT_ALL')}}</div>
+    <div class="nps-Survey-hint nps-Survey-hint--likely">
+      {{t('EXTREMLY')}}</div>
+  </div>
+</div>

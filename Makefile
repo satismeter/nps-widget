@@ -5,11 +5,11 @@ run: build
 
 build: build/build.js build/test.js
 
-build/build.js: index.js style.css template.html component.json languages/*.json
+build/build.js: index.js style.css *.html component.json languages/*.json
 	@mkdir -p $(@D)
 	$(NODE-BIN)/duo -g View index.js > $@
 
-build/test.js: test/test.js index.js style.css template.html component.json languages/*.json
+build/test.js: test/test.js index.js style.css *.html component.json languages/*.json
 	@mkdir -p $(@D)
 	$(NODE-BIN)/duo -d -g View $< > $@
 
@@ -29,6 +29,6 @@ clean-all: clean
 	rm -rf components
 
 watch:
-	wach make -e "build/**"
+	wach "$(MAKE) build" -e "build/**"
 
 .PHONY: run serve test clean clean-all watch build

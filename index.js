@@ -24,12 +24,33 @@ var messages = {
 
 loadStyles(require('./style.css'));
 
-var RATING_STATE = 'rating';
+var FEEDBACK_STATE = 'feedback';
 var THANKS_STATE = 'thanks';
 var FILLED_STATE = 'filled';
 
+var Scale = Vue.extend({
+});
+
 var View = Vue.extend({
     template: require('./template.html'),
+    components: {
+        scale: {
+            template: require('./scale.html'),
+            replace: true
+        },
+        feedback: {
+            template: require('./feedback.html'),
+            replace: true
+        },
+        thanks: {
+            template: require('./thanks.html'),
+            replace: true
+        },
+        filled: {
+            template: require('./filled.html'),
+            replace: true
+        }
+    },
     replace: true,
     data: {
         language: 'en',
@@ -39,8 +60,7 @@ var View = Vue.extend({
         poweredBy: true,
         skin: 'dialog',
         theme: 'pink',
-        state: RATING_STATE,
-        ratingDisabled: true,
+        state: FEEDBACK_STATE,
         feedback: ''
     },
     attached: function() {
@@ -49,6 +69,12 @@ var View = Vue.extend({
         }
     },
     computed: {
+        showCloseIcon: function() {
+            return this.state === FEEDBACK_STATE && this.skin==='dialog';
+        },
+        showSubmitButton: function() {
+            return this.state === FEEDBACK_STATE && this.rating !== null;
+        },
         ratings: function() {
             var selectedRating = this.rating;
             return [0,1,2,3,4,5,6,7,8,9,10].map(function(rating) {
