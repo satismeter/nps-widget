@@ -1,5 +1,8 @@
 NODE-BIN=node_modules/.bin
 
+run: build
+	($(MAKE) watch &); ($(MAKE) serve)
+
 build: build/build.js build/test.js
 
 build/build.js: index.js style.css template.html component.json languages/*.json
@@ -16,7 +19,7 @@ style.css: style.scss button.scss
 test: build/test.js
 	$(NODE-BIN)/duo-test -B build/test.js phantomjs -R spec
 
-run: build/build.js
+serve:
 	serve
 
 clean:
@@ -25,7 +28,7 @@ clean:
 clean-all: clean
 	rm -rf components
 
-watch: build
+watch:
 	wach make -e "build/**"
 
-.PHONY: run test clean clean-all watch build
+.PHONY: run serve test clean clean-all watch build
