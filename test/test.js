@@ -2,6 +2,7 @@ var assert = require('chai').assert;
 var dom = require('dom');
 var happen = require('happen');
 var Vue = require('vue');
+var loadStyles = require('load-styles');
 
 var View = require('../src/index');
 
@@ -11,27 +12,26 @@ function wait(done) {
     });
 }
 function waitAnimation(done) {
-    // call twice because of animations
     setTimeout(function() {
         done();
     }, 100);
 }
 
 describe('view', function() {
+    before(function () {
+        loadStyles('* { transition-duration: 1ms !important; }');
+    });
+
     var view, $el;
     beforeEach(function(done) {
-        view = new View({
-            directives: {
-                transition: {}
-            }
-        });
+        view = new View({});
         view.$appendTo(document.body);
         $el = dom(view.$el);
         view.show();
         wait(done);
     });
     afterEach(function() {
-        view.$remove();
+        view.$destroy();
     });
 
     describe('widget initialization', function() {
@@ -220,14 +220,6 @@ describe('view', function() {
         it('should display thanks message', function() {
             assert.match($el.text(), /Thank you/);
         });
-        it('should not emit dismiss event', function() {
-            var called = false;
-            view.$on('dismiss', function() {
-                called = true;
-            });
-            happen.click($el.find('.nps-Survey-closeIcon')[0]);
-            assert.isFalse(called);
-        });
     });
 
     describe('filled screen', function() {
@@ -258,4 +250,29 @@ describe('view', function() {
             view.$remove();
         });
     });
+
+    describe('positioning', function() {
+        it('should use tr as default', function() {
+            assert(view.position, 'tr');
+        });
+        it('should show on top left', function(done) {
+            view.position = 'tl';
+            view.distance = 10;
+            waitAnimation(function() {
+                assert.equal(getComputedStyle(view.$el).top, '10px');
+                assert.equal(getComputedStyle(view.$el).left, '0px');
+                done();
+            });
+        });
+        it('should show on bottom right', function(done) {
+            view.position = 'br';
+            view.distance = 20;
+            waitAnimation(function () {
+                assert.equal(getComputedStyle(view.$el).bottom, '20px');
+                assert.equal(getComputedStyle(view.$el).right, '0px');
+                done();
+            });
+        });
+    });
+
 });

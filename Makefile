@@ -3,7 +3,7 @@ NODE-BIN=node_modules/.bin
 run: build
 	($(MAKE) watch &); ($(MAKE) serve)
 
-build: build/build.js build/test.js
+build: build/build.js
 
 build/build.js: src/* src/languages/*.json
 	@mkdir -p $(@D)
@@ -20,7 +20,7 @@ test: build/test.js
 	$(NODE-BIN)/duo-test -B build/test.js phantomjs -R spec
 
 test-chrome: build/test.js
-	$(NODE-BIN)/duo-test -B build/test.js browser chrome -R spec
+	($(MAKE) watch-test &); ($(NODE-BIN)/duo-test -B build/test.js browser chrome -R spec)
 
 serve:
 	serve
@@ -34,4 +34,7 @@ clean-all: clean
 watch:
 	wach "$(MAKE) build" -e "build/**"
 
-.PHONY: run serve test clean clean-all watch build
+watch-test:
+	wach "$(MAKE) build/test.js" -e "build/**"
+
+.PHONY: run serve test clean clean-all watch watch-test build

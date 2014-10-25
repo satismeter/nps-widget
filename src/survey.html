@@ -1,4 +1,7 @@
-<div class="nps-Survey nps-Survey--{{theme}} nps-Survey--{{skin}}"
+<div class="nps-Survey nps-Survey--{{theme}} nps-Survey--{{skin}} nps-Survey--{{position}}"
+	v-class="nps-Survey--test: test"
+	title="{{distanceStyle}}"
+	v-style="top: topPosition, bottom: bottomPosition"
 	v-show="visible" v-transition>
 
 	<button v-if="showCloseIcon" v-transition v-on="click: close"

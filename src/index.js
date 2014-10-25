@@ -50,15 +50,23 @@ var View = Vue.extend({
   },
   replace: true,
   data: {
-    language: 'en',
+    // model
     rating: null,
-    us: null,
+    feedback: '',
+
+    // state
     visible: false,
+    state: FEEDBACK_STATE,
+
+    // settings
+    language: 'en',
+    us: null,
     poweredBy: true,
     skin: 'dialog',
     theme: 'pink',
-    state: FEEDBACK_STATE,
-    feedback: ''
+    position: 'tr', // tl (top-right), tr, bl, br
+    distance: 50, // distance from top/bottom border
+    test: true // test mode - short animations
   },
   attached: function() {
     if (this.rating !== null) {
@@ -66,6 +74,18 @@ var View = Vue.extend({
     }
   },
   computed: {
+    topPosition: function() {
+      if (/t./.test(this.position)) {
+        // top position
+        return this.distance + 'px';
+      }
+    },
+    bottomPosition: function() {
+      if (/b./.test(this.position)) {
+        // bottom position
+        return this.distance + 'px';
+      }
+    },
     showCloseIcon: function() {
       return this.state === FEEDBACK_STATE && this.skin==='dialog';
     },
@@ -93,9 +113,12 @@ var View = Vue.extend({
       this.focusFeedback();
     },
     focusFeedback: function() {
-      var el = this.$el;
+      var $el = this.$el;
       Vue.nextTick(function () {
-        query('.nps-Feedback-text', el).focus();
+        var $text = $el.querySelector('.nps-Feedback-text');
+        if ($text) {
+          $text.focus();
+        }
       });
     },
     show: function() {

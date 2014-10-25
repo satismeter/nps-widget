@@ -188,18 +188,32 @@ $themes: (
 	position: fixed;
 	z-index: 2147483646;
 
-	top: 60px;
-  right: 0;
-
 	padding: 20px;
 	margin: 20px;
 
 	font-size: 14px;
-	transition: right 500ms;
 }
-
-.nps-Survey--dialog.nps-enter, .nps-Survey--dialog.nps-leave {
+.nps-Survey--dialog.nps-Survey--tr,
+.nps-Survey--dialog.nps-Survey--br {
+  transition: right 500ms;
+  right: 0;
+}
+.nps-Survey--dialog.nps-Survey--tl,
+.nps-Survey--dialog.nps-Survey--bl {
+  transition: left 500ms;
+  left: 0;
+}
+.nps-Survey--dialog.nps-Survey--tr.nps-enter,
+.nps-Survey--dialog.nps-Survey--tr.nps-leave,
+.nps-Survey--dialog.nps-Survey--br.nps-enter,
+.nps-Survey--dialog.nps-Survey--br.nps-leave {
   right: -500px;
+}
+.nps-Survey--dialog.nps-Survey--tl.nps-enter,
+.nps-Survey--dialog.nps-Survey--tl.nps-leave,
+.nps-Survey--dialog.nps-Survey--bl.nps-enter,
+.nps-Survey--dialog.nps-Survey--bl.nps-leave {
+  left: -500px;
 }
 .nps-Survey--dialog .nps-Title {
 	margin-right: 20px;
