@@ -97,7 +97,7 @@ describe('view', function() {
         it('should close window', function(done) {
             happen.click($el.find('.nps-Survey-closeIcon')[0]);
             wait(function() {
-                assert.isFalse($el.hasClass('nps-is-visible'));
+                assert.isFalse(view.visible);
                 done();
             });
         });
@@ -159,7 +159,7 @@ describe('view', function() {
         it('should close window', function(done) {
             happen.click($el.find('.nps-Survey-closeIcon')[0]);
             wait(function() {
-                assert.isFalse(dom(view.$el).hasClass('nps-is-visible'));
+                assert.isFalse(view.visible);
                 done();
             });
         });
