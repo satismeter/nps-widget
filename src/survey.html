@@ -1,26 +1,26 @@
 <div class="nps-Survey nps-Survey--{{theme}} nps-Survey--{{skin}} nps-Survey--{{position}}"
-	v-class="nps-Survey--test: test"
-	title="{{distanceStyle}}"
-	v-style="top: topPosition, bottom: bottomPosition"
-	v-show="visible" v-transition>
+  v-class="nps-Survey--test: test"
+  title="{{distanceStyle}}"
+  v-style="top: topPosition, bottom: bottomPosition"
+  v-show="visible" v-transition>
 
-	<button v-if="showCloseIcon" v-transition v-on="click: close"
-		class="nps-Survey-closeIcon">&#x2715;</button>
+  <button v-if="showCloseIcon" v-transition v-on="click: close"
+    class="nps-Survey-closeIcon">&#x2715;</button>
 
-	<div class="nps-Survey-body">
-		<div v-view="state" v-transition></div>
-	</div>
+  <div class="nps-Survey-body">
+    <div v-view="state" v-transition></div>
+  </div>
 
-	<div class="nps-cf">
-		<div class="nps-Survey-poweredBy" v-if="poweredBy">
-			Powered by <a href="http://www.satismeter.com" target="_blank">SatisMeter</a>
-		</div>
+  <div class="nps-cf">
+    <div class="nps-Survey-poweredBy" v-if="poweredBy">
+      Powered by <a href="http://www.satismeter.com" target="_blank">SatisMeter</a>
+    </div>
 
-		<div class="nps-Survey-buttons">
-			<button class="nps-Button nps-Survey-submit"
-				v-if="showSubmitButton" v-on="click: ratingSubmit">
-				{{t('SUBMIT')}}</button>
-		</div>
-	</div>
+    <div class="nps-Survey-buttons">
+      <button class="nps-Button nps-Survey-submit"
+        v-if="showSubmitButton" v-on="click: ratingSubmit">
+        {{t('SUBMIT')}}</button>
+    </div>
+  </div>
 
 </div>
