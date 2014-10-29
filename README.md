@@ -1,17 +1,31 @@
-# Net Promoter Score widget 
-
-[![Build Status](https://travis-ci.org/satismeter/nps-widget.svg?branch=master)](https://travis-ci.org/satismeter/nps-widget)
-
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/nps-widget.svg)](https://saucelabs.com/u/nps-widget)
-
-
+# Net Promoter Score widget [![Build Status](https://travis-ci.org/satismeter/nps-widget.svg?branch=master)](https://travis-ci.org/satismeter/nps-widget)
 
 A lightweight web widget for gathering Net Promoter Score surveys.
 
 The widget was created for [SatisMeter](http://www.satismeter.com)
-Net Promoter Score analytics SaaS app.
+Customer loyalty analytics SaaS app.
 
 ![NPS widget](https://raw.githubusercontent.com/satismeter/nps-widget/gh-pages/rating.png)
+
+# Install
+
+## using browserify
+
+```
+npm install satismeter/nps-widget
+```
+
+```js
+var View = require('satismeter-nps-widget');
+```
+
+
+## or using duo.js
+
+```js
+var View = require('satismeter/nps-widget');
+```
+# Use
 
 ```js
 view = new View();
@@ -23,7 +37,9 @@ view.$appendTo(document.body);
 view.show();
 ```
 
-## Install
+## Develop
+
+To run local server and watch for changes run:
 
 ```
 make
@@ -31,6 +47,8 @@ make
 
 ## Browser support
 Supports all modern browsers and Internet explorer 9+.
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/nps-widget.svg)](https://saucelabs.com/u/nps-widget)
 
 ## Testing
 ```
