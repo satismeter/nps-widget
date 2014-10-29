@@ -6,7 +6,6 @@ install:
 - "gem install sass"
 script:
 - "make test"
-- "make test-saucelabs"
 env:
   global:
     - secure: RZz/FZMxcGrXFR5mBxGxf+T2WvUWIchLwpANJEidOfK6fySZADGNINPVkYqcpESIYc23kEGmCNnWD2MeKZqL/3tdLkhWvBCJRBqRKQNySVtO/uaODP85quoOeEKgvZX4F9fUW3r7zRJjedwghLCfADg9VokqMjzWMwhutfMxmJE=

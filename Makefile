@@ -1,5 +1,4 @@
 NODE-BIN=node_modules/.bin
-BROWSERS=ie:9..stable,chrome:stable,safari:stable,firefox:stable
 
 run: build
 	($(MAKE) watch &); ($(MAKE) serve)
@@ -8,23 +7,25 @@ build: build/build.js
 
 build/build.js: src/* src/languages/*.json node_modules
 	@mkdir -p $(@D)
-	$(NODE-BIN)/duo -g View src/index.js > $@
+	$(NODE-BIN)/browserify -s View src/index.js > $@
 
-build/test.js: test/test.js src/* src/languages/*.json node_modules
+build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
 	@mkdir -p $(@D)
 	$(NODE-BIN)/duo -d -g View $< > $@
 
 src/style.css: src/style.scss src/button.scss
 	sass $< $@
 
-test: build/test.js node_modules
-	$(NODE-BIN)/duo-test -B build/test.js phantomjs -R spec
+test: test-tesling test-duo
 
-test-chrome: build/test.js node_modules
-	($(MAKE) watch-test &); ($(NODE-BIN)/duo-test -B build/test.js browser chrome -R spec)
+test-tesling: node_modules
+	$(NODE-BIN)/testling
 
-test-saucelabs: build/test.js node_modules
-	$(NODE-BIN)/duo-test -B build/test.js saucelabs -R spec -b $(BROWSERS)
+test-duo: build/duo-test.js node_modules
+	$(NODE-BIN)/duo-test -B $< phantomjs -R spec
+
+test-chrome: build/duo-test.js node_modules
+	$(NODE-BIN)/duo-test -B $< browser chrome -R spec
 
 serve:
 	serve
@@ -42,7 +43,4 @@ clean-all: clean
 watch:
 	wach "$(MAKE) build" -e "build/**"
 
-watch-test:
-	wach "$(MAKE) build/test.js" -e "build/**"
-
-.PHONY: run serve test clean clean-all watch watch-test build
+.PHONY: run serve test test-duo test-tesling clean clean-all watch build

@@ -1,6 +1,4 @@
 var Vue = require('vue');
-var query = require('query');
-var bind = require('bind');
 var loadStyles = require('load-styles');
 
 Vue.config({
@@ -137,7 +135,8 @@ var View = Vue.extend({
       this.$dispatch('submit');
       this.state = THANKS_STATE;
       if (this.skin !== 'page') {
-        setTimeout(bind(this, this.hide), 800);
+        var that = this;
+        setTimeout(function() { that.hide() }, 800);
       }
     }
   }

@@ -1,8 +1,8 @@
 var assert = require('chai').assert;
-var dom = require('dom');
 var happen = require('happen');
 var Vue = require('vue');
 var loadStyles = require('load-styles');
+var $ = require('jquery');
 
 var View = require('../src/index');
 
@@ -26,7 +26,7 @@ describe('view', function() {
     beforeEach(function(done) {
         view = new View({});
         view.$appendTo(document.body);
-        $el = dom(view.$el);
+        $el = $(view.$el);
         view.show();
         wait(done);
     });
@@ -36,16 +36,16 @@ describe('view', function() {
 
     describe('widget initialization', function() {
         it('should render widget into root element', function() {
-            assert.equal(dom(document.body).find('.nps-Survey').length, 1);
+            assert.equal($(document.body).find('.nps-Survey').length, 1);
         });
         it('should be visible', function() {
             assert.isTrue(view.visible);
         });
         it('should show first screen', function() {
-            assert.match(dom(view.$el).text(), /How likely are you to recommend/);
+            assert.match($el.text(), /How likely are you to recommend/);
         });
         it('should display powered by message', function() {
-            assert.match(dom(view.$el).text(), /Powered by/);
+            assert.match($el.text(), /Powered by/);
         });
     });
 
@@ -55,22 +55,22 @@ describe('view', function() {
             view.$appendTo(document.body);
             view.show();
             wait(function() {
-                assert.notMatch(dom(view.$el).text(), /Powered by/);
-                view.$remove();
+                assert.notMatch($(view.$el).text(), /Powered by/);
+                view.$destroy();
                 done();
             });
         });
     });
 
     describe('feedback screen', function() {
-        it('should display disabled submit', function() {
-            assert.isNotNull($el.find('.nps-submit').attr('disabled'));
+        it('should not display submit', function() {
+            assert.equal($el.find('.nps-Survey-submit').length, 0);
         });
         it('should highlight rating', function(done) {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
 
             wait(function() {
-                assert.isTrue($el.find('.nps-Scale .nps-Scale-value').at(5)
+                assert.isTrue($($el.find('.nps-Scale .nps-Scale-value')[5])
                     .hasClass('nps-is-selected'));
                 done();
             });
@@ -79,7 +79,7 @@ describe('view', function() {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
 
             wait(function() {
-                assert.isNull($el.find('.nps-Survey-submit').attr('disabled'));
+                assert.isFalse($el.find('.nps-Survey-submit').prop('disabled'));
                 done();
             });
         });
@@ -140,7 +140,7 @@ describe('view', function() {
             wait(done);
         });
         it('should display enabled submit', function() {
-            assert.isNull($el.find('.nps-Survey-submit').attr('disabled'));
+            assert.isFalse($el.find('.nps-Survey-submit').prop('disabled'));
         });
         it('should submit empty feedback', function(done) {
             var called = false;
@@ -164,12 +164,12 @@ describe('view', function() {
             });
         });
         it('should set feedback', function() {
-            $el.find('.nps-Feedback-text').value('Rubish');
+            $el.find('.nps-Feedback-text').val('Rubish');
             happen.once($el.find('.nps-Feedback-text')[0], {type: 'input'});
             assert.equal(view.feedback, 'Rubish');
         });
         it('should go to thanks screen', function(done) {
-            $el.find('.nps-Feedback-text').value('Rubish');
+            $el.find('.nps-Feedback-text').val('Rubish');
             happen.keyup($el.find('.nps-Feedback-text')[0]);
             wait(function() {
                 happen.click($el.find('.nps-Survey-submit')[0]);
@@ -189,7 +189,7 @@ describe('view', function() {
             assert.isTrue(called);
         });
         it('should emit submit event', function(done) {
-            $el.find('.nps-Feedback-text').value('Rubish');
+            $el.find('.nps-Feedback-text').val('Rubish');
             happen.keyup($el.find('.nps-Feedback-text')[0]);
             var called = false;
             view.$on('submit', function() {
@@ -234,7 +234,7 @@ describe('view', function() {
 
     describe('translations', function() {
         it('should use en as default', function() {
-            assert.match(dom(view.$el).text(), /How likely/);
+            assert.match($(view.$el).text(), /How likely/);
         });
         before(function(done) {
             view.language = 'cz';
@@ -245,7 +245,7 @@ describe('view', function() {
             view.$appendTo(document.body);
             view.show();
 
-            assert.match(dom(view.$el).text(), /Doporučili byste/);
+            assert.match($(view.$el).text(), /Doporučili byste/);
 
             view.$remove();
         });
