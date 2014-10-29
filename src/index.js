@@ -1,4 +1,3 @@
-require('./classList');
 var Vue = require('vue');
 var loadStyles = require('load-styles');
 
