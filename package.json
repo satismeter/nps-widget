@@ -1,5 +1,12 @@
 {
-  "private": true,
+  "name": "nps-widget",
+  "version": "0.1.1",
+  "description": "Net promoter score widget.",
+  "keywords": [
+    "nps",
+    "net promoter score",
+    "widget"
+  ],
   "dependencies": {
     "vue": "^0.10.6",
     "load-styles": "^1.0.1"
