@@ -27,8 +27,7 @@
       "iexplore/9..latest",
       "chrome/latest",
       "firefox/latest",
-      "safari/latest",
-      "opera/latest"
+      "safari/latest"
     ]
   }
 }
