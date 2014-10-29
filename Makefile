@@ -16,12 +16,12 @@ build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
 src/style.css: src/style.scss src/button.scss
 	sass $< $@
 
-test: test-zuul test-duo
+test: test-phantom
 
-test-zuul: node_modules
+test-saucelabs: node_modules
 	$(NODE-BIN)/zuul test/test.js
 
-test-duo: build/duo-test.js node_modules
+test-phantom: build/duo-test.js node_modules
 	$(NODE-BIN)/duo-test -B $< phantomjs -R spec
 
 test-chrome: build/duo-test.js node_modules
@@ -43,4 +43,4 @@ clean-all: clean
 watch:
 	wach "$(MAKE) build" -e "build/**"
 
-.PHONY: run serve test test-duo test-zuul clean clean-all watch build
+.PHONY: run serve test test-duo test-saucelabs clean clean-all watch build
