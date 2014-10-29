@@ -2,11 +2,13 @@ language: node_js
 node_js:
   - "0.10"
 install:
-- "npm install duo"
-- "npm install duo-test"
+- "npm install"
 - "gem install sass"
 script:
 - "make test"
+- "make test-saucelabs"
 env:
-  secure: "PoWO3ZE6tRR3ffxndNf1n7OnP5MTtxRYd+o0IJ96Xwvqd7bqWcluHTsLyZ4P/vZ5D2zk1TTzFZBgzha2GHeNsWjHsatGXAMISy+EatBsPTjVMi24+m1GD0eEL/DeSoVDZohRpUSZNkg46Ct5Rvi6F7+O0vzYf5/BJjAlZSAN31E="
-  
+  global:
+    - secure: RZz/FZMxcGrXFR5mBxGxf+T2WvUWIchLwpANJEidOfK6fySZADGNINPVkYqcpESIYc23kEGmCNnWD2MeKZqL/3tdLkhWvBCJRBqRKQNySVtO/uaODP85quoOeEKgvZX4F9fUW3r7zRJjedwghLCfADg9VokqMjzWMwhutfMxmJE=
+    - secure: j9Hr4Dp8HMZ4FuHrZgmE43auU5GQ5Fb39Y8wCL+FwBITxsGUQe6j2nO7Wuyt2BFOgIclFfq0yzSEVon+oqC81/cNPrPNEqS5/+MbTrjiB8LPJIryWFPhzpRdl8SboR4cBmugFd4vA6kwbxn22iBkbeZQeTBUj0zE6wfbgiMA0js=
+    - secure: "PoWO3ZE6tRR3ffxndNf1n7OnP5MTtxRYd+o0IJ96Xwvqd7bqWcluHTsLyZ4P/vZ5D2zk1TTzFZBgzha2GHeNsWjHsatGXAMISy+EatBsPTjVMi24+m1GD0eEL/DeSoVDZohRpUSZNkg46Ct5Rvi6F7+O0vzYf5/BJjAlZSAN31E="

@@ -1,4 +1,5 @@
 NODE-BIN=node_modules/.bin
+BROWSERS=ie:9..stable,chrome:stable,safari:stable,firefox:stable
 
 run: build
 	($(MAKE) watch &); ($(MAKE) serve)
@@ -21,6 +22,10 @@ test: build/test.js node_modules
 
 test-chrome: build/test.js node_modules
 	($(MAKE) watch-test &); ($(NODE-BIN)/duo-test -B build/test.js browser chrome -R spec)
+
+test-saucelabs: build/test.js node_modules
+	$(NODE-BIN)/duo-test -B build/test.js saucelabs -R spec \
+	-u $(SAUCE_USERNAME) -k $(SAUCE_ACCESS_KEY) -b $(BROWSERS)
 
 serve:
 	serve
