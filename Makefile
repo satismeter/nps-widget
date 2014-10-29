@@ -16,10 +16,10 @@ build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
 src/style.css: src/style.scss src/button.scss
 	sass $< $@
 
-test: test-tesling test-duo
+test: test-zuul test-duo
 
-test-tesling: node_modules
-	$(NODE-BIN)/testling
+test-zuul: node_modules
+	$(NODE-BIN)/zuul test/test.js
 
 test-duo: build/duo-test.js node_modules
 	$(NODE-BIN)/duo-test -B $< phantomjs -R spec
@@ -43,4 +43,4 @@ clean-all: clean
 watch:
 	wach "$(MAKE) build" -e "build/**"
 
-.PHONY: run serve test test-duo test-tesling clean clean-all watch build
+.PHONY: run serve test test-duo test-zuul clean clean-all watch build

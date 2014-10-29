@@ -13,7 +13,8 @@
     "jquery": "^2.1.1",
     "mocha": "^2.0.1",
     "partialify": "^3.1.1",
-    "testling": "^1.7.1"
+    "testling": "^1.7.1",
+    "zuul": "^1.12.0"
   },
   "browserify": {
     "transform": [
