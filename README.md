@@ -1,4 +1,9 @@
-# Net Promoter Score widget [![Build Status](https://travis-ci.org/satismeter/nps-widget.svg?branch=master)](https://travis-ci.org/satismeter/nps-widget)
+# Net Promoter Score widget 
+
+[![Build Status](https://travis-ci.org/satismeter/nps-widget.svg?branch=master)](https://travis-ci.org/satismeter/nps-widget)
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/nps-widget.svg)](https://saucelabs.com/u/nps-widget)
+
 
 
 A lightweight web widget for gathering Net Promoter Score surveys.
