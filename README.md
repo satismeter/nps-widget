@@ -21,7 +21,6 @@ view.show();
 ## Install
 
 ```
-npm install duo
 make
 ```
 
@@ -30,7 +29,6 @@ Supports all modern browsers and Internet explorer 9+.
 
 ## Testing
 ```
-npm install duo-test
 make test
 ```
 

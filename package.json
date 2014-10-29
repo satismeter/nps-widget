@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "devDependencies": {
+    "duo": "^0.8.8",
+    "duo-test": "^0.3.11"
+  }
+}
