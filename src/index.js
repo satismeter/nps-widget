@@ -78,12 +78,14 @@ var View = Vue.extend({
         // top position
         return this.distance + 'px';
       }
+      return '';
     },
     bottomPosition: function() {
       if (/b./.test(this.position)) {
         // bottom position
         return this.distance + 'px';
       }
+      return '';
     },
     showCloseIcon: function() {
       return this.state === FEEDBACK_STATE && this.skin==='dialog';
