@@ -3,10 +3,6 @@ NODE-BIN=node_modules/.bin
 serve: examples/example.js
 	$(NODE-BIN)/duo-serve $^
 
-build/build.js: src/* src/languages/*.json node_modules
-	@mkdir -p $(@D)
-	$(NODE-BIN)/browserify -s View src/index.js > $@
-
 build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
 	@mkdir -p $(@D)
 	$(NODE-BIN)/duo -d -g View $< > $@
