@@ -16,7 +16,7 @@ npm install satismeter/nps-widget
 ```
 
 ```js
-var View = require('satismeter-nps-widget');
+var View = require('nps-widget');
 ```
 
 
