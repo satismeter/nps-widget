@@ -1,6 +1,6 @@
 {
   "name": "nps-widget",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": "satismeter/nps-widget",
   "description": "Net promoter score widget.",
   "keywords": [
@@ -13,9 +13,9 @@
     "component/load-styles": "1.0.1"
   },
   "development": {
-      "chaijs/chai": "^1.9.1",
-      "tmcw/happen": "cf9e4fc",
-      "jquery/jquery": "^2.1.1"
+    "chaijs/chai": "^1.9.1",
+    "tmcw/happen": "cf9e4fc",
+    "jquery/jquery": "^2.1.1"
   },
   "main": "src/index.js"
 }
