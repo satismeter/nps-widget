@@ -27,16 +27,5 @@
     "transform": [
       "partialify"
     ]
-  },
-  "testling": {
-    "harness": "mocha-bdd",
-    "files": "test/test.js",
-    "browsers": [
-      "iexplore/9..latest",
-      "chrome/latest",
-      "firefox/latest",
-      "safari/latest",
-      "opera/latest"
-    ]
   }
 }
