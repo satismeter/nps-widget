@@ -1,9 +1,7 @@
 NODE-BIN=node_modules/.bin
 
-run: build
-	($(MAKE) watch &); ($(MAKE) serve)
-
-build: build/build.js
+serve: examples/example.js
+	$(NODE-BIN)/duo-serve $^
 
 build/build.js: src/* src/languages/*.json node_modules
 	@mkdir -p $(@D)
@@ -16,19 +14,14 @@ build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
 src/style.css: src/style.scss src/button.scss
 	sass $< $@
 
-test: test-phantom
-
-test-saucelabs: node_modules
+test-ci: node_modules
 	$(NODE-BIN)/zuul test/test.js
 
-test-phantom: build/duo-test.js node_modules
-	$(NODE-BIN)/duo-test -B $< phantomjs -R spec
+test: build/duo-test.js node_modules
+	$(NODE-BIN)/duo-test -B $< -R spec phantomjs
 
 test-chrome: build/duo-test.js node_modules
-	$(NODE-BIN)/duo-test -B $< browser chrome -R spec
-
-serve:
-	serve
+	$(NODE-BIN)/duo-test -B $< -c "make build/duo-test.js" -R spec browser chrome
 
 node_modules: package.json
 	npm i
@@ -40,7 +33,4 @@ clean:
 clean-all: clean
 	rm -rf components node_modules
 
-watch:
-	wach "$(MAKE) build" -e "build/**"
-
-.PHONY: run serve test test-duo test-saucelabs clean clean-all watch build
+.PHONY: serve test test-ci test-chrome clean clean-all
