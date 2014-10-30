@@ -9,7 +9,8 @@
   ],
   "dependencies": {
     "vue": "^0.10.6",
-    "load-styles": "^1.0.1"
+    "load-styles": "^1.0.1",
+    "partialify": "^3.1.1"
   },
   "devDependencies": {
     "browserify": "^6.2.0",
@@ -20,7 +21,6 @@
     "happen": "^0.1.3",
     "jquery": "^2.1.1",
     "mocha": "^2.0.1",
-    "partialify": "^3.1.1",
     "zuul": "^1.12.0"
   },
   "browserify": {
