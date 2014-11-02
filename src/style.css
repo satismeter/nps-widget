@@ -6,7 +6,10 @@
   vertical-align: baseline;
   text-align: center;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-family: inherit;
   font-size: 100%;
   padding: 0.5em 1em;
@@ -127,7 +130,8 @@
   right: 0;
   top: 0;
   opacity: 1;
-  transition: opacity 500ms; }
+  -webkit-transition: opacity 500ms;
+          transition: opacity 500ms; }
 
 .nps-Survey-closeIcon.nps-enter, .nps-Survey-closeIcon.nps-leave {
   opacity: 0; }
@@ -279,7 +283,8 @@
   height: 80px;
   margin-top: 14px;
   overflow: hidden;
-  transition: height 500ms; }
+  -webkit-transition: height 500ms;
+          transition: height 500ms; }
 
 .nps-Feedback-textContainer.nps-enter, .nps-Feedback-textContainer.nps-leave {
   height: 0px; }
@@ -385,7 +390,8 @@
 .nps-Feedback {
   max-height: 400px;
   overflow: hidden;
-  transition: max-height 500ms; }
+  -webkit-transition: max-height 500ms;
+          transition: max-height 500ms; }
 
 .nps-Feedback.nps-enter, .nps-Feedback.nps-leave {
   max-height: 0; }
@@ -393,7 +399,8 @@
 .nps-Thanks {
   max-height: 200px;
   overflow: hidden;
-  transition: max-height 500ms; }
+  -webkit-transition: max-height 500ms;
+          transition: max-height 500ms; }
 
 .nps-Thanks.nps-enter, .nps-Thanks.nps-leave {
   max-height: 0; }
@@ -409,12 +416,14 @@
 
 .nps-Survey--dialog.nps-Survey--tr,
 .nps-Survey--dialog.nps-Survey--br {
-  transition: right 500ms;
+  -webkit-transition: right 500ms;
+          transition: right 500ms;
   right: 0; }
 
 .nps-Survey--dialog.nps-Survey--tl,
 .nps-Survey--dialog.nps-Survey--bl {
-  transition: left 500ms;
+  -webkit-transition: left 500ms;
+          transition: left 500ms;
   left: 0; }
 
 .nps-Survey--dialog.nps-Survey--tr.nps-enter,
@@ -455,5 +464,3 @@
 
 .nps-cf:after {
   clear: both; }
-
-/*# sourceMappingURL=style.css.map */

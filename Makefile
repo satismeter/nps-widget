@@ -8,7 +8,7 @@ build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
 	$(BIN)/duo -d $< > $@
 
 src/style.css: src/style.scss src/button.scss
-	sass $< $@
+	sass $< | $(BIN)/autoprefixer > $@
 
 test-ci: node_modules
 	$(BIN)/zuul test/test.js

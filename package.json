@@ -17,6 +17,7 @@
     "partialify": "^3.1.1"
   },
   "devDependencies": {
+    "autoprefixer": "^3.1.0",
     "browserify": "^6.2.0",
     "chai": "^1.9.2",
     "duo": "^0.8.8",
