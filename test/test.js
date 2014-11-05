@@ -267,11 +267,12 @@ describe('view', function() {
         it('should show on bottom right', function(done) {
             view.position = 'br';
             view.distance = 20;
-            waitAnimation(function () {
+            setTimeout(function () {
                 assert.equal(getComputedStyle(view.$el).bottom, '20px');
                 assert.equal(getComputedStyle(view.$el).right, '0px');
                 done();
-            });
+            }, 500);
+            // 500ms - phantom ignores the transition duration
         });
     });
 
