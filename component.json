@@ -15,7 +15,7 @@
   "development": {
     "chaijs/chai": "^1.9.1",
     "tmcw/happen": "cf9e4fc",
-    "jquery/jquery": "^2.1.1"
+    "components/jquery": "^2.1.1"
   },
   "main": "src/index.js"
 }
