@@ -12,9 +12,9 @@
     "widget"
   ],
   "dependencies": {
-    "vue": "^0.10.6",
     "load-styles": "^1.0.1",
-    "partialify": "^3.1.1"
+    "partialify": "^3.1.1",
+    "vue": "^0.10.6"
   },
   "devDependencies": {
     "autoprefixer": "^3.1.0",
