@@ -10,7 +10,7 @@ build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
 src/style.css: src/style.scss src/button.scss
 	sass $< | $(BIN)/autoprefixer > $@
 
-test-ci: node_modules
+test-ci: node_modules test
 	$(BIN)/zuul test/test.js
 
 test: build/duo-test.js node_modules
