@@ -382,25 +382,6 @@
 .nps-Survey--violet .nps-Survey-poweredBy > a {
   color: #C643FC; }
 
-.nps-Feedback {
-  max-height: 400px;
-  overflow: hidden;
-  -webkit-transition: max-height 500ms;
-          transition: max-height 500ms; }
-
-.nps-Feedback.nps-expand-enter, .nps-Feedback.nps-expand-leave {
-  max-height: 0; }
-
-.nps-Thanks {
-  max-height: 200px;
-  overflow: hidden;
-  -webkit-transition: max-height 500ms;
-          transition: max-height 500ms; }
-
-.nps-Thanks.nps-expand-enter,
-.nps-Thanks.nps-expand-leave {
-  max-height: 0; }
-
 /* Dialog theme */
 .nps-Survey--dialog {
   width: 417px;
@@ -464,3 +445,13 @@
 .nps-fade.nps-fade-enter,
 .nps-fade.nps-fade-leave {
   opacity: 0; }
+
+.nps-expand {
+  max-height: 400px;
+  overflow: hidden;
+  -webkit-transition: max-height 500ms;
+          transition: max-height 500ms; }
+
+.nps-expand.nps-expand-enter,
+.nps-expand.nps-expand-leave {
+  max-height: 0px; }
