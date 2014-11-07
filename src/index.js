@@ -1,6 +1,11 @@
 var Vue = require('vue');
 var loadStyles = require('load-styles');
 
+Vue.config({
+  enterClass: 'nps-enter',
+  leaveClass: 'nps-leave'
+});
+
 var messages = {
   cs: require('./languages/cs.json'),
   cz: require('./languages/cs.json'), // backward compatibility
@@ -24,15 +29,26 @@ var FILLED_STATE = 'filled';
 
 var View = Vue.extend({
   template: require('./survey.html'),
-  partials: {
-    scale: require('./scale.html'),
-    feedback: require('./feedback.html'),
-    thanks: require('./thanks.html'),
-    filled: require('./filled.html')
+  components: {
+    scale: {
+      template: require('./scale.html'),
+      replace: true
+    },
+    feedback: {
+      template: require('./feedback.html'),
+      replace: true
+    },
+    thanks: {
+      template: require('./thanks.html'),
+      replace: true
+    },
+    filled: {
+      template: require('./filled.html'),
+      replace: true
+    }
   },
   replace: true,
-  data: function() {
-    return {
+  data: {
       // model
       rating: null,
       feedback: '',
@@ -49,8 +65,7 @@ var View = Vue.extend({
       skin: 'dialog',
       theme: 'pink',
       position: 'tr', // tl (top-right), tr, bl, br
-      distance: 50, // distance from top/bottom border
-    }
+      distance: 50 // distance from top/bottom border
   },
   attached: function() {
     if (this.rating !== null) {
@@ -114,9 +129,9 @@ var View = Vue.extend({
       this.focusFeedback();
     },
     focusFeedback: function() {
-      var vm = this;
+      var $el = this.$el;
       Vue.nextTick(function () {
-        var $feedback = vm.$$.feedback;
+        var $feedback = $el.querySelector('.nps-Feedback-text');
         if ($feedback) {
           $feedback.focus();
         }

@@ -109,8 +109,8 @@ $themes: (
   overflow: hidden;
   transition: height 500ms;
 }
-.nps-Feedback-textContainer.nps-expand-enter,
-.nps-Feedback-textContainer.nps-expand-leave {
+.nps-Feedback-textContainer.nps-enter,
+.nps-Feedback-textContainer.nps-leave {
   height: 0px;
 }
 
@@ -179,12 +179,12 @@ $themes: (
   transition: left 500ms;
   left: 0;
 }
-.nps-Survey--dialog.nps-Survey--right.nps-show-enter,
-.nps-Survey--dialog.nps-Survey--right.nps-show-leave {
+.nps-Survey--dialog.nps-Survey--right.nps-enter,
+.nps-Survey--dialog.nps-Survey--right.nps-leave {
   right: -500px;
 }
-.nps-Survey--dialog.nps-Survey--left.nps-show-enter,
-.nps-Survey--dialog.nps-Survey--left.nps-show-leave {
+.nps-Survey--dialog.nps-Survey--left.nps-enter,
+.nps-Survey--dialog.nps-Survey--left.nps-leave {
   left: -500px;
 }
 .nps-Survey--dialog .nps-Title {
@@ -229,8 +229,8 @@ $themes: (
   opacity: 1;
   transition: opacity 500ms;
 }
-.nps-fade.nps-fade-enter,
-.nps-fade.nps-fade-leave {
+.nps-fade.nps-enter,
+.nps-fade.nps-leave {
   opacity: 0;
 }
 
@@ -239,7 +239,7 @@ $themes: (
   overflow: hidden;
   transition: max-height 500ms;
 }
-.nps-expand.nps-expand-enter,
-.nps-expand.nps-expand-leave {
+.nps-expand.nps-enter,
+.nps-expand.nps-leave {
   max-height: 0px;
 }

@@ -1,21 +1,20 @@
 <div
   class="nps-Feedback nps-expand"
-  v-transition="nps-expand"
+  v-transition
   >
   <div class="nps-Title">
     {{t('HOW_LIKELY', us || t('US'))}}
   </div>
 
-  <div v-partial="scale"></div>
+  <div v-component="scale"></div>
 
   <div
-    v-if="showFeedbackText"
-    v-transition="nps-expand"
     class="nps-Feedback-textContainer"
+    v-if="showFeedbackText"
+    v-transition
     >
     <textarea
       v-model="feedback"
-      v-el="feedback"
       class="nps-Feedback-text"
       placeholder="{{t('IMPROVE')}}"
       ></textarea>

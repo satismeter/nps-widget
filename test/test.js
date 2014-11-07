@@ -25,14 +25,13 @@ describe('view', function() {
     var view, $el;
     beforeEach(function(done) {
         view = new View({});
-        view.$mount();
         view.$appendTo(document.body);
         $el = $(view.$el);
         view.show();
         wait(done);
     });
     afterEach(function() {
-        view.$remove();
+        view.$destroy();
     });
 
     describe('widget initialization', function() {
@@ -53,7 +52,6 @@ describe('view', function() {
     describe('not powered by', function() {
         it('should not display powered by message', function(done) {
             var view = new View({data: {poweredBy: false}});
-            view.$mount();
             view.$appendTo(document.body);
             view.show();
             wait(function() {
@@ -240,7 +238,6 @@ describe('view', function() {
         });
         it('should translate to cs', function() {
             var view = new View({data: {language: 'cs'}});
-            view.$mount();
             view.$appendTo(document.body);
             view.show();
 
@@ -250,7 +247,6 @@ describe('view', function() {
         });
         it('should handle cz alias', function() {
             var view = new View({data: {language: 'cz'}});
-            view.$mount();
             view.$appendTo(document.body);
             view.show();
 

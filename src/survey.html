@@ -6,17 +6,18 @@
     nps-Survey--{{horizontal}}"
   v-style="top: topPosition, bottom: bottomPosition"
   v-show="visible"
-  v-transition="nps-show">
+  v-transition
+  >
 
   <button
+    class="nps-Survey-closeIcon nps-fade"
     v-if="showCloseIcon"
     v-on="click: close"
-    class="nps-Survey-closeIcon nps-fade"
-    v-transition="nps-fade"
+    v-transition
   >&#x2715;</button>
 
   <div class="nps-Survey-body">
-    <div v-partial="{{state}}"></div>
+    <div v-view="state"></div>
   </div>
 
   <div class="nps-cf">
