@@ -27,7 +27,7 @@ var FEEDBACK_STATE = 'feedback';
 var THANKS_STATE = 'thanks';
 var FILLED_STATE = 'filled';
 
-var View = Vue.extend({
+var Survey = Vue.extend({
   template: require('./survey.html'),
   components: {
     scale: {
@@ -158,6 +158,57 @@ var View = Vue.extend({
       }
     }
   }
+});
+
+var ATTRS = [
+  'visible',
+  'rating',
+  'feedback',
+  'poweredBy',
+  'state',
+  'language',
+  'translation',
+  'position',
+  'distance',
+  'skin',
+  'theme'
+];
+
+function View(options) {
+  var options = options || {};
+  var data = {};
+  ATTRS.forEach(function(attr) {
+    if (options[attr] !== undefined) {
+      data[attr] = options[attr];
+    }
+  });
+
+  this.survey = new Survey({data: data});
+  this.survey.$appendTo(options.parent || document.body);
+}
+View.prototype = {
+  get el() {
+    return this.survey.$el;
+  },
+  destroy: function() {
+    this.survey.$destroy();
+  },
+  on: function(event, callback) {
+    return this.survey.$on(event, callback);
+  },
+  show: function() {
+    this.survey.show();
+  }
+}
+ATTRS.forEach(function(attr) {
+  Object.defineProperty(View.prototype, attr, {
+    get: function() {
+      return this.survey[attr];
+    },
+    set: function(value) {
+      this.survey[attr] = value;
+    }
+  })
 });
 
 module.exports = View;

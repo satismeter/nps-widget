@@ -24,14 +24,12 @@ describe('view', function() {
 
     var view, $el;
     beforeEach(function(done) {
-        view = new View({});
-        view.$appendTo(document.body);
-        $el = $(view.$el);
-        view.show();
+        view = new View({visible: true});
+        $el = $(view.el);
         wait(done);
     });
     afterEach(function() {
-        view.$destroy();
+        view.destroy();
     });
 
     describe('widget initialization', function() {
@@ -51,12 +49,10 @@ describe('view', function() {
 
     describe('not powered by', function() {
         it('should not display powered by message', function(done) {
-            var view = new View({data: {poweredBy: false}});
-            view.$appendTo(document.body);
-            view.show();
+            var view = new View({visible: true, poweredBy: false});
             wait(function() {
-                assert.notMatch($(view.$el).text(), /Powered by/);
-                view.$destroy();
+                assert.notMatch($(view.el).text(), /Powered by/);
+                view.destroy();
                 done();
             });
         });
@@ -107,7 +103,7 @@ describe('view', function() {
         });
         it('should emit dismiss event', function(done) {
             var called = false;
-            view.$on('dismiss', function() {
+            view.on('dismiss', function() {
                 called = true;
             });
             happen.click($el.find('.nps-Survey-closeIcon')[0]);
@@ -120,7 +116,7 @@ describe('view', function() {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
 
             var called = false;
-            view.$on('submit', function() {
+            view.on('submit', function() {
                 called = true;
             });
 
@@ -144,7 +140,7 @@ describe('view', function() {
         });
         it('should submit empty feedback', function(done) {
             var called = false;
-            view.$on('submit', function() {
+            view.on('submit', function() {
                 called = true;
             });
             wait(function() {
@@ -182,7 +178,7 @@ describe('view', function() {
         });
         it('should emit dismiss event', function() {
             var called = false;
-            view.$on('dismiss', function() {
+            view.on('dismiss', function() {
                 called = true;
             });
             happen.click($el.find('.nps-Survey-closeIcon')[0]);
@@ -192,7 +188,7 @@ describe('view', function() {
             $el.find('.nps-Feedback-text').val('Rubish');
             happen.keyup($el.find('.nps-Feedback-text')[0]);
             var called = false;
-            view.$on('submit', function() {
+            view.on('submit', function() {
                 called = true;
             });
             wait(function() {
@@ -234,25 +230,21 @@ describe('view', function() {
 
     describe('translations', function() {
         it('should use en as default', function() {
-            assert.match($(view.$el).text(), /How likely/);
+            assert.match($(view.el).text(), /How likely/);
         });
         it('should translate to cs', function() {
-            var view = new View({data: {language: 'cs'}});
-            view.$appendTo(document.body);
-            view.show();
+            var view = new View({visible: true, language: 'cs'});
 
-            assert.match($(view.$el).text(), /Doporučili byste/);
+            assert.match($(view.el).text(), /Doporučili byste/);
 
-            view.$remove();
+            view.destroy();
         });
         it('should handle cz alias', function() {
-            var view = new View({data: {language: 'cz'}});
-            view.$appendTo(document.body);
-            view.show();
+            var view = new View({visible: true, language: 'cz'});
 
-            assert.match($(view.$el).text(), /Doporučili byste/);
+            assert.match($(view.el).text(), /Doporučili byste/);
 
-            view.$remove();
+            view.destroy();
         });
     });
 
@@ -264,8 +256,8 @@ describe('view', function() {
             view.position = 'tl';
             view.distance = 10;
             waitAnimation(function() {
-                assert.equal(getComputedStyle(view.$el).top, '10px');
-                assert.equal(getComputedStyle(view.$el).left, '0px');
+                assert.equal(getComputedStyle(view.el).top, '10px');
+                assert.equal(getComputedStyle(view.el).left, '0px');
                 done();
             });
         });
@@ -273,8 +265,8 @@ describe('view', function() {
             view.position = 'br';
             view.distance = 20;
             setTimeout(function () {
-                assert.equal(getComputedStyle(view.$el).bottom, '20px');
-                assert.equal(getComputedStyle(view.$el).right, '0px');
+                assert.equal(getComputedStyle(view.el).bottom, '20px');
+                assert.equal(getComputedStyle(view.el).right, '0px');
                 done();
             }, 500);
             // 500ms - phantom ignores the transition duration

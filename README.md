@@ -29,11 +29,10 @@ var View = require('satismeter/nps-widget');
 
 ```js
 view = new View();
-view.$on('dismiss', function() { /* Handle dismiss */ });
-view.$on('submit', function() {
+view.on('dismiss', function() { /* Handle dismiss */ });
+view.on('submit', function() {
     console.log(view.rating, view.feedback);
 });
-view.$appendTo(document.body);
 view.show();
 ```
 
