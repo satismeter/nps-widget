@@ -46,12 +46,6 @@ $themes: (
   position: absolute;
   right: 0;
   top: 0;
-  opacity: 1;
-  transition: opacity 500ms;
-}
-.nps-Survey-closeIcon.nps-fade-enter,
-.nps-Survey-closeIcon.nps-fade-leave {
-  opacity: 0;
 }
 .nps-Survey-closeIcon:focus {
   outline: 0;
@@ -245,4 +239,16 @@ $themes: (
 
 .nps-cf:after {
   clear: both;
+}
+
+
+/* Animations */
+
+.nps-fade {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.nps-fade.nps-fade-enter,
+.nps-fade.nps-fade-leave {
+  opacity: 0;
 }
