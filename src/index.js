@@ -27,6 +27,26 @@ var FEEDBACK_STATE = 'feedback';
 var THANKS_STATE = 'thanks';
 var FILLED_STATE = 'filled';
 
+var ATTRS = {
+  // model
+  rating: null,
+  feedback: '',
+
+  // state
+  visible: false,
+  state: FEEDBACK_STATE,
+  translation: null,
+
+  // settings
+  language: 'en',
+  us: null,
+  poweredBy: true,
+  skin: 'dialog',
+  theme: 'pink',
+  position: 'tr', // tl (top-right), tr, bl, br
+  distance: 50 // distance from top/bottom border
+};
+
 var Survey = Vue.extend({
   template: require('./survey.html'),
   components: {
@@ -48,25 +68,7 @@ var Survey = Vue.extend({
     }
   },
   replace: true,
-  data: {
-      // model
-      rating: null,
-      feedback: '',
-
-      // state
-      visible: false,
-      state: FEEDBACK_STATE,
-      translation: null,
-
-      // settings
-      language: 'en',
-      us: null,
-      poweredBy: true,
-      skin: 'dialog',
-      theme: 'pink',
-      position: 'tr', // tl (top-right), tr, bl, br
-      distance: 50 // distance from top/bottom border
-  },
+  data: ATTRS,
   attached: function() {
     if (this.rating !== null) {
       this.focusFeedback();
@@ -160,24 +162,10 @@ var Survey = Vue.extend({
   }
 });
 
-var ATTRS = [
-  'visible',
-  'rating',
-  'feedback',
-  'poweredBy',
-  'state',
-  'language',
-  'translation',
-  'position',
-  'distance',
-  'skin',
-  'theme'
-];
-
 function View(options) {
   var options = options || {};
   var data = {};
-  ATTRS.forEach(function(attr) {
+  Object.keys(ATTRS).forEach(function(attr) {
     if (options[attr] !== undefined) {
       data[attr] = options[attr];
     }
@@ -200,7 +188,7 @@ View.prototype = {
     this.survey.show();
   }
 }
-ATTRS.forEach(function(attr) {
+Object.keys(ATTRS).forEach(function(attr) {
   Object.defineProperty(View.prototype, attr, {
     get: function() {
       return this.survey[attr];
