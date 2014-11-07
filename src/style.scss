@@ -196,26 +196,20 @@ $themes: (
 
   font-size: 14px;
 }
-.nps-Survey--dialog.nps-Survey--tr,
-.nps-Survey--dialog.nps-Survey--br {
+.nps-Survey--dialog.nps-Survey--right {
   transition: right 500ms;
   right: 0;
 }
-.nps-Survey--dialog.nps-Survey--tl,
-.nps-Survey--dialog.nps-Survey--bl {
+.nps-Survey--dialog.nps-Survey--left {
   transition: left 500ms;
   left: 0;
 }
-.nps-Survey--dialog.nps-Survey--tr.nps-show-enter,
-.nps-Survey--dialog.nps-Survey--tr.nps-show-leave,
-.nps-Survey--dialog.nps-Survey--br.nps-show-enter,
-.nps-Survey--dialog.nps-Survey--br.nps-show-leave {
+.nps-Survey--dialog.nps-Survey--right.nps-show-enter,
+.nps-Survey--dialog.nps-Survey--right.nps-show-leave {
   right: -500px;
 }
-.nps-Survey--dialog.nps-Survey--tl.nps-show-enter,
-.nps-Survey--dialog.nps-Survey--tl.nps-show-leave,
-.nps-Survey--dialog.nps-Survey--bl.nps-show-enter,
-.nps-Survey--dialog.nps-Survey--bl.nps-show-leave {
+.nps-Survey--dialog.nps-Survey--left.nps-show-enter,
+.nps-Survey--dialog.nps-Survey--left.nps-show-leave {
   left: -500px;
 }
 .nps-Survey--dialog .nps-Title {

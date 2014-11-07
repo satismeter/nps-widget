@@ -60,18 +60,32 @@ var View = Vue.extend({
   },
   computed: {
     topPosition: function() {
-      if (/t./.test(this.position)) {
-        // top position
+      if (this.vertical === 'top') {
         return this.distance + 'px';
       }
       return '';
     },
     bottomPosition: function() {
-      if (/b./.test(this.position)) {
-        // bottom position
+      if (this.vertical === 'bottom') {
         return this.distance + 'px';
       }
       return '';
+    },
+    vertical: function() {
+      switch (this.position[0]) {
+        case 'b':
+          return 'bottom';
+        default:
+          return 'top';
+      }
+    },
+    horizontal: function() {
+      switch (this.position[1]) {
+        case 'l':
+          return 'left';
+        default:
+          return 'right';
+      }
     },
     showCloseIcon: function() {
       return this.state === FEEDBACK_STATE && this.skin==='dialog';
