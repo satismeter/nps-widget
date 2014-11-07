@@ -1,11 +1,6 @@
 var Vue = require('vue');
 var loadStyles = require('load-styles');
 
-Vue.config({
-  enterClass: 'nps-enter',
-  leaveClass: 'nps-leave'
-});
-
 var messages = {
   cz: require('./languages/cz.json'),
   de: require('./languages/de.json'),
@@ -28,44 +23,34 @@ var FILLED_STATE = 'filled';
 
 var View = Vue.extend({
   template: require('./survey.html'),
-  components: {
-    scale: {
-      template: require('./scale.html'),
-      replace: true
-    },
-    feedback: {
-      template: require('./feedback.html'),
-      replace: true
-    },
-    thanks: {
-      template: require('./thanks.html'),
-      replace: true
-    },
-    filled: {
-      template: require('./filled.html'),
-      replace: true
-    }
+  partials: {
+    scale: require('./scale.html'),
+    feedback: require('./feedback.html'),
+    thanks: require('./thanks.html'),
+    filled: require('./filled.html')
   },
   replace: true,
-  data: {
-    // model
-    rating: null,
-    feedback: '',
+  data: function() {
+    return {
+      // model
+      rating: null,
+      feedback: '',
 
-    // state
-    visible: false,
-    state: FEEDBACK_STATE,
-    translation: {},
+      // state
+      visible: false,
+      state: FEEDBACK_STATE,
+      translation: null,
 
-    // settings
-    language: 'en',
-    us: null,
-    poweredBy: true,
-    skin: 'dialog',
-    theme: 'pink',
-    position: 'tr', // tl (top-right), tr, bl, br
-    distance: 50, // distance from top/bottom border
-    test: true // test mode - short animations
+      // settings
+      language: 'en',
+      us: null,
+      poweredBy: true,
+      skin: 'dialog',
+      theme: 'pink',
+      position: 'tr', // tl (top-right), tr, bl, br
+      distance: 50, // distance from top/bottom border
+      test: true // test mode - short animations
+    }
   },
   attached: function() {
     if (this.rating !== null) {
@@ -115,11 +100,11 @@ var View = Vue.extend({
       this.focusFeedback();
     },
     focusFeedback: function() {
-      var $el = this.$el;
+      var vm = this;
       Vue.nextTick(function () {
-        var $text = $el.querySelector('.nps-Feedback-text');
-        if ($text) {
-          $text.focus();
+        var $feedback = vm.$$.feedback;
+        if ($feedback) {
+          $feedback.focus();
         }
       });
     },
@@ -129,14 +114,14 @@ var View = Vue.extend({
     close: function() {
       this.hide();
       if (this.state === FEEDBACK_STATE) {
-        this.$dispatch('dismiss');
+        this.$emit('dismiss');
       }
     },
     hide: function() {
       this.visible = false;
     },
     ratingSubmit: function() {
-      this.$dispatch('submit');
+      this.$emit('submit');
       this.state = THANKS_STATE;
       if (this.skin !== 'page') {
         var that = this;

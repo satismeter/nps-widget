@@ -1,6 +1,6 @@
 BIN=node_modules/.bin
 
-serve: examples/example.js
+serve: examples/example.js src/style.css
 	$(BIN)/duo-serve $^
 
 build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
@@ -14,10 +14,11 @@ test-ci: node_modules test
 	$(BIN)/zuul test/test.js
 
 test: build/duo-test.js node_modules
-	$(BIN)/duo-test -B $< -R spec phantomjs
+	$(BIN)/duo-test -B $< -c "make build/duo-test.js src/style.css" -R spec phantomjs
+	$(BIN)/zuul --phantom test/test.js
 
 test-chrome: build/duo-test.js node_modules
-	$(BIN)/duo-test -B $< -c "make build/duo-test.js" -R spec browser chrome
+	$(BIN)/duo-test -B $< -c "make build/duo-test.js src/style.css" -R spec browser chrome
 
 node_modules: package.json
 	npm i

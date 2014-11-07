@@ -25,13 +25,14 @@ describe('view', function() {
     var view, $el;
     beforeEach(function(done) {
         view = new View({});
+        view.$mount();
         view.$appendTo(document.body);
         $el = $(view.$el);
         view.show();
         wait(done);
     });
     afterEach(function() {
-        view.$destroy();
+        view.$remove();
     });
 
     describe('widget initialization', function() {
@@ -52,6 +53,7 @@ describe('view', function() {
     describe('not powered by', function() {
         it('should not display powered by message', function(done) {
             var view = new View({data: {poweredBy: false}});
+            view.$mount();
             view.$appendTo(document.body);
             view.show();
             wait(function() {
@@ -203,7 +205,7 @@ describe('view', function() {
                 });
             });
         });
-        it('should close window', function(done) {
+        it('should close window on submit', function(done) {
             happen.click($el.find('.nps-Survey-submit')[0]);
             setTimeout(function() {
                 assert.isFalse(view.visible);
@@ -236,12 +238,9 @@ describe('view', function() {
         it('should use en as default', function() {
             assert.match($(view.$el).text(), /How likely/);
         });
-        before(function(done) {
-            view.language = 'cz';
-            wait(done);
-        });
         it('should translate to cz', function() {
             var view = new View({data: {language: 'cz'}});
+            view.$mount();
             view.$appendTo(document.body);
             view.show();
 

@@ -133,7 +133,8 @@
   -webkit-transition: opacity 500ms;
           transition: opacity 500ms; }
 
-.nps-Survey-closeIcon.nps-enter, .nps-Survey-closeIcon.nps-leave {
+.nps-Survey-closeIcon.nps-expand-enter,
+.nps-Survey-closeIcon.nps-expand-leave {
   opacity: 0; }
 
 .nps-Survey-closeIcon:focus {
@@ -286,7 +287,8 @@
   -webkit-transition: height 500ms;
           transition: height 500ms; }
 
-.nps-Feedback-textContainer.nps-enter, .nps-Feedback-textContainer.nps-leave {
+.nps-Feedback-textContainer.nps-expand-enter,
+.nps-Feedback-textContainer.nps-expand-leave {
   height: 0px; }
 
 .nps-Feedback-text {
@@ -393,7 +395,7 @@
   -webkit-transition: max-height 500ms;
           transition: max-height 500ms; }
 
-.nps-Feedback.nps-enter, .nps-Feedback.nps-leave {
+.nps-Feedback.nps-expand-enter, .nps-Feedback.nps-expand-leave {
   max-height: 0; }
 
 .nps-Thanks {
@@ -402,7 +404,8 @@
   -webkit-transition: max-height 500ms;
           transition: max-height 500ms; }
 
-.nps-Thanks.nps-enter, .nps-Thanks.nps-leave {
+.nps-Thanks.nps-expand-enter,
+.nps-Thanks.nps-expand-leave {
   max-height: 0; }
 
 /* Dialog theme */
@@ -426,16 +429,16 @@
           transition: left 500ms;
   left: 0; }
 
-.nps-Survey--dialog.nps-Survey--tr.nps-enter,
-.nps-Survey--dialog.nps-Survey--tr.nps-leave,
-.nps-Survey--dialog.nps-Survey--br.nps-enter,
-.nps-Survey--dialog.nps-Survey--br.nps-leave {
+.nps-Survey--dialog.nps-Survey--tr.nps-show-enter,
+.nps-Survey--dialog.nps-Survey--tr.nps-show-leave,
+.nps-Survey--dialog.nps-Survey--br.nps-show-enter,
+.nps-Survey--dialog.nps-Survey--br.nps-show-leave {
   right: -500px; }
 
-.nps-Survey--dialog.nps-Survey--tl.nps-enter,
-.nps-Survey--dialog.nps-Survey--tl.nps-leave,
-.nps-Survey--dialog.nps-Survey--bl.nps-enter,
-.nps-Survey--dialog.nps-Survey--bl.nps-leave {
+.nps-Survey--dialog.nps-Survey--tl.nps-show-enter,
+.nps-Survey--dialog.nps-Survey--tl.nps-show-leave,
+.nps-Survey--dialog.nps-Survey--bl.nps-show-enter,
+.nps-Survey--dialog.nps-Survey--bl.nps-show-leave {
   left: -500px; }
 
 .nps-Survey--dialog .nps-Title {
