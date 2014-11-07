@@ -1,8 +1,5 @@
 BIN=node_modules/.bin
 
-$(BIN)/wach: package.json
-	npm i wach
-
 serve: examples/example.js src/style.css $(BIN)/wach
 	($(BIN)/wach -o src/**.scss, $(MAKE) src/style.css) & ($(BIN)/duo-serve $<)
 
@@ -32,5 +29,8 @@ clean:
 
 clean-all: clean
 	rm -rf components node_modules
+
+$(BIN)/wach:
+	npm i wach
 
 .PHONY: serve test test-ci test-chrome clean clean-all
