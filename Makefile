@@ -14,7 +14,7 @@ test-ci: node_modules test
 	$(BIN)/zuul test/test.js
 
 test: build/duo-test.js node_modules
-	$(BIN)/duo-test -B $< -c "make build/duo-test.js src/style.css" -R spec phantomjs
+	$(BIN)/duo-test -B $< -c -R spec phantomjs
 	$(BIN)/zuul --phantom test/test.js
 
 test-chrome: build/duo-test.js node_modules
