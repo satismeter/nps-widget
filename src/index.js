@@ -55,6 +55,7 @@ var View = Vue.extend({
     // state
     visible: false,
     state: FEEDBACK_STATE,
+    translation: {},
 
     // settings
     language: 'en',
@@ -106,7 +107,8 @@ var View = Vue.extend({
   },
   methods: {
     t: function(key, param) {
-      return messages[this.language][key].replace('%s', param);
+      var message = this.translation[key] || messages[this.language][key];
+      return message.replace('%s', param);
     },
     selectRating: function (rating) {
       this.rating = rating;

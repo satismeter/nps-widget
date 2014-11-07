@@ -276,4 +276,16 @@ describe('view', function() {
         });
     });
 
+    describe('custom translation', function() {
+        beforeEach(function(done) {
+            view.translation = {
+                IMPROVE: 'What the fuck?'
+            };
+            view.rating = 10;
+            wait(done);
+        });
+        it('should show custom message', function() {
+            assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
+        });
+    });
 });
