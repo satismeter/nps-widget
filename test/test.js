@@ -250,7 +250,7 @@ describe('view', function() {
 
     describe('positioning', function() {
         it('should use tr as default', function() {
-            assert(view.position, 'tr');
+            assert.equal(view.position, 'tr');
         });
         it('should show on top left', function(done) {
             view.position = 'tl';
