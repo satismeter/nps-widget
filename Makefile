@@ -1,7 +1,7 @@
 BIN=node_modules/.bin
 
 serve: examples/example.js src/style.css
-	$(BIN)/duo-serve $^
+	$(BIN)/duo-serve $<
 
 build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
 	@mkdir -p $(@D)
