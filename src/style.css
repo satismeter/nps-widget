@@ -133,8 +133,8 @@
   -webkit-transition: opacity 500ms;
           transition: opacity 500ms; }
 
-.nps-Survey-closeIcon.nps-expand-enter,
-.nps-Survey-closeIcon.nps-expand-leave {
+.nps-Survey-closeIcon.nps-fade-enter,
+.nps-Survey-closeIcon.nps-fade-leave {
   opacity: 0; }
 
 .nps-Survey-closeIcon:focus {
