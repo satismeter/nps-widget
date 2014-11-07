@@ -2,7 +2,8 @@ var Vue = require('vue');
 var loadStyles = require('load-styles');
 
 var messages = {
-  cz: require('./languages/cz.json'),
+  cs: require('./languages/cs.json'),
+  cz: require('./languages/cs.json'), // backward compatibility
   de: require('./languages/de.json'),
   en: require('./languages/en.json'),
   es: require('./languages/es.json'),

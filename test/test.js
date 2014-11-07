@@ -238,7 +238,17 @@ describe('view', function() {
         it('should use en as default', function() {
             assert.match($(view.$el).text(), /How likely/);
         });
-        it('should translate to cz', function() {
+        it('should translate to cs', function() {
+            var view = new View({data: {language: 'cs'}});
+            view.$mount();
+            view.$appendTo(document.body);
+            view.show();
+
+            assert.match($(view.$el).text(), /Doporučili byste/);
+
+            view.$remove();
+        });
+        it('should handle cz alias', function() {
             var view = new View({data: {language: 'cz'}});
             view.$mount();
             view.$appendTo(document.body);
