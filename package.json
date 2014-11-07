@@ -27,7 +27,6 @@
     "jquery": "^2.1.1",
     "mocha": "^2.0.1",
     "phantomjs": "^1.9.12",
-    "wach": "^1.0.0",
     "zuul": "^1.12.0"
   },
   "browserify": {

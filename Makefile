@@ -1,6 +1,9 @@
 BIN=node_modules/.bin
 
-serve: examples/example.js src/style.css
+$(BIN)/wach: package.json
+	npm i wach
+
+serve: examples/example.js src/style.css $(BIN)/wach
 	($(BIN)/wach -o src/**.scss, $(MAKE) src/style.css) & ($(BIN)/duo-serve $<)
 
 build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
