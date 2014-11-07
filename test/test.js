@@ -287,5 +287,19 @@ describe('view', function() {
         it('should show custom message', function() {
             assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
         });
+        it('should handle null', function(done) {
+            view.translation = null;
+            wait(function () {
+                assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What could we do to improve?');
+                done();
+            });
+        });
+        it('should handle undefined', function(done) {
+            view.translation = undefined;
+            wait(function () {
+                assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What could we do to improve?');
+                done();
+            });
+        });
     });
 });

@@ -107,7 +107,7 @@ var View = Vue.extend({
   },
   methods: {
     t: function(key, param) {
-      var message = this.translation[key] || messages[this.language][key];
+      var message = (this.translation && this.translation[key]) || messages[this.language][key];
       return message.replace('%s', param);
     },
     selectRating: function (rating) {
