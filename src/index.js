@@ -50,7 +50,6 @@ var View = Vue.extend({
       theme: 'pink',
       position: 'tr', // tl (top-right), tr, bl, br
       distance: 50, // distance from top/bottom border
-      test: true // test mode - short animations
     }
   },
   attached: function() {
