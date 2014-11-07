@@ -33,6 +33,7 @@ view.$on('dismiss', function() { /* Handle dismiss */ });
 view.$on('submit', function() {
     console.log(view.rating, view.feedback);
 });
+view.$mount();
 view.$appendTo(document.body);
 view.show();
 ```
