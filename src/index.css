@@ -266,8 +266,8 @@
   -webkit-transition: height 500ms;
           transition: height 500ms; }
 
-.nps-Feedback-textContainer.nps-enter,
-.nps-Feedback-textContainer.nps-leave {
+.nps-Feedback-textContainer.nps-expand-enter,
+.nps-Feedback-textContainer.nps-expand-leave {
   height: 0px; }
 
 .nps-Feedback-text {
