@@ -1,6 +1,6 @@
 {
   "name": "nps-widget",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "repository": "satismeter/nps-widget",
   "description": "Net promoter score widget.",
   "keywords": [
