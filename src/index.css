@@ -73,7 +73,8 @@
 
 .nps-Dialog {
   border-width: 2px;
-  border-style: solid; }
+  border-style: solid;
+  background-color: white; }
 
 .nps-Survey--gray .nps-Dialog {
   border-color: #666;
@@ -243,7 +244,8 @@
 
 .nps-Panel {
   border-width: 2px;
-  border-style: solid; }
+  border-style: solid;
+  background-color: white; }
 
 .nps-Survey--gray .nps-Panel {
   border-color: #666;
@@ -464,7 +466,6 @@
 .nps-Survey {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 1.42857143;
-  background-color: #fff;
   color: #333; }
 
 .nps-Survey,

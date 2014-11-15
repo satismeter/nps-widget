@@ -1,6 +1,7 @@
 .nps-Dialog {
   border-width: 2px;
   border-style: solid;
+  background-color: white;
 }
 
 @each $theme, $base in $themes {
