@@ -1,0 +1,31 @@
+.nps-Survey {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: 1.42857143;
+  background-color: #fff;
+  color: #333;
+}
+.nps-Survey,
+.nps-Survey * {
+  box-sizing: border-box;
+}
+
+.nps-Survey-buttons {
+  float: right;
+  margin-top: 14px;
+}
+
+.nps-Survey-poweredBy {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 34px;
+  float: left;
+}
+.nps-Survey-poweredBy > a {
+  text-decoration: none;
+  font-weight: bold;
+}
+@each $theme, $base in $themes {
+  .nps-Survey--#{$theme} .nps-Survey-poweredBy > a {
+    color: $base;
+  }
+}

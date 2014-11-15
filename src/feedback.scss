@@ -1,0 +1,34 @@
+.nps-Feedback-textContainer {
+  height: 80px;
+  margin-top: 14px;
+  overflow: hidden;
+  transition: height 500ms;
+}
+.nps-Feedback-textContainer.nps-enter,
+.nps-Feedback-textContainer.nps-leave {
+  height: 0px;
+}
+
+.nps-Feedback-text {
+  border-width: 2px;
+  border-style: solid;
+  font-size: 14px;
+  padding: 7px 10px;
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+.nps-Feedback-text:focus {
+  outline: 0;
+}
+@each $theme, $base in $themes {
+  .nps-Survey--#{$theme} {
+    .nps-Feedback-text {
+      border-color: mix($base, white, 20%);
+    }
+    .nps-Feedback-text:focus {
+      border-color: mix($base, white, 80%);
+      background-color: mix($base, white, 4%);
+    }
+  }
+}

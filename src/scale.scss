@@ -1,0 +1,45 @@
+.nps-Scale {
+  margin-top: 14px;
+  font-size: 0;
+  width: 372px;
+}
+.nps-Scale-value {
+  display: inline-block;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-right: 2px;
+}
+.nps-Scale-value:last-of-type {
+  margin-right: 0;
+}
+@each $theme, $base in $themes {
+  .nps-Survey--#{$theme} .nps-Scale-value {
+    background-color: mix($base, white, 20%);
+    &.nps-is-selected {
+      background-color: $base;
+    }
+    &:hover {
+      background-color: mix($base, white, 30%);
+    }
+    &.nps-is-selected:hover {
+      background-color: darken($base, 10%);
+    }
+  }
+}
+.nps-Scale-ratings {
+  margin-bottom: 4px;
+}
+
+.nps-Scale-hint {
+  font-size: 12px;
+  font-style: italic;
+  color: #999;
+}
+.nps-Scale-hint--unlikely {
+  float: left;
+}
+.nps-Scale-hint--likely {
+  float: right;
+}

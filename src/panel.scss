@@ -1,0 +1,24 @@
+.nps-Panel {
+  border-width: 2px;
+  border-style: solid;
+}
+
+@each $theme, $base in $themes {
+  .nps-Survey--#{$theme} .nps-Panel {
+    border-color: $base;
+    box-shadow: rgba($base, 0.4) 0 1px 4px 0;
+  }
+}
+
+.nps-Panel {
+  font-size: 16px;
+  color: #333;
+  max-width: 500px;
+  min-width: 375px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.nps-Panel .nps-Survey--powered-by {
+  line-height: 38px;
+}

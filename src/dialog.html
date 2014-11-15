@@ -1,0 +1,16 @@
+<div
+  class="nps-Dialog
+    nps-Dialog--{{vertical}}
+    nps-Dialog--{{horizontal}}"
+  v-show="visible"
+  >
+
+  <button
+    class="nps-Dialog-close nps-fade"
+    v-if="showCloseIcon"
+    v-on="click: close"
+  >&#x2715;</button>
+
+  <content>
+
+</div>

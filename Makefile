@@ -1,24 +1,23 @@
 BIN=node_modules/.bin
 
-serve: examples/example.js src/style.css $(BIN)/wach
-	($(BIN)/wach -o src/**.scss, $(MAKE) src/style.css) & ($(BIN)/duo-serve $<)
+serve: examples/example.js src/index.css
+	(wach -o src/**.scss, $(MAKE) src/index.css) & ($(BIN)/duo-serve $<)
 
-build/duo-test.js: test/test.js src/* src/languages/*.json node_modules
+build/duo-test.js: test/test.js src/*.js src/*.html src/index.css src/languages/*.json node_modules
 	@mkdir -p $(@D)
 	$(BIN)/duo -d $< > $@
 
-src/style.css: src/style.scss src/button.scss
-	sass $< | $(BIN)/autoprefixer > $@
+src/index.css: src/*.scss
+	sass src/index.scss | $(BIN)/autoprefixer > $@
 
 test-ci: node_modules test
 	$(BIN)/zuul test/test.js
 
-test: build/duo-test.js node_modules
-	$(BIN)/duo-test -B $< -R spec phantomjs
+test: node_modules
 	$(BIN)/zuul --phantom test/test.js
 
 test-chrome: build/duo-test.js node_modules
-	$(BIN)/duo-test -B $< -c "make build/duo-test.js src/style.css" -R spec browser chrome
+	$(BIN)/duo-test -B $< -c "make build/duo-test.js" -R spec browser chrome
 
 node_modules: package.json
 	npm i
@@ -29,8 +28,5 @@ clean:
 
 clean-all: clean
 	rm -rf components node_modules
-
-$(BIN)/wach:
-	npm i wach
 
 .PHONY: serve test test-ci test-chrome clean clean-all

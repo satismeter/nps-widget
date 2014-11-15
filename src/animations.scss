@@ -1,0 +1,18 @@
+.nps-fade {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.nps-fade-enter,
+.nps-fade-leave {
+  opacity: 0;
+}
+
+.nps-expand {
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 500ms;
+}
+.nps-expand-enter,
+.nps-expand-leave {
+  max-height: 0px;
+}

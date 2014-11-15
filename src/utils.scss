@@ -1,0 +1,11 @@
+.nps-cf:before,
+.nps-cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.nps-cf:after {
+  clear: both;
+}

@@ -1,39 +1,38 @@
+<div class="nps-Survey nps-Survey--{{theme}}">
+
 <div
-  class="nps-Survey
-    nps-Survey--{{theme}}
-    nps-Survey--{{skin}}
-    nps-Survey--{{vertical}}
-    nps-Survey--{{horizontal}}"
-  v-style="top: topPosition, bottom: bottomPosition"
+  class="{{classNames}}"
   v-show="visible"
-  v-transition
+  v-transition="nps-show"
   >
 
   <button
-    class="nps-Survey-closeIcon nps-fade"
+    class="nps-Dialog-close nps-fade"
     v-if="showCloseIcon"
     v-on="click: close"
-    v-transition
+    v-transition="nps-fade"
   >&#x2715;</button>
 
-  <div class="nps-Survey-body">
-    <div v-view="state"></div>
-  </div>
-
-  <div class="nps-cf">
-    <div
-      class="nps-Survey-poweredBy"
-      v-if="poweredBy"
-      >Powered by <a href="http://www.satismeter.com" target="_blank">SatisMeter</a>
+    <div class="nps-Survey-body">
+      <div v-partial="{{state}}"></div>
     </div>
 
-    <div class="nps-Survey-buttons">
-      <button
-        class="nps-Button nps-Survey-submit"
-        v-if="showSubmitButton"
-        v-on="click: ratingSubmit"
-        >{{t('SUBMIT')}}</button>
+    <div class="nps-cf">
+      <div
+        class="nps-Survey-poweredBy"
+        v-if="poweredBy"
+        >Powered by <a href="http://www.satismeter.com" target="_blank">SatisMeter</a>
+      </div>
+
+      <div class="nps-Survey-buttons">
+        <button
+          class="nps-Button nps-Survey-submit"
+          v-if="showSubmitButton"
+          v-on="click: submit"
+          >{{t('SUBMIT')}}</button>
+      </div>
     </div>
+
   </div>
 
 </div>
