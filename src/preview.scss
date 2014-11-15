@@ -19,12 +19,10 @@
 .nps-Preview--top {
   top: 20px;
 }
-
 .nps-Preview--middle {
   top: 50%;
   transform: translate(0, -50%);
 }
-
 .nps-Preview--bottom {
   bottom: 20px;
 }
@@ -33,12 +31,11 @@
   transition: left 500ms;
   left: 20px;
 }
-.nps-Preview--left.nps-show-enter,
-.nps-Preview--left.nps-show-leave {
-  left: -500px;
-}
-
 .nps-Preview--center {
   left: 0;
   right: 0;
+}
+.nps-Preview--right {
+  transition: left 500ms;
+  right: 20px;
 }
