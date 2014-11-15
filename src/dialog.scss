@@ -7,6 +7,7 @@
   position: fixed;
   width: 417px;
   z-index: 2147483646;
+  transition: all 500ms;
 }
 .nps-Dialog--preview {
   position: absolute;
@@ -19,66 +20,78 @@
   }
 }
 
-.nps-Dialog--top {
+.nps-Dialog--top.nps-Dialog--left {
   top: 20px;
-}
-
-.nps-Dialog--middle {
-  top: 50%;
-  transform: translate(0, -50%);
-}
-
-.nps-Dialog--bottom {
-  bottom: 20px;
-}
-
-.nps-Dialog--left {
-  transition: left 500ms;
   left: 20px;
+  &.nps-show-enter, &.nps-show-leave {
+    left: -500px;
+  }
 }
-.nps-Dialog--left.nps-show-enter,
-.nps-Dialog--left.nps-show-leave {
-  left: -500px;
+.nps-Dialog--top.nps-Dialog--center {
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  &.nps-show-enter, &.nps-show-leave {
+    top: -500px;
+  }
 }
-
-.nps-Dialog--center {
-  left: 0;
-  right: 0;
-}
-
-.nps-Dialog--center.nps-Dialog--top {
-  transition: top 500ms;
-}
-.nps-Dialog--center.nps-Dialog--top.nps-show-enter,
-.nps-Dialog--center.nps-Dialog--top.nps-show-leave {
-  top: -500px;
-}
-
-.nps-Dialog--center.nps-Dialog--middle {
-  transform: translate(0, -50%) scale(1);
-  transition: all 500ms;
-}
-.nps-Dialog--center.nps-Dialog--middle.nps-show-enter,
-.nps-Dialog--center.nps-Dialog--middle.nps-show-leave {
-  transform: translate(0, -50%) scale(0);
+.nps-Dialog--top.nps-Dialog--right {
+  top: 20px;
+  left: 100%;
+  transform: translate(-20px, 0) translate(-100%, 0);
+  &.nps-show-enter, &.nps-show-leave {
+    transform: translate(500px, 0) translate(-100%, 0);
+  }
 }
 
-.nps-Dialog--center.nps-Dialog--bottom {
-  transition: bottom 500ms;
-  bottom: 20px;
+.nps-Dialog--middle.nps-Dialog--left {
+  top: 50%;
+  left: 20px;
+  transform: translate(0, -50%);
+  &.nps-show-enter, &.nps-show-leave {
+    left: -500px;
+  }
 }
-.nps-Dialog--center.nps-Dialog--bottom.nps-show-enter,
-.nps-Dialog--center.nps-Dialog--bottom.nps-show-leave {
-  bottom: -500px;
+.nps-Dialog--middle.nps-Dialog--center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  &.nps-show-enter, &.nps-show-leave {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+.nps-Dialog--middle.nps-Dialog--right {
+  top: 50%;
+  left: 100%;
+  transform: translate(-20px, 0) translate(-100%, -50%);
+  &.nps-show-enter, &.nps-show-leave {
+    transform: translate(500px, 0) translate(-100%, -50%);
+  }
 }
 
-.nps-Dialog--right {
-  transition: right 500ms;
-  right: 20px;
+.nps-Dialog--bottom.nps-Dialog--left {
+  top: 100%;
+  left: 20px;
+  transform: translate(0, -20px) translate(0, -100%);
+  &.nps-show-enter, &.nps-show-leave {
+    left: -500px;
+  }
 }
-.nps-Dialog--right.nps-show-enter,
-.nps-Dialog--right.nps-show-leave {
-  right: -500px;
+.nps-Dialog--bottom.nps-Dialog--center {
+  top: 100%;
+  left: 50%;
+  transform: translate(0, -20px) translate(-50%, -100%);
+  &.nps-show-enter, &.nps-show-leave {
+    transform: translate(0, 500px) translate(-50%, -100%);
+  }
+}
+.nps-Dialog--bottom.nps-Dialog--right {
+  top: 100%;
+  left: 100%;
+  transform: translate(-20px, -20px) translate(-100%, -100%);
+  &.nps-show-enter, &.nps-show-leave {
+    transform: translate(500px, -20px) translate(-100%, -100%);
+  }
 }
 
 .nps-Dialog .nps-Title {
