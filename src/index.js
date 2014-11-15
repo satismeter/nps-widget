@@ -44,6 +44,9 @@ View.prototype = {
   },
   show: function() {
     this.survey.show();
+  },
+  hide: function() {
+    this.survey.hide();
   }
 }
 ATTRS.forEach(function(attr) {
