@@ -9,11 +9,12 @@ $themes: (
   "violet": #C643FC
 );
 
+@import 'animations';
 @import 'button';
 @import 'dialog';
-@import 'panel';
-@import 'scale';
 @import 'feedback';
+@import 'panel';
+@import 'preview';
+@import 'scale';
 @import 'survey';
 @import 'utils';
-@import 'animations';

@@ -1,0 +1,52 @@
+.nps-Preview {
+  background-color: white;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 14px;
+  padding: 20px;
+  position: absolute;
+  width: 417px;
+}
+
+@each $theme, $base in $themes {
+  .nps-Survey--#{$theme} .nps-Preview {
+    border-color: $base;
+    box-shadow: rgba($base, 0.4) 0 1px 4px 0;
+  }
+}
+
+.nps-Preview {
+  font-size: 16px;
+  color: #333;
+  max-width: 500px;
+  min-width: 375px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.nps-Preview--top {
+  top: 20px;
+}
+
+.nps-Preview--middle {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.nps-Preview--bottom {
+  bottom: 20px;
+}
+
+.nps-Preview--left {
+  transition: left 500ms;
+  left: 20px;
+}
+.nps-Preview--left.nps-show-enter,
+.nps-Preview--left.nps-show-leave {
+  left: -500px;
+}
+
+.nps-Preview--center {
+  left: 0;
+  right: 0;
+}
