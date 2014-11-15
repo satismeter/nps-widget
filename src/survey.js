@@ -170,6 +170,17 @@ var Survey = Vue.extend({
           this.hide();
         }), 800);
       }
+      if (this.skin === 'preview') {
+        setTimeout(bind(this, function() {
+          if (this._isDestroyed) {
+            return;
+          }
+          this.rating = null;
+          this.feedback = '';
+          this.state = FEEDBACK_STATE;
+        }), 1000);
+      }
+
     }
   }
 });
