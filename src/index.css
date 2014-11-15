@@ -548,9 +548,10 @@
   float: right; }
 
 .nps-Survey {
+  color: #333;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  line-height: 1.42857143;
-  color: #333; }
+  font-weight: normal;
+  line-height: 1.42857143; }
 
 .nps-Survey,
 .nps-Survey * {
