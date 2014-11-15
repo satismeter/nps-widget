@@ -7,6 +7,7 @@
   >
 
   <button
+    type="button"
     class="nps-Dialog-close nps-fade"
     v-if="showCloseIcon"
     v-on="click: close"
@@ -26,6 +27,7 @@
 
       <div class="nps-Survey-buttons">
         <button
+          type="button"
           class="nps-Button nps-Survey-submit"
           v-if="showSubmitButton"
           v-on="click: submit"
