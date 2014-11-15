@@ -433,8 +433,6 @@
   bottom: 20px; }
 
 .nps-Preview--left {
-  -webkit-transition: left 500ms;
-          transition: left 500ms;
   left: 20px; }
 
 .nps-Preview--center {
@@ -442,8 +440,6 @@
   right: 0; }
 
 .nps-Preview--right {
-  -webkit-transition: left 500ms;
-          transition: left 500ms;
   right: 20px; }
 
 .nps-Scale {
