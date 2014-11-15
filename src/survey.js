@@ -176,21 +176,6 @@ var Survey = Vue.extend({
         }), 800);
       }
     }
-  },
-  watch: {
-    visible: function(visible) {
-      if (!visible && this.skin === PREVIEW_SKIN) {
-        setTimeout(bind(this, function() {
-          if (this._isDestroyed) {
-            return;
-          }
-          this.rating = null;
-          this.feedback = '';
-          this.state = FEEDBACK_STATE;
-          this.show();
-        }), 1000);
-      }
-    }
   }
 });
 
