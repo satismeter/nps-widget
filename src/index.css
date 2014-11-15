@@ -10,12 +10,13 @@
 .nps-expand {
   max-height: 400px;
   overflow: hidden;
-  -webkit-transition: max-height 500ms;
-          transition: max-height 500ms; }
+  -webkit-transition: max-height 500ms, opacity 500ms;
+          transition: max-height 500ms, opacity 500ms; }
 
 .nps-expand-enter,
 .nps-expand-leave {
-  max-height: 0px; }
+  max-height: 0px;
+  opacity: 0; }
 
 .nps-Button {
   display: inline-block;
@@ -94,7 +95,6 @@
   background-color: white;
   border-width: 2px;
   border-style: solid;
-  font-size: 14px;
   margin: auto;
   padding: 20px;
   position: fixed;
@@ -198,8 +198,7 @@
   right: -500px; }
 
 .nps-Dialog .nps-Title {
-  margin-right: 20px;
-  font-size: 16px; }
+  margin-right: 20px; }
 
 .nps-Dialog-close {
   float: right;
@@ -382,7 +381,7 @@
   background-color: white;
   border-width: 2px;
   border-style: solid;
-  font-size: 16px;
+  font-size: 14px;
   margin: auto;
   padding: 20px;
   position: absolute;
@@ -591,6 +590,9 @@
 
 .nps-Survey--violet .nps-Survey-poweredBy > a {
   color: #C643FC; }
+
+.nps-Title {
+  font-size: 16px; }
 
 .nps-cf:before,
 .nps-cf:after {
