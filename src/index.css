@@ -383,6 +383,7 @@
   border-width: 2px;
   border-style: solid;
   font-size: 14px;
+  margin: auto;
   padding: 20px;
   position: absolute;
   width: 417px; }
@@ -418,14 +419,6 @@
 .nps-Survey--violet .nps-Preview {
   border-color: #C643FC;
   box-shadow: rgba(198, 67, 252, 0.4) 0 1px 4px 0; }
-
-.nps-Preview {
-  font-size: 16px;
-  color: #333;
-  max-width: 500px;
-  min-width: 375px;
-  margin: 20px auto;
-  padding: 20px; }
 
 .nps-Preview--top {
   top: 20px; }
