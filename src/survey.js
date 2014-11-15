@@ -23,6 +23,10 @@ var FEEDBACK_STATE = 'feedback';
 var THANKS_STATE = 'thanks';
 var FILLED_STATE = 'filled';
 
+var DIALOG_SKIN = 'dialog';
+var PANEL_SKIN = 'panel';
+var PREVIEW_SKIN = 'preview';
+
 var Survey = Vue.extend({
   template: require('./survey.html'),
   partials: {
@@ -59,7 +63,7 @@ var Survey = Vue.extend({
       language: 'en',
       us: null,
       poweredBy: true,
-      skin: 'dialog',
+      skin: DIALOG_SKIN,
       theme: 'pink',
       position: 'cr', // tl (top-right), tr, bl, br
     };
@@ -91,17 +95,18 @@ var Survey = Vue.extend({
       }
     },
     classNames: function() {
-      if (this.skin === 'dialog') {
+      if (this.skin === DIALOG_SKIN || this.skin === PREVIEW_SKIN) {
         return [
           'nps-Dialog',
           'nps-Dialog--' + this.horizontal,
-          'nps-Dialog--' + this.vertical
-          ].join(' ');
+          'nps-Dialog--' + this.vertical,
+          this.skin === PREVIEW_SKIN ? 'nps-Dialog--preview' : ''
+        ].join(' ');
       }
-      if (this.skin === 'panel') {
+      if (this.skin === PANEL_SKIN) {
         return 'nps-Panel';
       }
-      if (this.skin === 'preview') {
+      if (this.skin === PREVIEW_SKIN) {
         return [
           'nps-Preview',
           'nps-Preview--' + this.horizontal,
@@ -110,7 +115,7 @@ var Survey = Vue.extend({
       }
     },
     showCloseIcon: function() {
-      return this.state === FEEDBACK_STATE && this.skin==='dialog';
+      return this.state === FEEDBACK_STATE || this.skin===DIALOG_SKIN;
     },
     showSubmitButton: function() {
       return this.state === FEEDBACK_STATE && this.rating !== null;
@@ -162,7 +167,7 @@ var Survey = Vue.extend({
     submit: function() {
       this.$emit('submit');
       this.state = THANKS_STATE;
-      if (this.skin === 'dialog') {
+      if (this.skin === DIALOG_SKIN || this.skin === PREVIEW_SKIN) {
         setTimeout(bind(this, function() {
           if (this._isDestroyed) {
             return;
@@ -170,7 +175,11 @@ var Survey = Vue.extend({
           this.hide();
         }), 800);
       }
-      if (this.skin === 'preview') {
+    }
+  },
+  watch: {
+    visible: function(visible) {
+      if (!visible && this.skin === PREVIEW_SKIN) {
         setTimeout(bind(this, function() {
           if (this._isDestroyed) {
             return;
@@ -178,9 +187,9 @@ var Survey = Vue.extend({
           this.rating = null;
           this.feedback = '';
           this.state = FEEDBACK_STATE;
+          this.show();
         }), 1000);
       }
-
     }
   }
 });

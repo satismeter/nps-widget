@@ -8,6 +8,9 @@
   width: 417px;
   z-index: 2147483646;
 }
+.nps-Dialog--preview {
+  position: absolute;
+}
 
 @each $theme, $base in $themes {
   .nps-Survey--#{$theme} .nps-Dialog {
