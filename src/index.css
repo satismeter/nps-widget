@@ -258,7 +258,6 @@
 .nps-Feedback-text {
   border-width: 2px;
   border-style: solid;
-  font-size: 14px;
   padding: 7px 10px;
   width: 100%;
   height: 100%;
@@ -469,6 +468,7 @@
   color: #333;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: normal;
+  font-size: 14px;
   line-height: 1.42857143; }
 
 .nps-Survey,
