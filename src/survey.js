@@ -106,13 +106,6 @@ var Survey = Vue.extend({
       if (this.skin === PANEL_SKIN) {
         return 'nps-Panel';
       }
-      if (this.skin === PREVIEW_SKIN) {
-        return [
-          'nps-Preview',
-          'nps-Preview--' + this.horizontal,
-          'nps-Preview--' + this.vertical
-          ].join(' ');
-      }
     },
     showCloseIcon: function() {
       return this.state === FEEDBACK_STATE || this.skin===DIALOG_SKIN;
