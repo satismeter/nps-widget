@@ -1,7 +1,5 @@
 var Survey = require('./survey');
 
-window.Survey = Survey;
-
 var ATTRS = [
   'rating',
   'feedback',
