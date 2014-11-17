@@ -108,7 +108,7 @@ var Survey = Vue.extend({
       }
     },
     showCloseIcon: function() {
-      return this.state === FEEDBACK_STATE || this.skin===DIALOG_SKIN;
+      return this.state === FEEDBACK_STATE && this.skin === DIALOG_SKIN;
     },
     showSubmitButton: function() {
       return this.state === FEEDBACK_STATE && this.rating !== null;
