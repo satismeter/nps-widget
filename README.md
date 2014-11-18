@@ -7,9 +7,7 @@ Customer loyalty analytics SaaS app.
 
 ![NPS widget](https://raw.githubusercontent.com/satismeter/nps-widget/gh-pages/rating.png)
 
-# Install
-
-## using browserify
+# Install using browserify
 
 ```
 npm install satismeter/nps-widget
@@ -19,12 +17,6 @@ npm install satismeter/nps-widget
 var View = require('nps-widget');
 ```
 
-
-## or using duo.js
-
-```js
-var View = require('satismeter/nps-widget');
-```
 # Use
 
 ```js
