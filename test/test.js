@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
 var happen = require('happen');
 var Vue = require('vue');
-var loadStyles = require('load-styles');
+var insertCss = require('insert-css');
 var $ = require('jquery');
 var browser = require('bowser').browser;
 
@@ -20,7 +20,7 @@ function waitAnimation(done) {
 
 describe('view', function() {
     before(function () {
-        loadStyles('* { transition-duration: 1ms !important; }');
+        insertCss('* { transition-duration: 1ms !important; }');
     });
 
     var view, $el;
