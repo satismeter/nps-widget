@@ -12,6 +12,8 @@
     "widget"
   ],
   "dependencies": {
+    "bulk-require": "^0.2.1",
+    "bulkify": "^1.0.2",
     "component-bind": "^1.0.0",
     "escape-html": "^1.0.1",
     "insert-css": "^0.2.0",
@@ -34,7 +36,8 @@
   },
   "browserify": {
     "transform": [
-      "partialify"
+      "partialify",
+      "bulkify"
     ]
   },
   "main": "src/index.js"

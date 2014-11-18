@@ -3,21 +3,11 @@ var insertCss = require('insert-css');
 var bind = require('component-bind');
 var escape = require('escape-html');
 var is = require('is');
+var bulk = require('bulk-require');
 
-var messages = {
-  cs: require('./languages/cs.json'),
-  cz: require('./languages/cs.json'), // backward compatibility
-  de: require('./languages/de.json'),
-  en: require('./languages/en.json'),
-  es: require('./languages/es.json'),
-  fr: require('./languages/fr.json'),
-  it: require('./languages/it.json'),
-  pl: require('./languages/pl.json'),
-  'pt-br': require('./languages/pt-br.json'),
-  ru: require('./languages/ru.json'),
-  sk: require('./languages/sk.json'),
-  tr: require('./languages/tr.json')
-};
+
+var messages = bulk(__dirname, 'languages/**.json').languages;
+messages.cz = messages.cs;
 
 insertCss(require('./index.css'));
 
