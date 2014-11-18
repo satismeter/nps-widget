@@ -1,5 +1,5 @@
 var Vue = require('vue');
-var loadStyles = require('load-styles');
+var insertCss = require('insert-css');
 var bind = require('component-bind');
 
 var messages = {
@@ -17,7 +17,7 @@ var messages = {
   tr: require('./languages/tr.json')
 };
 
-loadStyles(require('./index.css'));
+insertCss(require('./index.css'));
 
 var FEEDBACK_STATE = 'feedback';
 var THANKS_STATE = 'thanks';
