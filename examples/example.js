@@ -1,5 +1,5 @@
 var View = require('../src/index.js');
-var view = new View({skin: 'preview', position: 'mc'});
+var view = new View({skin: 'preview', position: 'mc', serviceName: 'SatisMeter'});
 view.on('submit', function() {
   console.log('submit', view.rating, view.feedback);
 });

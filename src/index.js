@@ -7,7 +7,7 @@ var ATTRS = [
   'state',
   'translation',
   'language',
-  'us',
+  'serviceName',
   'poweredBy',
   'skin',
   'theme',

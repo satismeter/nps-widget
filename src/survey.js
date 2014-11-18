@@ -1,6 +1,8 @@
 var Vue = require('vue');
 var insertCss = require('insert-css');
 var bind = require('component-bind');
+var escape = require('escape-html');
+var is = require('is');
 
 var messages = {
   cs: require('./languages/cs.json'),
@@ -61,7 +63,7 @@ var Survey = Vue.extend({
 
       // settings
       language: 'en',
-      us: null,
+      serviceName: null,
       poweredBy: true,
       skin: DIALOG_SKIN,
       theme: 'pink',
@@ -123,12 +125,17 @@ var Survey = Vue.extend({
           selected: selectedRating !== null && rating <= selectedRating
         };
       });
+    },
+    likelyHtml: function() {
+      var serviceName = is.string(this.serviceName) ? this.serviceName.trim() : null;
+      var us = this.t('US');
+      var serviceHtml = serviceName ? '<b>' + escape(serviceName) + '</b>' : us;
+      return escape(this.t('HOW_LIKELY')).replace('%s', serviceHtml);
     }
   },
   methods: {
     t: function(key, param) {
-      var message = (this.translation && this.translation[key]) || messages[this.language][key];
-      return message.replace('%s', param);
+      return (this.translation && this.translation[key]) || messages[this.language][key];
     },
     selectRating: function (rating) {
       this.rating = rating;

@@ -288,4 +288,42 @@ describe('view', function() {
             });
         });
     });
+
+    describe('service name', function() {
+        it('should show default service name', function() {
+            assert.include($el.text(), 'How likely are you to recommend us to your friends and colleagues?');
+            assert.include($el.html(), 'How likely are you to recommend us to your friends and colleagues?');
+        });
+        it('should show custom service name', function(done) {
+            view.serviceName = 'Google';
+            wait(function () {
+                assert.include($el.text(), 'How likely are you to recommend Google to your friends and colleagues?');
+                assert.include($el.html(), 'How likely are you to recommend <b>Google</b> to your friends and colleagues?');
+                done();
+            });
+        });
+        it('should handle empty space', function(done) {
+            view.serviceName = '';
+            wait(function () {
+                assert.include($el.text(), 'How likely are you to recommend us to your friends and colleagues?');
+                done();
+            });
+        });
+        it('should trim to empty space', function(done) {
+            view.serviceName = ' ';
+            wait(function () {
+                assert.include($el.text(), 'How likely are you to recommend us to your friends and colleagues?');
+                done();
+            });
+        });
+        it('should escape service name', function(done) {
+            view.serviceName = '<script>alert("aaa")</script>';
+            wait(function () {
+                assert.include($el.text(), '<script>alert("aaa")</script>');
+                done();
+            });
+        });
+    });
+
+
 });
