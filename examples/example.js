@@ -7,3 +7,6 @@ view.on('dismiss', function() {
   console.log('dismiss');
 });
 view.show();
+
+// expose view for experiments
+window.view = view;
