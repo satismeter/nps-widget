@@ -4,7 +4,7 @@ serve: examples/example.js src/index.css
 	(wach -o src/**.scss, $(MAKE) src/index.css) & ($(BIN)/beefy $< 3000)
 
 src/index.css: src/*.scss
-	sass src/index.scss | $(BIN)/autoprefixer > $@
+	$(BIN)/node-sass --stdout src/index.scss | $(BIN)/autoprefixer > $@
 
 test-ci: node_modules test
 	$(BIN)/zuul test/test.js

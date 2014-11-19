@@ -3,8 +3,7 @@
   -webkit-transition: opacity 500ms;
           transition: opacity 500ms; }
 
-.nps-fade-enter,
-.nps-fade-leave {
+.nps-fade-enter, .nps-fade-leave {
   opacity: 0; }
 
 .nps-expand {
@@ -13,8 +12,7 @@
   -webkit-transition: max-height 500ms, opacity 500ms;
           transition: max-height 500ms, opacity 500ms; }
 
-.nps-expand-enter,
-.nps-expand-leave {
+.nps-expand-enter, .nps-expand-leave {
   max-height: 0px;
   opacity: 0; }
 
@@ -47,7 +45,7 @@
 .nps-Button[disabled] {
   border: none;
   background-image: none;
-  opacity: 0.40;
+  opacity: 0.4;
   cursor: default;
   box-shadow: none; }
 
@@ -251,8 +249,7 @@
   -webkit-transition: height 500ms;
           transition: height 500ms; }
 
-.nps-Feedback-textContainer.nps-expand-enter,
-.nps-Feedback-textContainer.nps-expand-leave {
+.nps-Feedback-textContainer.nps-expand-enter, .nps-Feedback-textContainer.nps-expand-leave {
   height: 0px; }
 
 .nps-Feedback-text {
@@ -467,13 +464,12 @@
 
 .nps-Survey {
   color: #333;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 14px;
-  line-height: 1.42857143; }
+  line-height: 1.42857; }
 
-.nps-Survey,
-.nps-Survey * {
+.nps-Survey, .nps-Survey * {
   box-sizing: border-box; }
 
 .nps-Survey-buttons {
@@ -517,8 +513,7 @@
 .nps-Title {
   font-size: 16px; }
 
-.nps-cf:before,
-.nps-cf:after {
+.nps-cf:before, .nps-cf:after {
   content: " ";
   /* 1 */
   display: table;
@@ -526,3 +521,4 @@
 
 .nps-cf:after {
   clear: both; }
+

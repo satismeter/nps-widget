@@ -3,7 +3,6 @@ node_js:
   - "0.10"
 install:
 - "npm install"
-- "gem install sass"
 script:
 - "make test-ci"
 env:
