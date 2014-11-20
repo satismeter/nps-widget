@@ -12,10 +12,10 @@ var ATTRS = [
   'skin',
   'theme',
   'position'
-]
+];
 
 function View(options) {
-  var options = options || {};
+  options = options || {};
   var data = {};
   ATTRS.forEach(function(attr) {
     if (options[attr] !== undefined) {
@@ -46,7 +46,8 @@ View.prototype = {
   hide: function() {
     this.survey.hide();
   }
-}
+};
+
 ATTRS.forEach(function(attr) {
   Object.defineProperty(View.prototype, attr, {
     get: function() {
@@ -55,7 +56,7 @@ ATTRS.forEach(function(attr) {
     set: function(value) {
       this.survey[attr] = value;
     }
-  })
+  });
 });
 
 module.exports = View;

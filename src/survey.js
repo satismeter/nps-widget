@@ -57,7 +57,7 @@ var Survey = Vue.extend({
       poweredBy: true,
       skin: DIALOG_SKIN,
       theme: 'pink',
-      position: 'cr', // tl (top-right), tr, bl, br
+      position: 'cr' // tl (top-right), tr, bl, br
     };
   },
   ready: function() {
@@ -110,7 +110,7 @@ var Survey = Vue.extend({
     },
     ratings: function() {
       var selectedRating = this.rating;
-      return [0,1,2,3,4,5,6,7,8,9,10].map(function(rating) {
+      return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(rating) {
         return {
           selected: selectedRating !== null && rating <= selectedRating
         };
