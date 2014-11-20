@@ -13,13 +13,10 @@ Customer loyalty analytics SaaS app.
 npm install satismeter/nps-widget
 ```
 
-```js
-var View = require('nps-widget');
-```
-
 # Use
 
 ```js
+var View = require('nps-widget');
 view = new View();
 view.on('dismiss', function() { /* Handle dismiss */ });
 view.on('submit', function() {
