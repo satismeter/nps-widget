@@ -17,7 +17,7 @@ npm install satismeter/nps-widget
 
 ```js
 var View = require('nps-widget');
-view = new View();
+var view = new View();
 view.on('dismiss', function() { /* Handle dismiss */ });
 view.on('submit', function() {
     console.log(view.rating, view.feedback);
