@@ -6,7 +6,7 @@ var is = require('is');
 var bulk = require('bulk-require');
 
 
-var messages = bulk(__dirname, 'languages/**.json').languages;
+var messages = bulk(__dirname + '/languages', '*.json');
 messages.cz = messages.cs;
 
 insertCss(require('./index.scss'));
