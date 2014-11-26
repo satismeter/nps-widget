@@ -12,6 +12,7 @@
     "widget"
   ],
   "dependencies": {
+    "autoprefixer-core": "^4.0.1",
     "bulk-require": "^0.2.1",
     "bulkify": "^1.0.2",
     "component-bind": "^1.0.0",
@@ -37,6 +38,7 @@
   },
   "browserify": {
     "transform": [
+      "./css",
       "partialify",
       "bulkify"
     ]

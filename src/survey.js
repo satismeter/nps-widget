@@ -9,7 +9,7 @@ var bulk = require('bulk-require');
 var messages = bulk(__dirname, 'languages/**.json').languages;
 messages.cz = messages.cs;
 
-insertCss(require('./index.css'));
+insertCss(require('./index.scss'));
 
 var FEEDBACK_STATE = 'feedback';
 var THANKS_STATE = 'thanks';
