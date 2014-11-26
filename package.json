@@ -38,7 +38,7 @@
   },
   "browserify": {
     "transform": [
-      "./css",
+      "./scss",
       "partialify",
       "bulkify"
     ]
