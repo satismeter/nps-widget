@@ -39,7 +39,8 @@
   },
   "browserify": {
     "transform": [
-      "./scss",
+      "./sass",
+      "./autoprefixer",
       "partialify",
       "bulkify"
     ]

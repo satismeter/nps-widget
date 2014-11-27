@@ -1,17 +1,11 @@
 var path = require('path');
 var through = require('through2');
 var sass = require('node-sass');
-var autoprefixer = require('autoprefixer-core');
 
-// Process with sass and autoprefixer
-function process(file) {
-  var css = sass.renderSync({file: file});
-  var prefixed = autoprefixer.process(css).css;
-  return prefixed;
-}
+var extensions = ['.scss', '.sass'];
 
 module.exports = function (b, opts) {
-  if (path.extname(b) !== '.scss') {
+  if (extensions.indexOf(path.extname(b)) === -1) {
     return through();
   }
 
@@ -20,7 +14,7 @@ module.exports = function (b, opts) {
   }
 
   function end() {
-    this.push(process(b));
+    this.push(sass.renderSync({file: b}));
     this.push(null);
   }
 
