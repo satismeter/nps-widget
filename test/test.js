@@ -30,7 +30,7 @@ describe('view', function() {
         wait(done);
     });
     afterEach(function() {
-        view.remove();
+        view.destroy();
     });
 
     describe('widget initialization', function() {
