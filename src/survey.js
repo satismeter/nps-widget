@@ -27,18 +27,6 @@ var Survey = Vue.extend({
     thanks: require('./thanks.html'),
     filled: require('./filled.html')
   },
-  components: {
-    text: {
-      ready: function() {
-        this.$el.placeholder = this.placeholder;
-      },
-      watch: {
-        'placeholder': function(placeholder) {
-          this.$el.placeholder = placeholder;
-        }
-      }
-    }
-  },
   replace: true,
   data: function() {
     return {
