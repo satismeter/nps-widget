@@ -8,14 +8,9 @@ var browser = require('bowser').browser;
 var View = require('../src/index');
 
 function wait(done) {
-    setTimeout(function() {
+    Vue.nextTick(function() {
         done();
-    }, 100);
-}
-function waitAnimation(done) {
-    setTimeout(function() {
-        done();
-    }, 100);
+    });
 }
 
 describe('view', function() {
@@ -172,7 +167,7 @@ describe('view', function() {
             happen.keyup($el.find('.nps-Feedback-text')[0]);
             wait(function() {
                 happen.click($el.find('.nps-Survey-submit')[0]);
-                waitAnimation(function() {
+                wait(function() {
                     assert.match($el.text(),
                         /Thank you for your feedback/);
                     done();
@@ -191,7 +186,7 @@ describe('view', function() {
     describe('thanks screen', function() {
         beforeEach(function(done) {
             view.state = 'thanks';
-            waitAnimation(done);
+            wait(done);
         });
         it('should display thanks message', function() {
             assert.match($el.text(), /Thank you/);
