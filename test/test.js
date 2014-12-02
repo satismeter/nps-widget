@@ -15,7 +15,7 @@ function wait(done) {
 
 describe('view', function() {
     before(function () {
-        insertCss('* { transition-duration: 1ms !important; }');
+        insertCss('* { transition: none !important; -webkit-transition: none !important; }');
     });
 
     var view, $el;
