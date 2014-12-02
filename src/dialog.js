@@ -1,6 +1,7 @@
 module.exports = {
   template: require('./dialog.html'),
   replace: true,
+  paramAttributes: ['visible', 'preview', 'position', 'showCloseIcon'],
   data: function() {
     return {
       visible: true,
