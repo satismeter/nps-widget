@@ -232,25 +232,6 @@ describe('view', function() {
         it('should use tr as default', function() {
             assert.equal(view.position, 'cr');
         });
-        // it('should show on top left', function(done) {
-        //     view.position = 'tl';
-        //     view.distance = 10;
-        //     waitAnimation(function() {
-        //         assert.equal(getComputedStyle(view.el).top, '10px');
-        //         assert.equal(getComputedStyle(view.el).left, '0px');
-        //         done();
-        //     });
-        // });
-        // it('should show on bottom right', function(done) {
-        //     view.position = 'br';
-        //     view.distance = 20;
-        //     setTimeout(function () {
-        //         assert.equal(getComputedStyle(view.el).bottom, '20px');
-        //         assert.equal(getComputedStyle(view.el).right, '0px');
-        //         done();
-        //     }, 500);
-        //     // 500ms - phantom ignores the transition duration
-        // });
     });
 
     describe('custom translation', function() {
