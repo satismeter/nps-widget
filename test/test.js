@@ -50,10 +50,9 @@ describe('view', function() {
 
     describe('not powered by', function() {
         it('should not display powered by message', function(done) {
-            var view = new View({visible: true, poweredBy: false});
+            view.poweredBy = false;
             wait(function() {
                 assert.notMatch($(view.el).text(), /Powered by/);
-                view.destroy();
                 done();
             });
         });
@@ -213,19 +212,19 @@ describe('view', function() {
         it('should use en as default', function() {
             assert.match($(view.el).text(), /How likely/);
         });
-        it('should translate to cs', function() {
-            var view = new View({visible: true, language: 'cs'});
-
-            assert.match($(view.el).text(), /Doporučili byste/);
-
-            view.destroy();
+        it('should translate to cs', function(done) {
+            view.language = 'cs';
+            wait(function() {
+                assert.match($(view.el).text(), /Doporučili byste/);
+                done();
+            });
         });
-        it('should handle cz alias', function() {
-            var view = new View({visible: true, language: 'cz'});
-
-            assert.match($(view.el).text(), /Doporučili byste/);
-
-            view.destroy();
+        it('should handle cz alias', function(done) {
+            view.language = 'cz';
+            wait(function() {
+                assert.match($(view.el).text(), /Doporučili byste/);
+                done();
+            });
         });
     });
 
