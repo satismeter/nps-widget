@@ -2,13 +2,16 @@
   class="nps-Dialog
     nps-Dialog--{{vertical}}
     nps-Dialog--{{horizontal}}"
+  v-class="nps-Dialog--preview: preview"
   v-show="visible"
+  v-transition="nps-show"
   >
 
   <button
     class="nps-Dialog-close nps-fade"
     v-if="showCloseIcon"
     v-on="click: close"
+    v-transition="nps-fade"
   >&#x2715;</button>
 
   <content>

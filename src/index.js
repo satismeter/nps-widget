@@ -11,7 +11,8 @@ var ATTRS = [
   'poweredBy',
   'skin',
   'theme',
-  'position'
+  'position',
+  'preview'
 ];
 
 function View(options) {
