@@ -4,6 +4,7 @@ var Vue = require('vue');
 var insertCss = require('insert-css');
 var $ = require('jquery');
 var browser = require('bowser').browser;
+var autoprefixer = require('autoprefixer-core');
 
 var View = require('../src/index');
 
@@ -15,7 +16,7 @@ function wait(done) {
 
 describe('view', function() {
     before(function () {
-        insertCss('* { transition: none !important; -webkit-transition: none !important; }');
+        insertCss(autoprefixer.process('* {transition: none !important;}').css);
     });
 
     var view, $el;
