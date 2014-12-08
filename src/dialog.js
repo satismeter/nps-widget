@@ -34,7 +34,7 @@ module.exports = {
   },
   methods: {
     close: function() {
-      this.$dispatch('close');
+      this.$emit('close');
     }
   }
 };

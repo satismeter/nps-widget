@@ -119,15 +119,12 @@ var Survey = Vue.extend({
           this.hide();
         }), 800);
       }
-    }
-  },
-  events: {
-    close: function() {
+    },
+    onClose: function() {
       this.hide();
       if (this.state === FEEDBACK_STATE) {
         this.$emit('dismiss');
       }
-      return false;
     }
   }
 });
