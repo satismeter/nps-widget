@@ -35,7 +35,7 @@
     "mocha": "^2.0.1",
     "node-sass": "^1.2.2",
     "phantomjs": "^1.9.12",
-    "zuul": "^1.13.1"
+    "zuul": "^1.15.2"
   },
   "browserify": {
     "transform": [
