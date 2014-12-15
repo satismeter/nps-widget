@@ -16,4 +16,4 @@ node_modules: package.json
 clean-all:
 	rm -rf node_modules
 
-.PHONY: serve test test-ci clean clean-all
+.PHONY: serve test test-ci clean-all
