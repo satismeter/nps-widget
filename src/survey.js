@@ -17,7 +17,6 @@ var FILLED_STATE = 'filled';
 
 var DIALOG_SKIN = 'dialog';
 var PANEL_SKIN = 'panel';
-var PREVIEW_SKIN = 'preview';
 
 var Survey = Vue.extend({
   template: require('./survey.html'),
@@ -111,7 +110,7 @@ var Survey = Vue.extend({
     submit: function() {
       this.$emit('submit');
       this.state = THANKS_STATE;
-      if (this.skin === DIALOG_SKIN || this.skin === PREVIEW_SKIN) {
+      if (this.skin === DIALOG_SKIN) {
         setTimeout(bind(this, function() {
           if (this._isDestroyed) {
             return;
