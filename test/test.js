@@ -232,87 +232,87 @@ describe('view', function() {
 
     describe('custom translation', function() {
         if (!browser.msie || browser.version >= 10) {
-            it('should handle backwards compatible key', function() {
+            it('should handle backwards compatible key', function(done) {
                 view.translation = {
                     IMPROVE: 'What the fuck?'
                 };
+                wait(function() {
+                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
+                    done();
+                });
             });
-            assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
         }
 
         if (!browser.msie || browser.version >= 10) {
-            before(function(done) {
+            it('should show custom placeholder', function(done) {
                 view.translation = {
                     FOLLOWUP: 'What the fuck?'
                 };
                 view.rating = 10;
-                wait(done);
-            });
-            it('should show custom placeholder', function() {
-                assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
+                wait(function() {
+                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
+                    done();
+                });
             });
         }
 
-        before(function(done) {
+        it('should show custom message', function(done) {
             view.translation = {
                 HOW_LIKELY: 'Doporucil bys vole?'
             };
-            wait(done);
-        });
-        it('should show custom message', function() {
-            assert.match($el.text(), /Doporucil bys vole?/);
+            wait(function() {
+                assert.match($el.text(), /Doporucil bys vole?/);
+                done();
+            });
         });
 
-        before(function(done) {
+        it('should handle null', function(done) {
             view.translation = null;
             view.rating = 10;
-            wait(done);
-        });
-        it('should handle null', function() {
-            assert.match($(view.el).text(), /How likely/);
+            wait(function() {
+                assert.match($(view.el).text(), /How likely/);
+                done();
+            });
         });
 
-        before(function(done) {
+        it('should handle undefined', function(done) {
             view.translation = undefined;
             view.rating = 10;
-            wait(done);
-        });
-        it('should handle undefined', function() {
-            assert.match($(view.el).text(), /How likely/);
+            wait(function() {
+                assert.match($(view.el).text(), /How likely/);
+                done();
+            });
         });
 
         if (!browser.msie || browser.version >= 10) {
             describe('conditional followup', function() {
-                beforeEach(function(done) {
+                beforeEach(function() {
                     view.translation = {
                         FOLLOWUP_DETRACTOR: 'Proc?',
                         FOLLOWUP_PASSIVE: 'Co muzeme zlepsit?',
                         FOLLOWUP_PROMOTER: 'Co muzeme zhorsit?'
                     };
                 });
-
-                before(function(done) {
+                it('should show detractor followup', function(done) {
                     view.rating = 0;
-                    wait(done);
+                    wait(function() {
+                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Proc?');
+                        done();
+                    });
                 });
-                it('should show detractor followup', function() {
-                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Proc?');
+                it('should show passive followup', function(done) {
+                    view.rating = 7;
+                    wait(function() {
+                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zlepsit?');
+                        done();
+                    });
                 });
-
-                before(function(done) {
-                    view.rating = 0;
-                    wait(done);
-                });
-                it('should show passive followup', function() {
-                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zlepsit?');
-                });
-
-                before(function(done) {
-                    view.rating = 0;
-                    wait(done);
-                });
-                it('should show promoter followup', function() {
-                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zhorsit?');
+                it('should show promoter followup', function(done) {
+                    view.rating = 10;
+                    wait(function() {
+                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zhorsit?');
+                        done();
+                    });
                 });
             });
         }
