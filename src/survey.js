@@ -80,11 +80,36 @@ var Survey = Vue.extend({
       var us = this.t('US');
       var serviceHtml = serviceName ? '<b>' + escape(serviceName) + '</b>' : us;
       return escape(this.t('HOW_LIKELY')).replace('%s', serviceHtml);
+    },
+    followUp: function() {
+      var rating = this.rating;
+      if (is.number(rating)) {
+        var key;
+        if (rating <= 6) {
+          key = 'FOLLOWUP_DETRACTOR';
+        }
+        else if (rating <= 8) {
+          key = 'FOLLOWUP_PASSIVE';
+        }
+        else {
+          key = 'FOLLOWUP_PROMOTER';
+        }
+        return this.t(key) || this.t('FOLLOWUP');
+      }
+      return this.t('FOLLOWUP');
     }
   },
   methods: {
     t: function(key, param) {
-      return (this.translation && this.translation[key]) || messages[this.language][key];
+      if (this.translation) {
+        if (this.translation[key]) {
+          return this.translation[key];
+        }
+        if (key === 'FOLLOWUP' && this.translation['IMPROVE']) {
+          return this.translation['IMPROVE'];
+        }
+      }
+      return messages[this.language][key];
     },
     selectRating: function (rating) {
       this.rating = rating;

@@ -231,38 +231,91 @@ describe('view', function() {
     });
 
     describe('custom translation', function() {
-        beforeEach(function(done) {
-            view.translation = {
-                HOW_LIKELY: 'Doporucil bys vole?',
-                IMPROVE: 'What the fuck?'
-            };
-            view.rating = 10;
-            wait(done);
-        });
         if (!browser.msie || browser.version >= 10) {
+            it('should handle backwards compatible key', function() {
+                view.translation = {
+                    IMPROVE: 'What the fuck?'
+                };
+            });
+            assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
+        }
+
+        if (!browser.msie || browser.version >= 10) {
+            before(function(done) {
+                view.translation = {
+                    FOLLOWUP: 'What the fuck?'
+                };
+                view.rating = 10;
+                wait(done);
+            });
             it('should show custom placeholder', function() {
                 assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
             });
         }
+
+        before(function(done) {
+            view.translation = {
+                HOW_LIKELY: 'Doporucil bys vole?'
+            };
+            wait(done);
+        });
         it('should show custom message', function() {
             assert.match($el.text(), /Doporucil bys vole?/);
         });
-        it('should handle null', function(done) {
+
+        before(function(done) {
             view.translation = null;
-            wait(function () {
-                assert.notMatch($el.text(), /Doporucil bys vole?/);
-                assert.match($(view.el).text(), /How likely/);
-                done();
-            });
+            view.rating = 10;
+            wait(done);
         });
-        it('should handle undefined', function(done) {
+        it('should handle null', function() {
+            assert.match($(view.el).text(), /How likely/);
+        });
+
+        before(function(done) {
             view.translation = undefined;
-            wait(function () {
-                assert.notMatch($el.text(), /Doporucil bys vole?/);
-                assert.match($(view.el).text(), /How likely/);
-                done();
-            });
+            view.rating = 10;
+            wait(done);
         });
+        it('should handle undefined', function() {
+            assert.match($(view.el).text(), /How likely/);
+        });
+
+        if (!browser.msie || browser.version >= 10) {
+            describe('conditional followup', function() {
+                beforeEach(function(done) {
+                    view.translation = {
+                        FOLLOWUP_DETRACTOR: 'Proc?',
+                        FOLLOWUP_PASSIVE: 'Co muzeme zlepsit?',
+                        FOLLOWUP_PROMOTER: 'Co muzeme zhorsit?'
+                    };
+                });
+
+                before(function(done) {
+                    view.rating = 0;
+                    wait(done);
+                });
+                it('should show detractor followup', function() {
+                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Proc?');
+                });
+
+                before(function(done) {
+                    view.rating = 0;
+                    wait(done);
+                });
+                it('should show passive followup', function() {
+                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zlepsit?');
+                });
+
+                before(function(done) {
+                    view.rating = 0;
+                    wait(done);
+                });
+                it('should show promoter followup', function() {
+                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zhorsit?');
+                });
+            });
+        }
     });
 
     describe('service name', function() {

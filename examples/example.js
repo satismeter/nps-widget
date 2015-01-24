@@ -1,5 +1,12 @@
 var View = require('../src/index.js');
-var view = new View({skin: 'dialog', position: 'mc', serviceName: 'SatisMeter'});
+var view = new View({
+  skin: 'dialog',
+  position: 'mc',
+  serviceName: 'SatisMeter',
+  translation: {
+    FOLLOWUP_PROMOTER: 'Thats awesome!'
+  }
+});
 view.on('submit', function() {
   console.log('submit', view.rating, view.feedback);
 });
