@@ -30,6 +30,12 @@ module.exports = {
         default:
           return 'center';
       }
+    },
+    previewClass: function() {
+      if (this.preview) {
+        return 'nps-Dialog--preview';
+      }
+      return '';
     }
   },
   methods: {
