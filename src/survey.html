@@ -24,7 +24,7 @@
         <button
           type="button"
           class="nps-Button nps-Survey-submit nps-fade"
-          v-if="showSubmitButton"
+          v-show="showSubmitButton"
           v-transition="nps-fade"
           v-on="click: submit"
           >{{t('SUBMIT')}}</button>

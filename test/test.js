@@ -56,7 +56,7 @@ describe('view', function() {
 
     describe('feedback screen', function() {
         it('should not display submit', function() {
-            assert.equal($el.find('.nps-Survey-submit').length, 0);
+            assert.equal($el.find('.nps-Survey-submit').css('display'), 'none');
         });
         it('should highlight rating', function(done) {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
