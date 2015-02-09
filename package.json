@@ -13,6 +13,8 @@
   ],
   "dependencies": {
     "autoprefixer-core": "^4.0.1",
+    "browserify-autoprefixer": "git://github.com/jsedlacek/browserify-autoprefixer",
+    "browserify-sass": "git://github.com/jsedlacek/browserify-sass",
     "bulk-require": "^0.2.1",
     "bulkify": "^1.0.2",
     "component-bind": "^1.0.0",
@@ -39,8 +41,8 @@
   },
   "browserify": {
     "transform": [
-      "./sass",
-      "./autoprefixer",
+      "browserify-sass",
+      "browserify-autoprefixer",
       "partialify",
       "bulkify"
     ]
