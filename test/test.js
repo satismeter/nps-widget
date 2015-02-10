@@ -222,6 +222,13 @@ describe('view', function() {
                 done();
             });
         });
+        it('should handle invalid language', function(done) {
+            view.language = 'xx';
+            wait(function() {
+                assert.match($(view.el).text(), /How likely/);
+                done();
+            });
+        });
     });
 
     describe('positioning', function() {

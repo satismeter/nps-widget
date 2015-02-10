@@ -6,8 +6,8 @@ var is = require('is');
 var bulk = require('bulk-require');
 
 
-var messages = bulk(__dirname + '/languages', '*.json');
-messages.cz = messages.cs;
+var MESSAGES = bulk(__dirname + '/languages', '*.json');
+MESSAGES.cz = MESSAGES.cs;
 
 insertCss(require('./index.scss'));
 
@@ -109,7 +109,8 @@ var Survey = Vue.extend({
           return this.translation['IMPROVE'];
         }
       }
-      return messages[this.language][key];
+      var messages = MESSAGES[this.language] || MESSAGES.en;
+      return messages[key];
     },
     selectRating: function (rating) {
       this.rating = rating;
