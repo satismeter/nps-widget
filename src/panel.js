@@ -1,4 +1,10 @@
 module.exports = {
   template: require('./panel.html'),
-  replace: true
+  replace: true,
+  paramAttributes: ['visible'],
+  data: function() {
+    return {
+      visible: true
+    };
+  }
 };
