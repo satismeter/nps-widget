@@ -1,4 +1,9 @@
 BIN=node_modules/.bin
+VERSION ?= patch
+
+release:
+	mversion $(VERSION) -mn
+	git push --tags
 
 serve: examples/example.js
 	$(BIN)/beefy $< 3000
