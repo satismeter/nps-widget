@@ -1,12 +1,12 @@
 BIN=node_modules/.bin
 VERSION ?= patch
 
+serve: examples/example.js
+	$(BIN)/beefy $< 3000
+
 release:
 	mversion $(VERSION) -mn
 	git push --tags
-
-serve: examples/example.js
-	$(BIN)/beefy $< 3000
 
 test-ci: node_modules test
 	$(BIN)/zuul test/test.js
