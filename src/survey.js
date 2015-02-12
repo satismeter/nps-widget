@@ -3,11 +3,8 @@ var insertCss = require('insert-css');
 var bind = require('component-bind');
 var escape = require('escape-html');
 var is = require('is');
-var bulk = require('bulk-require');
 
-
-var MESSAGES = bulk(__dirname + '/languages', '*.json');
-MESSAGES.cz = MESSAGES.cs;
+var MESSAGES = require('nps-translations');
 
 insertCss(require('./index.scss'));
 
