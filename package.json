@@ -14,8 +14,6 @@
   "dependencies": {
     "browserify-autoprefixer": "jsedlacek/browserify-autoprefixer#1.0.0",
     "browserify-sass": "jsedlacek/browserify-sass#1.0.0",
-    "bulk-require": "^0.2.1",
-    "bulkify": "^1.0.2",
     "component-bind": "^1.0.0",
     "escape-html": "^1.0.1",
     "insert-css": "^0.2.0",
@@ -40,8 +38,7 @@
     "transform": [
       "browserify-sass",
       "browserify-autoprefixer",
-      "partialify",
-      "bulkify"
+      "partialify"
     ]
   },
   "main": "src/index.js"
