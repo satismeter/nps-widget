@@ -18,7 +18,7 @@
     "escape-html": "^1.0.1",
     "insert-css": "^0.2.0",
     "is": "^2.1.0",
-    "nps-translations": "satismeter/nps-translations#1.0.1",
+    "nps-translations": "satismeter/nps-translations#1.1.0",
     "partialify": "^3.1.1",
     "vue": "^0.11.5"
   },
