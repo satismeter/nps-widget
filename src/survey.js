@@ -147,9 +147,7 @@ var Survey = Vue.extend({
     },
     onClose: function() {
       this.hide();
-      if (this.state === FEEDBACK_STATE) {
-        this.$emit('dismiss');
-      }
+      this.$emit('dismiss');
     }
   }
 });

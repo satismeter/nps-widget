@@ -54,9 +54,9 @@ describe('view', function() {
         });
     });
 
-    describe('feedback screen', function() {
+    describe('rating screen', function() {
         it('should not display submit', function() {
-            assert.equal($el.find('.nps-Survey-submit').css('display'), 'none');
+            assert.lengthOf($el.find('.nps-Survey-submit'), 0);
         });
         it('should highlight rating', function(done) {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
@@ -67,24 +67,8 @@ describe('view', function() {
                 done();
             });
         });
-        it('should display button', function(done) {
-            happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
-
-            wait(function() {
-                assert.equal($el.find('.nps-Survey-submit').length, 1);
-                done();
-            });
-        });
         it('should not display feedback form', function() {
-            assert.equal($el.find('.nps-Feedback-textContainer').css('display'), 'none');
-        });
-        it('should show feedback form', function(done) {
-            happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
-
-            wait(function() {
-                assert.equal($el.find('.nps-Feedback-textContainer').css('display'), 'block');
-                done();
-            });
+            assert.lengthOf($el.find('.nps-Feedback-textContainer'), 0);
         });
         it('should close window', function(done) {
             happen.click($el.find('.nps-Dialog-close')[0]);
@@ -96,6 +80,37 @@ describe('view', function() {
         it('should submit correct rating', function() {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
             assert.equal(view.rating, 5);
+        });
+        it('should emit dismiss event', function(done) {
+            var called = false;
+            view.on('dismiss', function() {
+                called = true;
+            });
+            happen.click($el.find('.nps-Dialog-close')[0]);
+            wait(function() {
+                assert.isTrue(called);
+                done();
+            });
+        });
+    });
+
+    describe('feedback screen', function() {
+        beforeEach(function(done) {
+            happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
+            wait(done);
+        });
+        it('should display button', function() {
+            assert.equal($el.find('.nps-Survey-submit').length, 1);
+        });
+        it('should show feedback form', function() {
+            assert.equal($el.find('.nps-Feedback-text').css('display'), 'inline-block');
+        });
+        it('should close window', function(done) {
+            happen.click($el.find('.nps-Dialog-close')[0]);
+            wait(function() {
+                assert.isFalse(view.visible);
+                done();
+            });
         });
         it('should emit dismiss event', function(done) {
             var called = false;
@@ -129,6 +144,7 @@ describe('view', function() {
     describe('written feedback', function() {
         beforeEach(function(done) {
             view.rating = 10;
+            view.state = 'feedback';
             wait(done);
         });
 
@@ -157,9 +173,9 @@ describe('view', function() {
         });
 
         if (!browser.msie || browser.version >= 10) {
-            it('should set placeholder', function() {
+            it('should not set placeholder by default', function() {
                 var placeholder = $el.find('.nps-Feedback-text').attr('placeholder');
-                assert.equal(placeholder, 'What could we do to improve?');
+                assert.isUndefined(placeholder);
             });
         }
 
@@ -239,23 +255,12 @@ describe('view', function() {
 
     describe('custom translation', function() {
         if (!browser.msie || browser.version >= 10) {
-            it('should handle backwards compatible key', function(done) {
-                view.translation = {
-                    IMPROVE: 'What the fuck?'
-                };
-                wait(function() {
-                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
-                    done();
-                });
-            });
-        }
-
-        if (!browser.msie || browser.version >= 10) {
             it('should show custom placeholder', function(done) {
                 view.translation = {
-                    FOLLOWUP: 'What the fuck?'
+                    DETAILS: 'What the fuck?'
                 };
                 view.rating = 10;
+                view.state = 'feedback';
                 wait(function() {
                     assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
                     done();
@@ -292,7 +297,10 @@ describe('view', function() {
         });
 
         if (!browser.msie || browser.version >= 10) {
-            describe('conditional followup', function() {
+            describe.skip('conditional followup', function() {
+                // Conditional followup not used any more.
+                // Keeping test in case we re-introduce the functionality
+                // in more general sense.
                 beforeEach(function() {
                     view.translation = {
                         FOLLOWUP_DETRACTOR: 'Proc?',
