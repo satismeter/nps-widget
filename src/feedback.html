@@ -2,22 +2,33 @@
   class="nps-Feedback nps-expand"
   v-transition="nps-expand"
   >
-  <div class="nps-Title">
-    {{{ likelyHtml }}}
+  <div class="nps-Title">{{t('THANKS_IMPROVE')}}</div>
+  <div
+    class="nps-Feedback-reason"
+    v-if="reasons.length"
+    >
+    <label v-repeat="r: reasons">
+      <input type="radio" name="nps-reason" v-model="reason" value="{{r}}"> {{r}}
+    </label>
   </div>
 
-  <div v-partial="scale"></div>
+  <textarea
+    placeholder="{{t('DETAILS')}}"
+    v-model="feedback"
+    class="nps-Feedback-text"
+    ></textarea>
 
-  <div
-    class="nps-Feedback-textContainer nps-expand"
-    v-show="showFeedbackText"
-    v-transition="nps-expand"
-    >
-    <textarea
-      placeholder="{{followUp}}"
-      v-model="feedback"
-      class="nps-Feedback-text"
-      ></textarea>
+  <div class="nps-cf">
+    <div v-partial="powered-by" class="nps-left"></div>
+
+    <div class="nps-Survey-buttons">
+      <button
+        type="button"
+        class="nps-Button nps-Survey-submit nps-fade"
+        v-transition="nps-fade"
+        v-on="click: submit"
+        >{{t('SUBMIT')}}</button>
+    </div>
   </div>
 
 </div>

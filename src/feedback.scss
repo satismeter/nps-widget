@@ -1,22 +1,23 @@
-.nps-Feedback-textContainer {
-  height: 80px;
+.nps-Feedback-reason {
   margin-top: 14px;
-  overflow: hidden;
-  transition: height 500ms;
 }
-.nps-Feedback-textContainer.nps-expand-enter,
-.nps-Feedback-textContainer.nps-expand-leave {
-  height: 0px;
+.nps-Feedback-reason label {
+  display: block;
+}
+.nps-Feedback-reason input {
+  margin-right: 8px;
 }
 
 .nps-Feedback-text {
+  margin-top: 14px;
+  height: 80px;
   border-width: 2px;
   border-style: solid;
   font-size: 14px;
   padding: 7px 10px;
   width: 100%;
-  height: 100%;
-  resize: none;
+  resize: vertical;
+  max-height: 300px;
   transition: border-color 300ms, background-color 300ms;
 }
 .nps-Feedback-text:focus {
@@ -32,4 +33,7 @@
       background-color: mix($base, white, 4%);
     }
   }
+}
+.nps-Feedback .nps-PoweredBy {
+  line-height: 34px;
 }

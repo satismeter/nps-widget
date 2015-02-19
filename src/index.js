@@ -3,6 +3,7 @@ var Survey = require('./survey');
 var ATTRS = [
   'rating',
   'feedback',
+  'reason',
   'visible',
   'state',
   'translation',
@@ -12,7 +13,8 @@ var ATTRS = [
   'skin',
   'theme',
   'position',
-  'preview'
+  'preview',
+  'reasons'
 ];
 
 function View(options) {

@@ -1,35 +1,15 @@
 <div class="nps-Survey nps-Survey--{{theme}}">
 
-<div
-  v-component="{{skin}}"
-  v-events="close: onClose"
-  position="{{position}}"
-  visible="{{visible}}"
-  preview="{{preview}}"
-  show-close-icon="{{showCloseIcon}}"
-  >
+  <div
+    v-component="{{skin}}"
+    v-events="close: onClose"
+    position="{{position}}"
+    visible="{{visible}}"
+    preview="{{preview}}"
+    show-close-icon="{{showCloseIcon}}"
+    >
 
-    <div class="nps-Survey-body">
-      <div v-partial="{{state}}"></div>
-    </div>
-
-    <div class="nps-cf">
-      <div
-        class="nps-Survey-poweredBy"
-        v-if="poweredBy"
-        >Powered by <a href="http://www.satismeter.com" target="_blank">SatisMeter</a>
-      </div>
-
-      <div class="nps-Survey-buttons">
-        <button
-          type="button"
-          class="nps-Button nps-Survey-submit nps-fade"
-          v-show="showSubmitButton"
-          v-transition="nps-fade"
-          v-on="click: submit"
-          >{{t('SUBMIT')}}</button>
-      </div>
-    </div>
+    <div v-partial="{{state}}"></div>
 
   </div>
 

@@ -8,6 +8,7 @@ var MESSAGES = require('nps-translations');
 
 insertCss(require('./index.scss'));
 
+var RATING_STATE = 'rating';
 var FEEDBACK_STATE = 'feedback';
 var THANKS_STATE = 'thanks';
 var FILLED_STATE = 'filled';
@@ -18,10 +19,12 @@ var PANEL_SKIN = 'panel';
 var Survey = Vue.extend({
   template: require('./survey.html'),
   partials: {
+    rating: require('./rating.html'),
     feedback: require('./feedback.html'),
     scale: require('./scale.html'),
     thanks: require('./thanks.html'),
-    filled: require('./filled.html')
+    filled: require('./filled.html'),
+    'powered-by': require('./powered-by.html')
   },
   components: {
     dialog: require('./dialog'),
@@ -33,10 +36,11 @@ var Survey = Vue.extend({
       // model
       rating: null,
       feedback: '',
+      reason: '',
 
       // state
       visible: false,
-      state: FEEDBACK_STATE,
+      state: RATING_STATE,
       translation: null,
 
       // settings
@@ -46,7 +50,8 @@ var Survey = Vue.extend({
       skin: DIALOG_SKIN,
       theme: 'pink',
       preview: false, // preview mode - positioned inside a preview div
-      position: 'cr' // tl (top-right), tr, bl, br
+      position: 'cr', // tl (top-right), tr, bl, br
+      reasons: []
     };
   },
   ready: function() {
@@ -56,13 +61,10 @@ var Survey = Vue.extend({
   },
   computed: {
     showCloseIcon: function() {
-      return this.state === FEEDBACK_STATE;
-    },
-    showSubmitButton: function() {
-      return this.state === FEEDBACK_STATE && this.rating !== null;
+      return this.state === FEEDBACK_STATE || this.state === RATING_STATE;
     },
     showFeedbackText: function() {
-      return this.state === FEEDBACK_STATE && this.rating !== null;
+      return this.state === FEEDBACK_STATE;
     },
     ratings: function() {
       var selectedRating = this.rating;
@@ -111,6 +113,7 @@ var Survey = Vue.extend({
     },
     selectRating: function (rating) {
       this.rating = rating;
+      this.state = FEEDBACK_STATE;
       this.focusFeedback();
     },
     focusFeedback: function() {
@@ -118,7 +121,7 @@ var Survey = Vue.extend({
         if (this._isDestroyed) {
           return;
         }
-        var $feedback = this.$el.querySelector('.nps-Feedback-text');
+        var $feedback = this.$el.querySelector('input') || this.$el.querySelector('textarea');
         if ($feedback) {
           $feedback.focus();
         }
