@@ -99,6 +99,22 @@ var Survey = Vue.extend({
     }
   },
   methods: {
+    nextTick: function(fn) {
+      Vue.nextTick(bind(this, function() {
+        if (this._isDestroyed) {
+          return;
+        }
+        fn.call(this);
+      }));
+    },
+    setTimeout: function(fn, timeout) {
+      setTimeout(bind(this, function() {
+        if (this._isDestroyed) {
+          return;
+        }
+        fn.call(this);
+      }), timeout);
+    },
     t: function(key, param) {
       if (this.translation) {
         if (this.translation[key]) {
@@ -117,15 +133,14 @@ var Survey = Vue.extend({
       this.focusFeedback();
     },
     focusFeedback: function() {
-      Vue.nextTick(bind(this, function () {
-        if (this._isDestroyed) {
-          return;
-        }
+      this.nextTick(function () {
         var $feedback = this.$el.querySelector('input') || this.$el.querySelector('textarea');
         if ($feedback) {
-          $feedback.focus();
+          this.nextTick(function() {
+            $feedback.focus();
+          });
         }
-      }));
+      });
     },
     show: function() {
       this.visible = true;
@@ -137,12 +152,9 @@ var Survey = Vue.extend({
       this.$emit('submit');
       this.state = THANKS_STATE;
       if (this.skin === DIALOG_SKIN) {
-        setTimeout(bind(this, function() {
-          if (this._isDestroyed) {
-            return;
-          }
+        this.setTimeout(function() {
           this.hide();
-        }), 800);
+        }, 800);
       }
     },
     onClose: function() {
