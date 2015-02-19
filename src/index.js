@@ -1,3 +1,4 @@
+var is = require('is');
 var Survey = require('./survey');
 
 var ATTRS = [
@@ -21,10 +22,13 @@ function View(options) {
   options = options || {};
   var data = {};
   ATTRS.forEach(function(attr) {
-    if (options[attr] !== undefined) {
+    if (is.defined(options[attr])) {
       data[attr] = options[attr];
     }
   });
+  if (!data.state) {
+    data.state = is.number(data.rating) ? 'feedback' : 'rating';
+  }
 
   this.survey = new Survey({data: data});
   this.survey.$mount();
