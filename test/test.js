@@ -58,12 +58,11 @@ describe('view', function() {
         it('should not display submit', function() {
             assert.lengthOf($el.find('.nps-Survey-submit'), 0);
         });
-        it('should highlight rating', function(done) {
+        it('should move to next step', function(done) {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
 
             wait(function() {
-                assert.isTrue($($el.find('.nps-Scale .nps-Scale-value')[5])
-                    .hasClass('nps-is-selected'));
+                assert.equal(view.state, 'feedback');
                 done();
             });
         });
@@ -103,7 +102,7 @@ describe('view', function() {
             assert.equal($el.find('.nps-Survey-submit').length, 1);
         });
         it('should show feedback form', function() {
-            assert.equal($el.find('.nps-Feedback-text').css('display'), 'inline-block');
+            assert.lengthOf($el.find('.nps-Feedback-text'), 1);
         });
         it('should close window', function(done) {
             happen.click($el.find('.nps-Dialog-close')[0]);
