@@ -123,19 +123,15 @@ describe('view', function() {
             });
         });
         it('should emit submit event', function(done) {
-            happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
-
             var called = false;
             view.on('submit', function() {
                 called = true;
             });
 
+            happen.click($el.find('.nps-Survey-submit')[0]);
             wait(function() {
-                happen.click($el.find('.nps-Survey-submit')[0]);
-                wait(function() {
-                    assert.isTrue(called);
-                    done();
-                });
+                assert.isTrue(called);
+                done();
             });
         });
     });
