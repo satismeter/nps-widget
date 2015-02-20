@@ -79,22 +79,6 @@ var Survey = Vue.extend({
       var serviceHtml = serviceName ? '<b>' + escape(serviceName) + '</b>' : us;
       return escape(this.t('HOW_LIKELY')).replace('%s', serviceHtml);
     },
-    followUp: function() {
-      var rating = this.rating;
-      if (is.number(rating)) {
-        var key;
-        if (rating <= 6) {
-          key = 'FOLLOWUP_DETRACTOR';
-        }
-        else if (rating <= 8) {
-          key = 'FOLLOWUP_PASSIVE';
-        }
-        else {
-          key = 'FOLLOWUP_PROMOTER';
-        }
-        return this.t(key) || this.t('FOLLOWUP');
-      }
-      return this.t('FOLLOWUP');
     hasReasons: function() {
       var reasons = this.t('REASONS');
       return reasons && reasons.length > 0;
