@@ -50,8 +50,7 @@ var Survey = Vue.extend({
       skin: DIALOG_SKIN,
       theme: 'pink',
       preview: false, // preview mode - positioned inside a preview div
-      position: 'cr', // tl (top-right), tr, bl, br
-      reasons: []
+      position: 'cr' // tl (top-right), tr, bl, br
     };
   },
   ready: function() {

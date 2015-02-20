@@ -14,8 +14,7 @@ var ATTRS = [
   'skin',
   'theme',
   'position',
-  'preview',
-  'reasons'
+  'preview'
 ];
 
 function View(options) {

@@ -16,6 +16,7 @@ function wait(done) {
 
 describe('view', function() {
     before(function () {
+        Vue.config.debug = true;
         insertCss(autoprefixer.process('* {transition: none !important;}').css);
     });
 
@@ -164,6 +165,27 @@ describe('view', function() {
             wait(function() {
                 assert.equal(view.feedback, 'Rubish');
                 done();
+            });
+        });
+
+        it('should handle empty reason', function(done) {
+            view.translation = {REASONS: ['a', 'b']};
+            wait(function() {
+                wait(function() {
+                    assert.equal(view.reason, '');
+                    done();
+                });
+            });
+        });
+
+        it('should set reason', function(done) {
+            view.translation = {REASONS: ['a', 'b']};
+            wait(function() {
+                happen.click($el.find('.nps-Feedback-reason input')[0]);
+                wait(function() {
+                    assert.equal(view.reason, 'a');
+                    done();
+                });
             });
         });
 

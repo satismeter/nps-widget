@@ -4,7 +4,8 @@ var view = new View({
   position: 'mc',
   serviceName: 'SatisMeter',
   translation: {
-    FOLLOWUP_PROMOTER: 'Thats awesome!'
+    FOLLOWUP_PROMOTER: 'Thats awesome!',
+    REASONS: ['Better support', 'Make it cheaper']
   }
 });
 view.on('submit', function() {
