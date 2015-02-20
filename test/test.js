@@ -16,7 +16,9 @@ function wait(done) {
 
 describe('view', function() {
     before(function () {
-        Vue.config.debug = true;
+        if (!browser.msie || browser.version >= 10) {
+            Vue.config.debug = true;
+        });
         insertCss(autoprefixer.process('* {transition: none !important;}').css);
     });
 
