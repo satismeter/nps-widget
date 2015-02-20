@@ -5,7 +5,7 @@
   <div class="nps-Title">{{t('THANKS_IMPROVE')}}</div>
   <div
     class="nps-Feedback-reason"
-    v-if="t('REASONS').length"
+    v-if="hasReasons"
     >
     <label v-repeat="r: t('REASONS')">
       <input type="radio" name="nps-reason" v-model="reason" value="{{r}}"> {{r}}

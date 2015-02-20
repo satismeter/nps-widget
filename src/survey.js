@@ -95,6 +95,9 @@ var Survey = Vue.extend({
         return this.t(key) || this.t('FOLLOWUP');
       }
       return this.t('FOLLOWUP');
+    hasReasons: function() {
+      var reasons = this.t('REASONS');
+      return reasons && reasons.length > 0;
     }
   },
   methods: {
