@@ -1,6 +1,6 @@
 <div
-  class="nps-Feedback nps-expand"
-  v-transition="nps-expand"
+  class="nps-Feedback"
+  v-transition="slide"
   >
   <div class="nps-Title">{{t('THANKS_IMPROVE')}}</div>
   <div
@@ -18,17 +18,12 @@
     class="nps-Feedback-text"
     ></textarea>
 
-  <div class="nps-cf">
-    <div v-partial="powered-by" class="nps-left"></div>
-
-    <div class="nps-Survey-buttons">
+    <div class="nps-cf">
       <button
         type="button"
-        class="nps-Button nps-Survey-submit nps-fade"
-        v-transition="nps-fade"
+        class="nps-Button nps-Feedback-submit"
         v-on="click: submit"
         >{{t('SUBMIT')}}</button>
-    </div>
-  </div>
+      </div>
 
 </div>

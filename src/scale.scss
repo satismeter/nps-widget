@@ -1,14 +1,14 @@
 .nps-Scale {
   margin-top: 14px;
   font-size: 0;
-  width: 372px;
+  width: (11*32px + 10*2px);
 }
 .nps-Scale-value {
   display: inline-block;
   cursor: pointer;
   width: 32px;
   height: 32px;
-  border-radius: 16px;
+  border-radius: 50%;
   margin-right: 2px;
 }
 .nps-Scale-value:last-of-type {
@@ -17,14 +17,12 @@
 @each $theme, $base in $themes {
   .nps-Survey--#{$theme} .nps-Scale-value {
     background-color: mix($base, white, 20%);
-    &.nps-is-selected {
-      background-color: $base;
-    }
     &:hover {
       background-color: mix($base, white, 30%);
     }
+    &.nps-is-selected,
     &.nps-is-selected:hover {
-      background-color: darken($base, 10%);
+      background-color: $base;
     }
   }
 }

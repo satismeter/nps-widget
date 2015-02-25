@@ -1,0 +1,15 @@
+<div
+  class="nps-Bar"
+  v-transition="nps-slide"
+  v-show="visible"
+  >
+
+  <button
+    type="button"
+    class="nps-Bar-close nps-fade"
+    v-on="click: close"
+    v-transition="nps-fade"
+  >&#x2715;</button>
+
+  <content>
+</div>

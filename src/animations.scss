@@ -7,13 +7,7 @@
   opacity: 0;
 }
 
-.nps-expand {
-  max-height: 600px;
-  overflow: hidden;
-  transition: max-height 500ms, opacity 500ms;
-}
-.nps-expand-enter,
-.nps-expand-leave {
-  max-height: 0px;
-  opacity: 0;
+.nps-slide-enter,
+.nps-slide-leave {
+  bottom: -200px !important;
 }

@@ -3,13 +3,20 @@
   <div
     v-component="{{skin}}"
     v-events="close: onClose"
+    v-el="skin"
     position="{{position}}"
     visible="{{visible}}"
     preview="{{preview}}"
     show-close-icon="{{showCloseIcon}}"
     >
 
-    <div v-partial="{{state}}"></div>
+    <div class="nps-Survey-bounding">
+        <div class="nps-Survey-content">
+            <template v-partial="{{state}}"></template>
+        </div>
+    </div>
+
+    <template v-partial="powered-by"></template>
 
   </div>
 

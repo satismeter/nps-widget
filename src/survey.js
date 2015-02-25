@@ -15,6 +15,7 @@ var FILLED_STATE = 'filled';
 
 var DIALOG_SKIN = 'dialog';
 var PANEL_SKIN = 'panel';
+var BAR_SKIN = 'bar';
 
 var Survey = Vue.extend({
   template: require('./survey.html'),
@@ -28,7 +29,8 @@ var Survey = Vue.extend({
   },
   components: {
     dialog: require('./dialog'),
-    panel: require('./panel')
+    panel: require('./panel'),
+    bar: require('./bar')
   },
   replace: true,
   data: function() {
@@ -69,6 +71,7 @@ var Survey = Vue.extend({
       var selectedRating = this.rating;
       return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(rating) {
         return {
+          rating: rating,
           selected: selectedRating !== null && rating <= selectedRating
         };
       });
@@ -116,7 +119,7 @@ var Survey = Vue.extend({
     selectRating: function (rating) {
       this.rating = rating;
       this.state = FEEDBACK_STATE;
-      this.focusFeedback();
+      setTimeout(bind(this, this.focusFeedback), 500);
     },
     focusFeedback: function() {
       this.nextTick(function () {
@@ -137,7 +140,7 @@ var Survey = Vue.extend({
     submit: function() {
       this.$emit('submit');
       this.state = THANKS_STATE;
-      if (this.skin === DIALOG_SKIN) {
+      if (this.skin === DIALOG_SKIN || this.skin === BAR_SKIN) {
         this.setTimeout(function() {
           this.hide();
         }, 800);
@@ -147,7 +150,50 @@ var Survey = Vue.extend({
       this.hide();
       this.$emit('dismiss');
     }
+  },
+  transitions: {
+    slide: {
+      leave: function(el, done) {
+        this.leave = el;
+        setTimeout(done, 600);
+      },
+      enter: function(enter, done) {
+        var content = enter.parentNode;
+        var bounding = content.parentNode;
+        var leave = this.leave;
+
+        bounding.style.height = getComputedStyle(leave).height;
+        content.style.top = 0;
+        leave.style.opacity = 1;
+
+        setTimeout(function() {
+          setTransition(bounding, 'height 500ms');
+          setTransition(content, 'top 500ms');
+          setTransition(leave, 'opacity 500ms');
+          setTimeout(function() {
+            leave.style.opacity = 0;
+            content.style.top = '-' + bounding.style.height;
+            bounding.style.height = getComputedStyle(enter).height;
+
+            setTimeout(function() {
+              setTransition(content, '');
+              content.style.top = '';
+              leave.style.display = 'none';
+
+              bounding.style.height = '';
+              setTransition(bounding, '');
+              done();
+            }, 500);
+          }, 0);
+        }, 0);
+      }
+    }
   }
 });
+
+function setTransition(el, transition) {
+  el.style.transition = transition;
+  el.style['-webkit-transition'] = transition;
+}
 
 module.exports = Survey;

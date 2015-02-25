@@ -4,8 +4,9 @@
         v-repeat="ratings"
         class="nps-Scale-value"
         v-class="nps-is-selected: selected"
-        v-on="click: selectRating($index)"
-        ></div>
+        v-on="click: selectRating(rating)"
+        data-rating="{{rating}}"
+        >{{rating}}</div>
     </div>
   <div class="nps-cf">
     <div class="nps-Scale-hint nps-Scale-hint--unlikely">
