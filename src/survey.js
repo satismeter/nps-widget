@@ -110,7 +110,8 @@ var Survey = Vue.extend({
           return this.translation['IMPROVE'];
         }
       }
-      var messages = MESSAGES[this.language] || MESSAGES.en;
+      var shortLanguage = is.string(this.language) ? this.language.split('_')[0] : '';
+      var messages = MESSAGES[this.language] || MESSAGES[shortLanguage] || MESSAGES.en;
       return messages[key];
     },
     selectRating: function (rating) {

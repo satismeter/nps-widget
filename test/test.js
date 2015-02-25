@@ -250,6 +250,13 @@ describe('view', function() {
                 done();
             });
         });
+        it('should handle cs_CZ form', function(done) {
+            view.language = 'cs_CZ';
+            wait(function() {
+                assert.match($(view.el).text(), /Doporučili byste/);
+                done();
+            });
+        });
         it('should handle cz alias', function(done) {
             view.language = 'cz';
             wait(function() {
