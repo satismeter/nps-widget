@@ -186,7 +186,6 @@ var Survey = Vue.extend({
         setTimeout(done, 600);
       },
       enter: function(enter, done) {
-        console.log(enter);
         var content = enter.parentNode;
         var bounding = content.parentNode;
         var leave = this.leave;
