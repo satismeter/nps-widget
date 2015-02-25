@@ -7,9 +7,37 @@
   <button
     type="button"
     class="nps-Bar-close nps-fade"
-    v-on="click: close"
+    v-if="showCloseIcon"
+    v-on="click: onClose"
     v-transition="nps-fade"
   >&#x2715;</button>
 
-  <content>
+
+  <div class="nps-Survey-bounding">
+      <div class="nps-Survey-content">
+
+        <div v-if="state == 'rating'" v-transition="slide">
+          <div class="nps-Title nps-center">{{{ likelyHtml }}}</div>
+          <template v-partial="rating"></template>
+        </div>
+
+        <div v-if="state == 'feedback'" v-transition="slide">
+          <div class="nps-Title">{{ t('THANKS_IMPROVE') }}</div>
+          <template v-partial="feedback"></template>
+        </div>
+
+        <div v-if="state == 'thanks'" v-transition="slide">
+          <template v-partial="thanks"></template>
+        </div>
+
+        <div v-if="state == 'filled'" v-transition="slide">
+          <template v-partial="filled"></template>
+        </div>
+
+      </div>
+  </div>
+
+  <template v-partial="powered-by"></template>
+
+
 </div>

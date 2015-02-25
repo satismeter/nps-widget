@@ -25,12 +25,10 @@ var Survey = Vue.extend({
     scale: require('./scale.html'),
     thanks: require('./thanks.html'),
     filled: require('./filled.html'),
-    'powered-by': require('./powered-by.html')
-  },
-  components: {
-    dialog: require('./dialog'),
-    panel: require('./panel'),
-    bar: require('./bar')
+    'powered-by': require('./powered-by.html'),
+    panel: require('./panel.html'),
+    dialog: require('./dialog.html'),
+    bar: require('./bar.html')
   },
   replace: true,
   data: function() {
@@ -57,7 +55,7 @@ var Survey = Vue.extend({
   },
   ready: function() {
     if (this.showFeedbackText) {
-      this.focusFeedback();
+      setTimeout(bind(this, this.focusFeedback), 600);
     }
   },
   computed: {
@@ -85,9 +83,39 @@ var Survey = Vue.extend({
     hasReasons: function() {
       var reasons = this.t('REASONS');
       return reasons && reasons.length > 0;
+    },
+    vertical: function() {
+      switch (this.position[0]) {
+        case 'b':
+          return 'bottom';
+        case 't':
+          return 'top';
+        default:
+          return 'middle';
+      }
+    },
+    horizontal: function() {
+      switch (this.position[1]) {
+        case 'l':
+          return 'left';
+        case 'r':
+          return 'right';
+        default:
+          return 'center';
+      }
+    },
+    previewClass: function() {
+      if (this.preview) {
+        return 'nps-Dialog--preview';
+      }
+      return '';
     }
   },
   methods: {
+    inState: function() {
+      var states = Array.prototype.slice.call(arguments);
+      return states.indexOf(this.state) !== -1;
+    },
     nextTick: function(fn) {
       Vue.nextTick(bind(this, function() {
         if (this._isDestroyed) {
@@ -158,6 +186,7 @@ var Survey = Vue.extend({
         setTimeout(done, 600);
       },
       enter: function(enter, done) {
+        console.log(enter);
         var content = enter.parentNode;
         var bounding = content.parentNode;
         var leave = this.leave;

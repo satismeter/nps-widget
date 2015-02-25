@@ -20,9 +20,11 @@
     &:hover {
       background-color: mix($base, white, 30%);
     }
-    &.nps-is-selected,
-    &.nps-is-selected:hover {
+    &.nps-is-selected {
       background-color: $base;
+    }
+    &.nps-is-selected:hover {
+      background-color: darken($base, 10%);
     }
   }
 }

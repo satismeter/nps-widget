@@ -1,4 +1,8 @@
+var Vue = require('vue');
 var View = require('../src/index.js');
+
+Vue.config.debug = true;
+
 var view = new View({
   theme: 'lightBlue',
   skin: 'bar',

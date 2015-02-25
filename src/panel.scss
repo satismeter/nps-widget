@@ -14,7 +14,7 @@
 .nps-Panel {
   font-size: 16px;
   color: #333;
-  max-width: 500px;
+  max-width: 600px;
   min-width: 375px;
   margin: 20px auto;
   padding: 20px;
@@ -26,4 +26,8 @@
 
 .nps-Panel .nps-Title {
   font-size: 18px;
+}
+
+.nps-Panel .nps-Rating {
+  margin-bottom: 20px;
 }

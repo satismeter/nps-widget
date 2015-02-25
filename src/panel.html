@@ -2,5 +2,17 @@
   class="nps-Panel"
   v-show="visible"
   >
-  <content>
+
+  <template v-if="state == 'rating' || state == 'feedback'">
+    <div class="nps-Title">{{{ likelyHtml }}}</div>
+    <div v-partial="rating"></div>
+    <div class="nps-Title">{{ t('FOLLOWUP') }}</div>
+    <div v-partial="feedback"></div>
+  </template>
+
+  <div v-partial="thanks" v-if="state == 'thanks'"></div>
+  <div v-partial="filled" v-if="state == 'filled'"></div>
+
 </div>
+
+<div v-partial="powered-by" class="nps-center"></div>

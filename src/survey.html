@@ -1,13 +1,7 @@
 <div class="nps-Survey nps-Survey--{{theme}}">
 
-  <div
-    v-component="{{skin}}"
-    v-events="close: onClose"
-    v-el="skin"
-    position="{{position}}"
-    visible="{{visible}}"
-    preview="{{preview}}"
-    show-close-icon="{{showCloseIcon}}"
+  <template
+    v-partial="{{skin}}"
     >
 
     <div class="nps-Survey-bounding">
@@ -18,6 +12,6 @@
 
     <template v-partial="powered-by"></template>
 
-  </div>
+  </template>
 
 </div>
