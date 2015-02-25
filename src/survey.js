@@ -17,6 +17,11 @@ var DIALOG_SKIN = 'dialog';
 var PANEL_SKIN = 'panel';
 var BAR_SKIN = 'bar';
 
+function setTransition(el, transition) {
+  el.style.transition = transition;
+  el.style['-webkit-transition'] = transition;
+}
+
 var Survey = Vue.extend({
   template: require('./survey.html'),
   partials: {
@@ -50,12 +55,13 @@ var Survey = Vue.extend({
       skin: DIALOG_SKIN,
       theme: 'pink',
       preview: false, // preview mode - positioned inside a preview div
-      position: 'cr' // tl (top-right), tr, bl, br
+      position: 'cr', // tl (top-right), tr, bl, br
+      test: false
     };
   },
   ready: function() {
     if (this.showFeedbackText) {
-      setTimeout(bind(this, this.focusFeedback), 600);
+      this.setTimeout(bind(this, this.focusFeedback), 600);
     }
   },
   computed: {
@@ -182,10 +188,16 @@ var Survey = Vue.extend({
   transitions: {
     slide: {
       leave: function(el, done) {
+        if (this.test) {
+          return done();
+        }
         this.leave = el;
-        setTimeout(done, 600);
+        this.setTimeout(done, 600);
       },
       enter: function(enter, done) {
+        if (this.test) {
+          return done();
+        }
         var content = enter.parentNode;
         var bounding = content.parentNode;
         var leave = this.leave;
@@ -194,16 +206,16 @@ var Survey = Vue.extend({
         content.style.top = 0;
         leave.style.opacity = 1;
 
-        setTimeout(function() {
+        this.setTimeout(function() {
           setTransition(bounding, 'height 500ms');
           setTransition(content, 'top 500ms');
           setTransition(leave, 'opacity 500ms');
-          setTimeout(function() {
+          this.setTimeout(function() {
             leave.style.opacity = 0;
             content.style.top = '-' + bounding.style.height;
             bounding.style.height = getComputedStyle(enter).height;
 
-            setTimeout(function() {
+            this.setTimeout(function() {
               setTransition(content, '');
               content.style.top = '';
               leave.style.display = 'none';
@@ -218,10 +230,5 @@ var Survey = Vue.extend({
     }
   }
 });
-
-function setTransition(el, transition) {
-  el.style.transition = transition;
-  el.style['-webkit-transition'] = transition;
-}
 
 module.exports = Survey;

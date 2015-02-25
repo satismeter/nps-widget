@@ -24,7 +24,7 @@ describe('view', function() {
 
     var view, $el;
     beforeEach(function(done) {
-        view = new View({visible: true});
+        view = new View({visible: true, test: true});
         $el = $(view.el);
         wait(done);
     });
@@ -59,7 +59,7 @@ describe('view', function() {
 
     describe('rating screen', function() {
         it('should not display submit', function() {
-            assert.lengthOf($el.find('.nps-Survey-submit'), 0);
+            assert.lengthOf($el.find('.nps-Feedback-submit'), 0);
         });
         it('should move to next step', function(done) {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
@@ -102,7 +102,7 @@ describe('view', function() {
             wait(done);
         });
         it('should display button', function() {
-            assert.equal($el.find('.nps-Survey-submit').length, 1);
+            assert.equal($el.find('.nps-Feedback-submit').length, 1);
         });
         it('should show feedback form', function() {
             assert.lengthOf($el.find('.nps-Feedback-text'), 1);
@@ -131,7 +131,7 @@ describe('view', function() {
                 called = true;
             });
 
-            happen.click($el.find('.nps-Survey-submit')[0]);
+            happen.click($el.find('.nps-Feedback-submit')[0]);
             wait(function() {
                 assert.isTrue(called);
                 done();
@@ -152,7 +152,7 @@ describe('view', function() {
                 called = true;
             });
             wait(function() {
-                happen.click($el.find('.nps-Survey-submit')[0]);
+                happen.click($el.find('.nps-Feedback-submit')[0]);
                 wait(function() {
                     assert.isTrue(called);
                     assert.equal(view.feedback, '');
@@ -202,7 +202,7 @@ describe('view', function() {
             $el.find('.nps-Feedback-text').val('Rubish');
             happen.keyup($el.find('.nps-Feedback-text')[0]);
             wait(function() {
-                happen.click($el.find('.nps-Survey-submit')[0]);
+                happen.click($el.find('.nps-Feedback-submit')[0]);
                 wait(function() {
                     assert.match($el.text(),
                         /Thank you for your feedback/);
@@ -211,7 +211,7 @@ describe('view', function() {
             });
         });
         it('should close window on submit', function(done) {
-            happen.click($el.find('.nps-Survey-submit')[0]);
+            happen.click($el.find('.nps-Feedback-submit')[0]);
             setTimeout(function() {
                 assert.isFalse(view.visible);
                 done();
