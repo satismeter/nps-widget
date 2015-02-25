@@ -3,15 +3,21 @@
   v-show="visible"
   >
 
-  <template v-if="state == 'rating' || state == 'feedback'">
-    <div class="nps-Title">{{{ likelyHtml }}}</div>
-    <div v-partial="rating"></div>
-    <div class="nps-Title">{{ t('FOLLOWUP') }}</div>
-    <div v-partial="feedback"></div>
-  </template>
+  <div class="nps-Survey-bounding">
+      <div class="nps-Survey-content">
 
-  <div v-partial="thanks" v-if="state == 'thanks'"></div>
-  <div v-partial="filled" v-if="state == 'filled'"></div>
+      <div v-if="state == 'rating' || state == 'feedback'" v-transition="slide">
+        <div class="nps-Title">{{{ likelyHtml }}}</div>
+        <div v-partial="rating"></div>
+        <div class="nps-Title">{{ t('FOLLOWUP') }}</div>
+        <div v-partial="feedback"></div>
+      </div>
+
+      <div v-partial="thanks" v-if="state == 'thanks'" v-transition="slide"></div>
+      <div v-partial="filled" v-if="state == 'filled'" v-transition="slide"></div>
+
+    </div>
+  </div>
 
 </div>
 
