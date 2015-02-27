@@ -111,6 +111,18 @@ var Survey = Vue.extend({
         return 'nps-Dialog--preview';
       }
       return '';
+    },
+    category: function() {
+      if (!is.number(this.rating)) {
+        return null;
+      }
+      if (this.rating <= 6) {
+        return 'detractor';
+      }
+      if (this.rating <= 8) {
+        return 'passive';
+      }
+      return 'promoter'
     }
   },
   methods: {
@@ -134,7 +146,7 @@ var Survey = Vue.extend({
         fn.call(this);
       }), timeout);
     },
-    t: function(key, param) {
+    _t: function(key, param) {
       if (this.translation) {
         if (this.translation[key]) {
           return this.translation[key];
@@ -145,6 +157,15 @@ var Survey = Vue.extend({
       }
       var messages = MESSAGES[this.language] || MESSAGES.en;
       return messages[key];
+    },
+    t: function(key, param) {
+      if (this.category) {
+        var value = this._t(key + '_' + this.category.toUpperCase());
+        if (value) {
+          return value;
+        }
+      }
+      return this._t(key, value);
     },
     selectRating: function (rating) {
       this.rating = rating;

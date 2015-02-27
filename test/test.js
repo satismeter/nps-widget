@@ -322,35 +322,33 @@ describe('view', function() {
         });
 
         if (!browser.msie || browser.version >= 10) {
-            describe.skip('conditional followup', function() {
-                // Conditional followup not used any more.
-                // Keeping test in case we re-introduce the functionality
-                // in more general sense.
+            describe('conditional followup', function() {
                 beforeEach(function() {
                     view.translation = {
-                        FOLLOWUP_DETRACTOR: 'Proc?',
-                        FOLLOWUP_PASSIVE: 'Co muzeme zlepsit?',
-                        FOLLOWUP_PROMOTER: 'Co muzeme zhorsit?'
+                        THANKS_IMPROVE_DETRACTOR: 'Proc?',
+                        THANKS_IMPROVE_PASSIVE: 'Co muzeme zlepsit?',
+                        THANKS_IMPROVE_PROMOTER: 'Co muzeme zhorsit?'
                     };
+                    view.state = 'feedback';
                 });
                 it('should show detractor followup', function(done) {
                     view.rating = 0;
                     wait(function() {
-                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Proc?');
+                        assert.equal($el.find('.nps-Title').text(), 'Proc?');
                         done();
                     });
                 });
                 it('should show passive followup', function(done) {
                     view.rating = 7;
                     wait(function() {
-                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zlepsit?');
+                        assert.equal($el.find('.nps-Title').text(), 'Co muzeme zlepsit?');
                         done();
                     });
                 });
                 it('should show promoter followup', function(done) {
                     view.rating = 10;
                     wait(function() {
-                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zhorsit?');
+                        assert.equal($el.find('.nps-Title').text(), 'Co muzeme zhorsit?');
                         done();
                     });
                 });
