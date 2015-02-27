@@ -20,6 +20,12 @@
   right: 20px;
 }
 
+@media (max-width: 700px) {
+  .nps-Bar .nps-PoweredBy {
+    display: none;
+  }
+}
+
 .nps-Bar-close {
   position: absolute;
   right: 10px;
