@@ -11,3 +11,13 @@
 .nps-slide-leave {
   bottom: -600px !important;
 }
+
+.nps-next {
+  transition: height 500ms;
+}
+.nps-next > div {
+  transition: top 500ms;
+}
+.nps-next > div > div {
+  transition: opacity 500ms;
+}

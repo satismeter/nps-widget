@@ -3,6 +3,7 @@ var insertCss = require('insert-css');
 var bind = require('component-bind');
 var escape = require('escape-html');
 var is = require('is');
+var dom = require('vue/src/util/dom');
 
 var MESSAGES = require('nps-translations');
 
@@ -16,11 +17,6 @@ var FILLED_STATE = 'filled';
 var DIALOG_SKIN = 'dialog';
 var PANEL_SKIN = 'panel';
 var BAR_SKIN = 'bar';
-
-function setTransition(el, transition) {
-  el.style.transition = transition;
-  el.style['-webkit-transition'] = transition;
-}
 
 var Survey = Vue.extend({
   template: require('./survey.html'),
@@ -207,21 +203,17 @@ var Survey = Vue.extend({
         leave.style.opacity = 1;
 
         this.setTimeout(function() {
-          setTransition(bounding, 'height 500ms');
-          setTransition(content, 'top 500ms');
-          setTransition(leave, 'opacity 500ms');
+          dom.addClass(bounding, 'nps-next');
           this.setTimeout(function() {
-            leave.style.opacity = 0;
             content.style.top = '-' + bounding.style.height;
             bounding.style.height = getComputedStyle(enter).height;
+            leave.style.opacity = 0;
 
             this.setTimeout(function() {
-              setTransition(content, '');
+              dom.removeClass(bounding, 'nps-next');
               content.style.top = '';
               leave.style.display = 'none';
-
               bounding.style.height = '';
-              setTransition(bounding, '');
               done();
             }, 500);
           }, 0);
