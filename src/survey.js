@@ -108,7 +108,7 @@ var Survey = Vue.extend({
     },
     previewClass: function() {
       if (this.preview) {
-        return 'nps-Dialog--preview';
+        return 'nps-preview';
       }
       return '';
     },

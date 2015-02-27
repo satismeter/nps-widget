@@ -1,5 +1,5 @@
 .nps-Bar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -10,6 +10,9 @@
   transition: bottom 500ms;
   overflow: hidden;
   z-index: 2147483646;
+}
+.nps-preview .nps-Bar {
+  position: absolute;
 }
 .nps-Bar .nps-PoweredBy {
   position: absolute;
