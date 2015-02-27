@@ -210,7 +210,10 @@ var Survey = Vue.extend({
           return done();
         }
         this.leave = el;
-        this.setTimeout(done, 600);
+        this.setTimeout(function() {
+          done();
+          delete this.leave;
+        }, 600);
       },
       enter: function(enter, done) {
         if (this.test) {
@@ -220,21 +223,27 @@ var Survey = Vue.extend({
         var bounding = content.parentNode;
         var leave = this.leave;
 
-        bounding.style.height = getComputedStyle(leave).height;
+        bounding.style.height = getComputedStyle(leave || enter).height;
         content.style.top = 0;
-        leave.style.opacity = 1;
+        if (leave) {
+          leave.style.opacity = 1;
+        }
 
         this.setTimeout(function() {
           dom.addClass(bounding, 'nps-next');
           this.setTimeout(function() {
             content.style.top = '-' + bounding.style.height;
             bounding.style.height = getComputedStyle(enter).height;
-            leave.style.opacity = 0;
+            if (leave) {
+              leave.style.opacity = 0;
+            }
 
             this.setTimeout(function() {
               dom.removeClass(bounding, 'nps-next');
               content.style.top = '';
-              leave.style.display = 'none';
+              if (leave) {
+                leave.style.display = 'none';
+              }
               bounding.style.height = '';
               done();
             }, 500);
