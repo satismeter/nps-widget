@@ -5,12 +5,18 @@ var insertCss = require('insert-css');
 var $ = require('jquery');
 var browser = require('bowser').browser;
 var autoprefixer = require('autoprefixer-core');
+var Promise = require('rsvp').Promise;
 
 var View = require('../src/index');
 
 function wait(done) {
-    Vue.nextTick(function() {
-        done();
+    return new Promise(function(resolve) {
+        Vue.nextTick(function() {
+            if (done) {
+                done();
+            }
+            resolve();
+        });
     });
 }
 
@@ -79,7 +85,7 @@ describe('view', function() {
                 done();
             });
         });
-        it('should submit correct rating', function() {
+        it('should set correct rating', function() {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
             assert.equal(view.rating, 5);
         });
@@ -381,12 +387,40 @@ describe('view', function() {
         });
         it('should escape service name', function(done) {
             view.serviceName = '<script>alert("aaa")</script>';
-            wait(function () {
+            wait().then(function () {
+                console.log('wait done!');
                 assert.include($el.text(), '<script>alert("aaa")</script>');
-                done();
-            });
+            }).then(done).catch(done);
         });
     });
 
+    describe('walkthrough', function() {
+        ['panel', 'dialog', 'bar'].forEach(function(skin) {
+            it('should work for skin ' + skin, function(done) {
+                view.skin = skin;
+                view.translation = {
+                    REASONS: ['a', 'b']
+                };
+                wait().then(function() {
+                    happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
+                    return wait();
+                }).then(function() {
+                    $el.find('.nps-Feedback-text').val('Rubish');
+                    happen.once($el.find('.nps-Feedback-text')[0], {type: 'input'});
+                    return wait();
+                }).then(function() {
+                    happen.click($el.find('.nps-Feedback-reason input')[0]);
+                    return wait();
+                }).then(function() {
+                    happen.click($el.find('.nps-Feedback-submit')[0]);
+                    return wait();
+                }).then(function() {
+                    assert.equal(view.rating, 5);
+                    assert.equal(view.feedback, 'Rubish');
+                    assert.equal(view.reason, 'a');
+                }).then(done).catch(done);
+            });
+        });
+    });
 
 });
