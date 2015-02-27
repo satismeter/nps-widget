@@ -20,6 +20,9 @@
   bottom: 10px;
   right: 20px;
 }
+.nps-preview .nps-Bar .nps-PoweredBy {
+  display: none;
+}
 
 @media (max-width: 700px) {
   .nps-Bar .nps-PoweredBy {
