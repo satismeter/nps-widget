@@ -9,7 +9,7 @@ var view = new View({
   position: 'mc',
   serviceName: 'Mention',
   translation: {
-    FOLLOWUP_PROMOTER: 'Thats awesome!',
+    THANKS_IMPROVE_PROMOTER: 'Thats awesome!',
     DETAILS: 'We\' like to hear more',
     REASONS: ['Too many mentions are missed', 'Mention is too expensive', 'Everything is perfect', 'Very important features are missing']
   }
