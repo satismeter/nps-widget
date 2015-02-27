@@ -3,6 +3,7 @@ var insertCss = require('insert-css');
 var bind = require('component-bind');
 var escape = require('escape-html');
 var is = require('is');
+var dom = require('vue/src/util/dom');
 
 var MESSAGES = require('nps-translations');
 
@@ -15,6 +16,7 @@ var FILLED_STATE = 'filled';
 
 var DIALOG_SKIN = 'dialog';
 var PANEL_SKIN = 'panel';
+var BAR_SKIN = 'bar';
 
 var Survey = Vue.extend({
   template: require('./survey.html'),
@@ -24,11 +26,10 @@ var Survey = Vue.extend({
     scale: require('./scale.html'),
     thanks: require('./thanks.html'),
     filled: require('./filled.html'),
-    'powered-by': require('./powered-by.html')
-  },
-  components: {
-    dialog: require('./dialog'),
-    panel: require('./panel')
+    'powered-by': require('./powered-by.html'),
+    panel: require('./panel.html'),
+    dialog: require('./dialog.html'),
+    bar: require('./bar.html')
   },
   replace: true,
   data: function() {
@@ -50,12 +51,13 @@ var Survey = Vue.extend({
       skin: DIALOG_SKIN,
       theme: 'pink',
       preview: false, // preview mode - positioned inside a preview div
-      position: 'cr' // tl (top-right), tr, bl, br
+      position: 'cr', // tl (top-right), tr, bl, br
+      test: false
     };
   },
   ready: function() {
     if (this.showFeedbackText) {
-      this.focusFeedback();
+      this.setTimeout(bind(this, this.focusFeedback), 600);
     }
   },
   computed: {
@@ -69,6 +71,7 @@ var Survey = Vue.extend({
       var selectedRating = this.rating;
       return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(rating) {
         return {
+          rating: rating,
           selected: selectedRating !== null && rating <= selectedRating
         };
       });
@@ -82,9 +85,51 @@ var Survey = Vue.extend({
     hasReasons: function() {
       var reasons = this.t('REASONS');
       return reasons && reasons.length > 0;
+    },
+    vertical: function() {
+      switch (this.position[0]) {
+        case 'b':
+          return 'bottom';
+        case 't':
+          return 'top';
+        default:
+          return 'middle';
+      }
+    },
+    horizontal: function() {
+      switch (this.position[1]) {
+        case 'l':
+          return 'left';
+        case 'r':
+          return 'right';
+        default:
+          return 'center';
+      }
+    },
+    previewClass: function() {
+      if (this.preview) {
+        return 'nps-preview';
+      }
+      return '';
+    },
+    category: function() {
+      if (!is.number(this.rating)) {
+        return null;
+      }
+      if (this.rating <= 6) {
+        return 'detractor';
+      }
+      if (this.rating <= 8) {
+        return 'passive';
+      }
+      return 'promoter'
     }
   },
   methods: {
+    inState: function() {
+      var states = Array.prototype.slice.call(arguments);
+      return states.indexOf(this.state) !== -1;
+    },
     nextTick: function(fn) {
       Vue.nextTick(bind(this, function() {
         if (this._isDestroyed) {
@@ -101,7 +146,7 @@ var Survey = Vue.extend({
         fn.call(this);
       }), timeout);
     },
-    t: function(key, param) {
+    _t: function(key, param) {
       if (this.translation) {
         if (this.translation[key]) {
           return this.translation[key];
@@ -114,10 +159,19 @@ var Survey = Vue.extend({
       var messages = MESSAGES[this.language] || MESSAGES[shortLanguage] || MESSAGES.en;
       return messages[key];
     },
+    t: function(key, param) {
+      if (this.category) {
+        var value = this._t(key + '_' + this.category.toUpperCase());
+        if (value) {
+          return value;
+        }
+      }
+      return this._t(key, value);
+    },
     selectRating: function (rating) {
       this.rating = rating;
       this.state = FEEDBACK_STATE;
-      this.focusFeedback();
+      setTimeout(bind(this, this.focusFeedback), 500);
     },
     focusFeedback: function() {
       this.nextTick(function () {
@@ -138,7 +192,7 @@ var Survey = Vue.extend({
     submit: function() {
       this.$emit('submit');
       this.state = THANKS_STATE;
-      if (this.skin === DIALOG_SKIN) {
+      if (this.skin === DIALOG_SKIN || this.skin === BAR_SKIN) {
         this.setTimeout(function() {
           this.hide();
         }, 800);
@@ -147,6 +201,46 @@ var Survey = Vue.extend({
     onClose: function() {
       this.hide();
       this.$emit('dismiss');
+    }
+  },
+  transitions: {
+    next: {
+      leave: function(el, done) {
+        if (this.test) {
+          return done();
+        }
+        this.leave = el;
+        this.setTimeout(done, 600);
+      },
+      enter: function(enter, done) {
+        if (this.test) {
+          return done();
+        }
+        var content = enter.parentNode;
+        var bounding = content.parentNode;
+        var leave = this.leave;
+
+        bounding.style.height = getComputedStyle(leave).height;
+        content.style.top = 0;
+        leave.style.opacity = 1;
+
+        this.setTimeout(function() {
+          dom.addClass(bounding, 'nps-next');
+          this.setTimeout(function() {
+            content.style.top = '-' + bounding.style.height;
+            bounding.style.height = getComputedStyle(enter).height;
+            leave.style.opacity = 0;
+
+            this.setTimeout(function() {
+              dom.removeClass(bounding, 'nps-next');
+              content.style.top = '';
+              leave.style.display = 'none';
+              bounding.style.height = '';
+              done();
+            }, 500);
+          }, 0);
+        }, 0);
+      }
     }
   }
 });

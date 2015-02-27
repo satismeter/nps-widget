@@ -1,16 +1,3 @@
 <div class="nps-Survey nps-Survey--{{theme}}">
-
-  <div
-    v-component="{{skin}}"
-    v-events="close: onClose"
-    position="{{position}}"
-    visible="{{visible}}"
-    preview="{{preview}}"
-    show-close-icon="{{showCloseIcon}}"
-    >
-
-    <div v-partial="{{state}}"></div>
-
-  </div>
-
+  <template v-partial="{{skin}}">
 </div>

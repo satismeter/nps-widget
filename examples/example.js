@@ -1,11 +1,17 @@
+var Vue = require('vue');
 var View = require('../src/index.js');
+
+Vue.config.debug = true;
+
 var view = new View({
-  skin: 'dialog',
+  theme: 'lightBlue',
+  skin: 'bar',
   position: 'mc',
-  serviceName: 'SatisMeter',
+  serviceName: 'Mention',
   translation: {
-    FOLLOWUP_PROMOTER: 'Thats awesome!',
-    REASONS: ['Better support', 'Make it cheaper']
+    THANKS_IMPROVE_PROMOTER: 'Thats awesome!',
+    DETAILS: 'We\' like to hear more',
+    REASONS: ['Too many mentions are missed', 'Mention is too expensive', 'Everything is perfect', 'Very important features are missing']
   }
 });
 view.on('submit', function() {

@@ -8,8 +8,9 @@
   width: 417px;
   z-index: 2147483646;
   transition: all 500ms;
+  box-sizing: border-box;
 }
-.nps-Dialog--preview {
+.nps-preview .nps-Dialog {
   position: absolute;
 }
 
@@ -96,4 +97,10 @@
       background-color: mix($base, white, 90%);
     }
   }
+}
+
+.nps-Dialog-FeedbackPoweredBy {
+  position: absolute;
+  bottom: 0;
+  line-height: 30px;
 }

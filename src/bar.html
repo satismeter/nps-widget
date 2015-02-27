@@ -1,18 +1,17 @@
 <div
-  class="nps-Dialog
-    nps-Dialog--{{vertical}}
-    nps-Dialog--{{horizontal}} {{previewClass}}"
+  class="nps-Bar"
+  v-transition="nps-slide"
   v-show="visible"
-  v-transition="nps-show"
   >
 
   <button
     type="button"
-    class="nps-Dialog-close nps-fade"
+    class="nps-Bar-close nps-fade"
     v-if="showCloseIcon"
     v-on="click: onClose"
     v-transition="nps-fade"
   >&#x2715;</button>
+
 
   <div class="nps-Survey-bounding">
       <div class="nps-Survey-content">
@@ -20,26 +19,25 @@
         <div v-if="state == 'rating'" v-transition="next">
           <div class="nps-Title nps-center">{{{ likelyHtml }}}</div>
           <template v-partial="rating"></template>
-          <div v-partial="powered-by"></div>
         </div>
 
         <div v-if="state == 'feedback'" v-transition="next">
           <div class="nps-Title">{{ t('THANKS_IMPROVE') }}</div>
-          <div v-partial="feedback"></div>
-          <div v-partial="powered-by" class="nps-Dialog-FeedbackPoweredBy"></div>
+          <template v-partial="feedback"></template>
         </div>
 
         <div v-if="state == 'thanks'" v-transition="next">
-          <div v-partial="thanks"></div>
-          <div v-partial="powered-by"></div>
+          <template v-partial="thanks"></template>
         </div>
 
         <div v-if="state == 'filled'" v-transition="next">
-          <div v-partial="filled"></div>
-          <div v-partial="powered-by"></div>
+          <template v-partial="filled"></template>
         </div>
 
       </div>
   </div>
+
+  <template v-partial="powered-by"></template>
+
 
 </div>

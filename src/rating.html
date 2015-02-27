@@ -1,14 +1,7 @@
 <div
-  class="nps-Rating nps-expand"
-  v-transition="nps-expand"
+  class="nps-Rating"
   >
 
-  <div class="nps-Title">
-    {{{ likelyHtml }}}
-  </div>
-
-  <div v-partial="scale"></div>
-
-  <div v-partial="powered-by"></div>
+  <template v-partial="scale"></template>
 
 </div>

@@ -5,12 +5,18 @@ var insertCss = require('insert-css');
 var $ = require('jquery');
 var browser = require('bowser').browser;
 var autoprefixer = require('autoprefixer-core');
+var Promise = require('rsvp').Promise;
 
 var View = require('../src/index');
 
 function wait(done) {
-    Vue.nextTick(function() {
-        done();
+    return new Promise(function(resolve) {
+        Vue.nextTick(function() {
+            if (done) {
+                done();
+            }
+            resolve();
+        });
     });
 }
 
@@ -24,7 +30,7 @@ describe('view', function() {
 
     var view, $el;
     beforeEach(function(done) {
-        view = new View({visible: true});
+        view = new View({visible: true, test: true});
         $el = $(view.el);
         wait(done);
     });
@@ -59,7 +65,7 @@ describe('view', function() {
 
     describe('rating screen', function() {
         it('should not display submit', function() {
-            assert.lengthOf($el.find('.nps-Survey-submit'), 0);
+            assert.lengthOf($el.find('.nps-Feedback-submit'), 0);
         });
         it('should move to next step', function(done) {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
@@ -79,7 +85,7 @@ describe('view', function() {
                 done();
             });
         });
-        it('should submit correct rating', function() {
+        it('should set correct rating', function() {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
             assert.equal(view.rating, 5);
         });
@@ -102,7 +108,7 @@ describe('view', function() {
             wait(done);
         });
         it('should display button', function() {
-            assert.equal($el.find('.nps-Survey-submit').length, 1);
+            assert.equal($el.find('.nps-Feedback-submit').length, 1);
         });
         it('should show feedback form', function() {
             assert.lengthOf($el.find('.nps-Feedback-text'), 1);
@@ -131,7 +137,7 @@ describe('view', function() {
                 called = true;
             });
 
-            happen.click($el.find('.nps-Survey-submit')[0]);
+            happen.click($el.find('.nps-Feedback-submit')[0]);
             wait(function() {
                 assert.isTrue(called);
                 done();
@@ -152,7 +158,7 @@ describe('view', function() {
                 called = true;
             });
             wait(function() {
-                happen.click($el.find('.nps-Survey-submit')[0]);
+                happen.click($el.find('.nps-Feedback-submit')[0]);
                 wait(function() {
                     assert.isTrue(called);
                     assert.equal(view.feedback, '');
@@ -202,7 +208,7 @@ describe('view', function() {
             $el.find('.nps-Feedback-text').val('Rubish');
             happen.keyup($el.find('.nps-Feedback-text')[0]);
             wait(function() {
-                happen.click($el.find('.nps-Survey-submit')[0]);
+                happen.click($el.find('.nps-Feedback-submit')[0]);
                 wait(function() {
                     assert.match($el.text(),
                         /Thank you for your feedback/);
@@ -211,7 +217,7 @@ describe('view', function() {
             });
         });
         it('should close window on submit', function(done) {
-            happen.click($el.find('.nps-Survey-submit')[0]);
+            happen.click($el.find('.nps-Feedback-submit')[0]);
             setTimeout(function() {
                 assert.isFalse(view.visible);
                 done();
@@ -323,35 +329,33 @@ describe('view', function() {
         });
 
         if (!browser.msie || browser.version >= 10) {
-            describe.skip('conditional followup', function() {
-                // Conditional followup not used any more.
-                // Keeping test in case we re-introduce the functionality
-                // in more general sense.
+            describe('conditional followup', function() {
                 beforeEach(function() {
                     view.translation = {
-                        FOLLOWUP_DETRACTOR: 'Proc?',
-                        FOLLOWUP_PASSIVE: 'Co muzeme zlepsit?',
-                        FOLLOWUP_PROMOTER: 'Co muzeme zhorsit?'
+                        THANKS_IMPROVE_DETRACTOR: 'Proc?',
+                        THANKS_IMPROVE_PASSIVE: 'Co muzeme zlepsit?',
+                        THANKS_IMPROVE_PROMOTER: 'Co muzeme zhorsit?'
                     };
+                    view.state = 'feedback';
                 });
                 it('should show detractor followup', function(done) {
                     view.rating = 0;
                     wait(function() {
-                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Proc?');
+                        assert.equal($el.find('.nps-Title').text(), 'Proc?');
                         done();
                     });
                 });
                 it('should show passive followup', function(done) {
                     view.rating = 7;
                     wait(function() {
-                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zlepsit?');
+                        assert.equal($el.find('.nps-Title').text(), 'Co muzeme zlepsit?');
                         done();
                     });
                 });
                 it('should show promoter followup', function(done) {
                     view.rating = 10;
                     wait(function() {
-                        assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'Co muzeme zhorsit?');
+                        assert.equal($el.find('.nps-Title').text(), 'Co muzeme zhorsit?');
                         done();
                     });
                 });
@@ -388,12 +392,40 @@ describe('view', function() {
         });
         it('should escape service name', function(done) {
             view.serviceName = '<script>alert("aaa")</script>';
-            wait(function () {
+            wait().then(function () {
+                console.log('wait done!');
                 assert.include($el.text(), '<script>alert("aaa")</script>');
-                done();
-            });
+            }).then(done).catch(done);
         });
     });
 
+    describe('walkthrough', function() {
+        ['panel', 'dialog', 'bar'].forEach(function(skin) {
+            it('should work for skin ' + skin, function(done) {
+                view.skin = skin;
+                view.translation = {
+                    REASONS: ['a', 'b']
+                };
+                wait().then(function() {
+                    happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
+                    return wait();
+                }).then(function() {
+                    $el.find('.nps-Feedback-text').val('Rubish');
+                    happen.once($el.find('.nps-Feedback-text')[0], {type: 'input'});
+                    return wait();
+                }).then(function() {
+                    happen.click($el.find('.nps-Feedback-reason input')[0]);
+                    return wait();
+                }).then(function() {
+                    happen.click($el.find('.nps-Feedback-submit')[0]);
+                    return wait();
+                }).then(function() {
+                    assert.equal(view.rating, 5);
+                    assert.equal(view.feedback, 'Rubish');
+                    assert.equal(view.reason, 'a');
+                }).then(done).catch(done);
+            });
+        });
+    });
 
 });

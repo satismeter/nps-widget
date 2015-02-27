@@ -8,15 +8,11 @@ release:
 	mversion $(VERSION) -mn
 	git push --tags
 
-test-ci: node_modules test
+test-ci:
 	$(BIN)/zuul test/test.js
 
-test: node_modules
-	$(BIN)/zuul --phantom test/test.js
-
-node_modules: package.json
-	npm i
-	touch $@
+test:
+	$(BIN)/zuul test/test.js --local --open
 
 clean-all:
 	rm -rf node_modules

@@ -5,23 +5,17 @@
   font-size: 14px;
   line-height: 1.42857143;
 }
-.nps-Survey,
-.nps-Survey * {
-  box-sizing: border-box;
-}
-
 .nps-Survey-buttons {
   float: right;
   margin-top: 14px;
 }
 
-.nps-Survey-poweredBy {
-  margin-top: 14px;
-  font-size: 12px;
-  line-height: 34px;
-  float: left;
+.nps-Survey-bounding {
+  position: relative;
+  overflow: hidden;
 }
-.nps-Survey-poweredBy > a {
-  text-decoration: none;
-  font-weight: bold;
+
+.nps-Survey-content {
+  position: relative;
+  top: 0;
 }
