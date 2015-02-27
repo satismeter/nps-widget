@@ -17,24 +17,24 @@
   <div class="nps-Survey-bounding">
       <div class="nps-Survey-content">
 
-        <div v-if="state == 'rating'" v-transition="slide">
+        <div v-if="state == 'rating'" v-transition="next">
           <div class="nps-Title nps-center">{{{ likelyHtml }}}</div>
           <template v-partial="rating"></template>
           <div v-partial="powered-by"></div>
         </div>
 
-        <div v-if="state == 'feedback'" v-transition="slide">
+        <div v-if="state == 'feedback'" v-transition="next">
           <div class="nps-Title">{{ t('THANKS_IMPROVE') }}</div>
           <div v-partial="feedback"></div>
           <div v-partial="powered-by" class="nps-Dialog-FeedbackPoweredBy"></div>
         </div>
 
-        <div v-if="state == 'thanks'" v-transition="slide">
+        <div v-if="state == 'thanks'" v-transition="next">
           <div v-partial="thanks"></div>
           <div v-partial="powered-by"></div>
         </div>
 
-        <div v-if="state == 'filled'" v-transition="slide">
+        <div v-if="state == 'filled'" v-transition="next">
           <div v-partial="filled"></div>
           <div v-partial="powered-by"></div>
         </div>

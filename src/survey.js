@@ -186,7 +186,7 @@ var Survey = Vue.extend({
     }
   },
   transitions: {
-    slide: {
+    next: {
       leave: function(el, done) {
         if (this.test) {
           return done();

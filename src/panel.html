@@ -6,15 +6,15 @@
   <div class="nps-Survey-bounding">
       <div class="nps-Survey-content">
 
-      <div v-if="state == 'rating' || state == 'feedback'" v-transition="slide">
+      <div v-if="state == 'rating' || state == 'feedback'" v-transition="next">
         <div class="nps-Title">{{{ likelyHtml }}}</div>
         <div v-partial="rating"></div>
         <div class="nps-Title">{{ t('FOLLOWUP') }}</div>
         <div v-partial="feedback"></div>
       </div>
 
-      <div v-partial="thanks" v-if="state == 'thanks'" v-transition="slide"></div>
-      <div v-partial="filled" v-if="state == 'filled'" v-transition="slide"></div>
+      <div v-partial="thanks" v-if="state == 'thanks'" v-transition="next"></div>
+      <div v-partial="filled" v-if="state == 'filled'" v-transition="next"></div>
 
     </div>
   </div>
