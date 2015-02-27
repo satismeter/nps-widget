@@ -18,7 +18,7 @@
       <div class="nps-Survey-content">
 
         <div v-if="state == 'rating'" v-transition="next">
-          <div class="nps-Title nps-center">{{{ likelyHtml }}}</div>
+          <div class="nps-Title">{{{ likelyHtml }}}</div>
           <template v-partial="rating"></template>
           <div v-partial="powered-by"></div>
         </div>
