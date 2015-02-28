@@ -209,6 +209,9 @@ var Survey = Vue.extend({
         if (this.test) {
           return done();
         }
+        if (!this.visible) {
+          return done();
+        }
         this.leave = el;
         this.setTimeout(function() {
           done();
@@ -217,6 +220,9 @@ var Survey = Vue.extend({
       },
       enter: function(enter, done) {
         if (this.test) {
+          return done();
+        }
+        if (!this.visible) {
           return done();
         }
         var content = enter.parentNode;
