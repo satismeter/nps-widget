@@ -57,7 +57,7 @@ var Survey = Vue.extend({
   },
   ready: function() {
     if (this.showFeedbackText) {
-      this.setTimeout(bind(this, this.focusFeedback), 600);
+      this.setTimeout(this.focusFeedback, 600);
     }
   },
   computed: {
@@ -171,7 +171,7 @@ var Survey = Vue.extend({
     selectRating: function (rating) {
       this.rating = rating;
       this.state = FEEDBACK_STATE;
-      setTimeout(bind(this, this.focusFeedback), 500);
+      this.setTimeout(this.focusFeedback, 500);
     },
     focusFeedback: function() {
       this.nextTick(function () {
