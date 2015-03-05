@@ -1,5 +1,6 @@
 var assert = require('chai').assert;
 var happen = require('happen');
+var sinon = require('sinon');
 var Vue = require('vue');
 var insertCss = require('insert-css');
 var $ = require('jquery');
@@ -89,14 +90,18 @@ describe('view', function() {
             happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
             assert.equal(view.rating, 5);
         });
+        it('should emit ratingSelect event', function() {
+            var spy = sinon.spy();
+            view.on('ratingSelect', spy);
+            happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
+            assert.isTrue(spy.called);
+        });
         it('should emit dismiss event', function(done) {
-            var called = false;
-            view.on('dismiss', function() {
-                called = true;
-            });
+            var spy = sinon.spy();
+            view.on('dismiss', spy);
             happen.click($el.find('.nps-Dialog-close')[0]);
             wait(function() {
-                assert.isTrue(called);
+                assert.isTrue(spy.called);
                 done();
             });
         });

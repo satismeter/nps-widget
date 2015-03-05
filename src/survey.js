@@ -172,6 +172,7 @@ var Survey = Vue.extend({
       this.rating = rating;
       this.state = FEEDBACK_STATE;
       this.setTimeout(this.focusFeedback, 500);
+      this.$emit('ratingSelect');
     },
     focusFeedback: function() {
       this.nextTick(function () {
