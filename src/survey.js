@@ -72,7 +72,7 @@ var Survey = Vue.extend({
       return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(rating) {
         return {
           rating: rating,
-          selected: selectedRating !== null && rating <= selectedRating
+          selected: is.number(selectedRating) && rating <= selectedRating
         };
       });
     },
