@@ -55,11 +55,6 @@ var Survey = Vue.extend({
       test: false
     };
   },
-  ready: function() {
-    if (this.showFeedbackText) {
-      this.setTimeout(this.focusFeedback, 600);
-    }
-  },
   computed: {
     showCloseIcon: function() {
       return this.state === FEEDBACK_STATE || this.state === RATING_STATE;
@@ -171,18 +166,7 @@ var Survey = Vue.extend({
     selectRating: function (rating) {
       this.rating = rating;
       this.state = FEEDBACK_STATE;
-      this.setTimeout(this.focusFeedback, 500);
       this.$emit('ratingSelect');
-    },
-    focusFeedback: function() {
-      this.nextTick(function () {
-        var $feedback = this.$el.querySelector('input') || this.$el.querySelector('textarea');
-        if ($feedback) {
-          this.nextTick(function() {
-            $feedback.focus();
-          });
-        }
-      });
     },
     show: function() {
       this.visible = true;
