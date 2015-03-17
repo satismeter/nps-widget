@@ -2,7 +2,7 @@ BIN=node_modules/.bin
 VERSION ?= patch
 
 serve: examples/example.js
-	$(BIN)/beefy $< 3000
+	$(BIN)/beefy $< 3000 --index=examples/index.html
 
 release:
 	mversion $(VERSION) -mn

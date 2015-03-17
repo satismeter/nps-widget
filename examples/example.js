@@ -5,7 +5,7 @@ Vue.config.debug = true;
 
 var view = new View({
   theme: 'lightBlue',
-  skin: 'bar',
+  skin: 'panel',
   position: 'mc',
   serviceName: 'Mention',
   translation: {
