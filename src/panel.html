@@ -9,8 +9,11 @@
       <div v-if="state == 'rating' || state == 'feedback'" v-transition="next">
         <div class="nps-Title">{{{ likelyHtml }}}</div>
         <div v-partial="rating"></div>
-        <div class="nps-Title">{{ t('FOLLOWUP') }}</div>
-        <div v-partial="feedback"></div>
+
+        <div v-if="state == 'feedback'" v-transition="nps-expand" class="nps-expand">
+          <div class="nps-Title">{{ t('THANKS_IMPROVE') }}</div>
+          <div v-partial="feedback"></div>
+        </div>
       </div>
 
       <div v-partial="thanks" v-if="state == 'thanks'" v-transition="next"></div>
