@@ -76,7 +76,8 @@ var Survey = Vue.extend({
       var serviceName = is.string(this.serviceName) ? this.serviceName.trim() : null;
       var us = this.t('US');
       var serviceHtml = serviceName ? '<b>' + escape(serviceName) + '</b>' : us;
-      return '<span>' + escape(this.t('HOW_LIKELY')).replace('%s', serviceHtml) + '</span>';
+      var howLikely = serviceName ? this.t('HOW_LIKELY') : this.t('HOW_LIKELY_US') || this.t('HOW_LIKELY');
+      return '<span>' + escape(howLikely).replace('%s', serviceHtml) + '</span>';
     },
     hasReasons: function() {
       var reasons = this.t('REASONS');
