@@ -52,7 +52,8 @@ var Survey = Vue.extend({
       theme: 'pink',
       preview: false, // preview mode - positioned inside a preview div
       position: 'cr', // tl (top-right), tr, bl, br
-      test: false
+      test: false,
+      showNumbers: false
     };
   },
   computed: {

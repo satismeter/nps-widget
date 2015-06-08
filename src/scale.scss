@@ -1,6 +1,5 @@
 .nps-Scale {
   margin-top: 14px;
-  font-size: 0;
   width: (11*32px + 10*2px);
 }
 .nps-Scale-value {
@@ -10,6 +9,12 @@
   height: 32px;
   border-radius: 50%;
   margin-right: 2px;
+  text-align: center;
+  line-height: 32px;
+}
+
+.nps-Scale-number {
+  color: #333;
 }
 
 @media (max-width: 480px) {

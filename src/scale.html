@@ -6,7 +6,16 @@
         v-class="nps-is-selected: selected"
         v-on="click: selectRating(rating)"
         data-rating="{{rating}}"
-        >{{rating}}</div>
+        >
+            <span class="nps-Scale-number">
+                <template v-if="showNumbers">
+                    {{rating}}
+                </template>
+                <template v-if="!showNumbers">
+                    &nbsp;
+                </template>
+            </span>
+        </div>
     </div>
   <div class="nps-cf">
     <div class="nps-Scale-hint nps-Scale-hint--unlikely">

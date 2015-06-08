@@ -15,7 +15,8 @@ var ATTRS = [
   'theme',
   'position',
   'preview',
-  'test'
+  'test',
+  'showNumbers'
 ];
 
 function View(options) {
