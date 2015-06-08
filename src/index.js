@@ -30,7 +30,9 @@ function View(options) {
     data.state = is.number(data.rating) ? 'feedback' : 'rating';
   }
 
-  this.survey = new Survey({data: data});
+  this.survey = new Survey({
+    data: data
+  });
   this.survey.$mount();
   this.survey.$appendTo(options.parent || document.body);
 }
