@@ -153,17 +153,25 @@ var Survey = Vue.extend({
         if (this.translation[key]) {
           return this.translation[key];
         }
-        if (key === 'FOLLOWUP' && this.translation['IMPROVE']) {
-          return this.translation['IMPROVE'];
-        }
       }
       var shortLanguage = is.string(this.language) ? this.language.split('_')[0] : '';
       var messages = MESSAGES[this.language] || MESSAGES[shortLanguage] || MESSAGES.en;
       return messages[key];
     },
     t: function(key, param) {
+      var value;
+      if (key === 'FOLLOWUP') {
+        value = this.t('IMPROVE');
+        if (value) {
+          return value;
+        }
+        value = this.t('THANKS_IMPROVE');
+        if (value) {
+          return value;
+        }
+      }
       if (this.category) {
-        var value = this._t(key + '_' + this.category.toUpperCase());
+        value = this._t(key + '_' + this.category.toUpperCase());
         if (value) {
           return value;
         }
