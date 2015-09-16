@@ -307,7 +307,7 @@ describe('view', function() {
 
         it('should show custom message', function(done) {
             view.translation = {
-                HOW_LIKELY: 'Doporucil bys vole?'
+                HOW_LIKELY_US: 'Doporucil bys vole?'
             };
             wait(function() {
                 assert.match($el.text(), /Doporucil bys vole?/);
