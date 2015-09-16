@@ -4,9 +4,9 @@ var View = require('../src/index.js');
 Vue.config.debug = true;
 
 var view = new View({
-  language: 'da',
+  language: 'nl',
   skin: 'bar',
-  showNumbers: true
+  serviceName: 'SoHosted'
 });
 view.on('submit', function() {
   console.log('submit', view.rating, view.feedback, view.reason);
