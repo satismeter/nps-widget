@@ -1,6 +1,10 @@
-<div
-  class="nps-Thanks"
-  >
+<div class="nps-Thanks">
   <div class="nps-Title">{{t('THANKS')}}</div>
+
+  <div v-if="t('PROMOTION_INTRO')" class="nps-Title nps-margin-t20">{{t('PROMOTION_INTRO')}}</div>
+
+  <a v-if="t('PROMOTION_TEXT')" class="nps-Button nps-margin-t20" target="_blank" href="{{t('PROMOTION_LINK')}}">{{t('PROMOTION_TEXT')}}</a>
+
+  <div v-if="t('PROMOTION_OUTRO')" class="nps-Title nps-margin-t20">{{t('PROMOTION_OUTRO')}}</div>
 
 </div>
