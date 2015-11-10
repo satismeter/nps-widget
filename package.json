@@ -12,7 +12,7 @@
     "widget"
   ],
   "dependencies": {
-    "browserify-autoprefixer": "jsedlacek/browserify-autoprefixer#1.0.0",
+    "browserify-autoprefixer": "jsedlacek/browserify-autoprefixer#1.1.0",
     "browserify-sass": "jsedlacek/browserify-sass#1.0.0",
     "component-bind": "^1.0.0",
     "escape-html": "^1.0.1",
