@@ -4,7 +4,7 @@ var View = require('../src/index.js');
 Vue.config.debug = true;
 
 var view = new View({
-  language: 'en',
+  language: 'pt',
   skin: 'panel',
   serviceName: 'ACME',
   theme: 'red',
