@@ -125,6 +125,9 @@ var Survey = Vue.extend({
         return 'passive';
       }
       return 'promoter'
+    },
+    direction: function() {
+      return this._t('DIRECTION') || 'ltr';
     }
   },
   methods: {

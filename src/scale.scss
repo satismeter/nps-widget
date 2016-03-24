@@ -58,3 +58,10 @@
 .nps-Scale-hint--likely {
   float: right;
 }
+
+.nps-Survey[dir="rtl"] .nps-Scale-hint--unlikely {
+  float: right;
+}
+.nps-Survey[dir="rtl"] .nps-Scale-hint--likely {
+  float: left;
+}
