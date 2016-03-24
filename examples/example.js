@@ -5,7 +5,7 @@ Vue.config.debug = true;
 
 var view = new View({
   language: 'fa',
-  skin: 'panel',
+  skin: 'dialog',
   serviceName: 'فارسی',
   theme: 'red',
   translation: {
