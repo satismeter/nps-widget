@@ -33,7 +33,7 @@
     "mocha": "^2.0.1",
     "rsvp": "^3.0.17",
     "sinon": "^1.13.0",
-    "zuul": "1.16.5"
+    "zuul": "3.10.1"
   },
   "browserify": {
     "transform": [
