@@ -4,9 +4,9 @@ var View = require('../src/index.js');
 Vue.config.debug = true;
 
 var view = new View({
-  language: 'fa',
+  language: 'zh',
   skin: 'dialog',
-  serviceName: 'فارسی',
+  serviceName: 'ACME',
   theme: 'red',
   translation: {
     PROMOTION_INTRO_PROMOTER: 'It would be super helpful if you could support us with a 5 stars rate on Google Play:',
