@@ -12,5 +12,4 @@ browsers:
     version: latest
 browserify:
   - transform: browserify-sass
-  - transform: browserify-autoprefixer
   - transform: partialify
