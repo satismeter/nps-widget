@@ -9,10 +9,10 @@ release:
 	git push --tags
 
 test-ci:
-	$(BIN)/zuul test/test.js
+	$(BIN)/zuul test/test.js --no-coverage
 
 test:
-	$(BIN)/zuul test/test.js --local --open
+	$(BIN)/zuul test/test.js --local --open --no-coverage
 
 clean-all:
 	rm -rf node_modules

@@ -10,3 +10,7 @@ browsers:
     version: 9..latest
   - name: ipad
     version: latest
+browserify:
+  - transform: browserify-sass
+  - transform: browserify-autoprefixer
+  - transform: partialify
