@@ -5,7 +5,7 @@ var escape = require('escape-html');
 var is = require('is');
 var dom = require('vue/src/util/dom');
 
-var MESSAGES = require('nps-translations');
+var MESSAGES = require('./messages');
 
 insertCss(require('./index.scss'));
 
@@ -45,7 +45,6 @@ var Survey = Vue.extend({
       translation: null,
 
       // settings
-      language: 'en',
       serviceName: null,
       poweredBy: true,
       skin: DIALOG_SKIN,
@@ -157,9 +156,7 @@ var Survey = Vue.extend({
           return this.translation[key];
         }
       }
-      var shortLanguage = is.string(this.language) ? this.language.split('_')[0] : '';
-      var messages = MESSAGES[this.language] || MESSAGES[shortLanguage] || MESSAGES.en;
-      return messages[key];
+      return MESSAGES[key];
     },
     t: function(key, param) {
       var value;

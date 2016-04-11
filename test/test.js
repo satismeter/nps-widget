@@ -250,40 +250,6 @@ describe('view', function() {
         });
     });
 
-    describe('translations', function() {
-        it('should use en as default', function() {
-            assert.match($(view.el).text(), /How likely/);
-        });
-        it('should translate to cs', function(done) {
-            view.language = 'cs';
-            wait(function() {
-                assert.match($(view.el).text(), /Doporučili byste/);
-                done();
-            });
-        });
-        it('should handle cs_CZ form', function(done) {
-            view.language = 'cs_CZ';
-            wait(function() {
-                assert.match($(view.el).text(), /Doporučili byste/);
-                done();
-            });
-        });
-        it('should handle cz alias', function(done) {
-            view.language = 'cz';
-            wait(function() {
-                assert.match($(view.el).text(), /Doporučili byste/);
-                done();
-            });
-        });
-        it('should handle invalid language', function(done) {
-            view.language = 'xx';
-            wait(function() {
-                assert.match($(view.el).text(), /How likely/);
-                done();
-            });
-        });
-    });
-
     describe('positioning', function() {
         it('should use tr as default', function() {
             assert.equal(view.position, 'cr');

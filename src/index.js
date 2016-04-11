@@ -8,7 +8,6 @@ var ATTRS = [
   'visible',
   'state',
   'translation',
-  'language',
   'serviceName',
   'poweredBy',
   'skin',
