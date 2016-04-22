@@ -31,7 +31,7 @@ module.exports = Base.extend({
         this.$dispatch(this.action, value);
       }
     },
-    getButtonStyle(number) {
+    getButtonStyle: function(number) {
       var isVisible = ((this.visibleValue >= number) && this.visibleValue != null)
       return 'background-color:' + (isVisible ? this.c('primary') : this.c('light')) + ';' +
         'color:' + (isVisible ? this.c('background') : this.c('foreground'));
