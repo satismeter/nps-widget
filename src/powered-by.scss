@@ -6,8 +6,3 @@
   text-decoration: none;
   font-weight: bold;
 }
-@each $theme, $base in $themes {
-  .nps-Survey--#{$theme} .nps-PoweredBy > a {
-    color: $base;
-  }
-}

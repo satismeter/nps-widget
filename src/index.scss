@@ -13,14 +13,17 @@ $themes: (
 
 @import 'animations';
 @import 'bar';
-@import 'button';
 @import 'dialog';
 @import 'feedback';
 @import 'panel';
 @import 'powered-by';
 @import 'rating';
-@import 'scale';
 @import 'survey';
 @import 'title';
 @import 'thanks';
 @import 'utils';
+
+@import 'components/button';
+@import 'components/link';
+@import 'components/textarea';
+@import 'components/scale';

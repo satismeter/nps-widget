@@ -14,13 +14,6 @@
   position: absolute;
 }
 
-@each $theme, $base in $themes {
-  .nps-Survey--#{$theme} .nps-Dialog {
-    border-color: $base;
-    box-shadow: rgba($base, 0.4) 0 1px 4px 0;
-  }
-}
-
 .nps-Dialog--top {
   top: 20px;
 }
@@ -90,15 +83,6 @@
 .nps-Dialog-close:focus {
   outline: 0;
 }
-@each $theme, $base in $themes {
-  .nps-Survey--#{$theme} .nps-Dialog-close {
-    background-color: $base;
-    &:hover {
-      background-color: mix($base, white, 90%);
-    }
-  }
-}
-
 .nps-Dialog-FeedbackPoweredBy {
   position: absolute;
   bottom: 0;

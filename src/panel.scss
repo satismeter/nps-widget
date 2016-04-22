@@ -4,12 +4,6 @@
   background-color: white;
 }
 
-@each $theme, $base in $themes {
-  .nps-Survey--#{$theme} .nps-Panel {
-    border-color: $base;
-    box-shadow: rgba($base, 0.4) 0 1px 4px 0;
-  }
-}
 
 .nps-Panel {
   font-size: 16px;

@@ -4,9 +4,6 @@
   left: 0;
   right: 0;
   text-align: center;
-  background-color: #FDFDFD;
-  box-shadow: rgba(#e7e7e7, 0.4) 0 1px 4px 0;
-  border-top: 1px solid #D5DFE2;
   transition: bottom 500ms;
   overflow: hidden;
   z-index: 2147483646;
@@ -30,22 +27,6 @@
   }
 }
 
-.nps-Bar-close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 18px;
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-  color: #555;
-}
-
-.nps-Bar-close:focus, .nps-Bar-close:hover {
-  outline: none;
-  color: #333;
-}
-
 .nps-Bar .nps-Scale {
   margin-left: auto;
   margin-right: auto;
@@ -58,7 +39,4 @@
 
 .nps-Bar .nps-Title {
   font-size: 14px;
-}
-.nps-Survey .nps-Bar {
-  color: #555;
 }

@@ -3,7 +3,11 @@
 
   <div v-if="t('PROMOTION_INTRO')" class="nps-Title nps-margin-t20">{{t('PROMOTION_INTRO')}}</div>
 
-  <a v-if="t('PROMOTION_TEXT')" class="nps-Button nps-margin-t20" target="_blank" href="{{t('PROMOTION_LINK')}}">{{t('PROMOTION_TEXT')}}</a>
+  <template v-if="t('PROMOTION_TEXT')">
+    <div style="margin-top: 20px">
+      <nps-link target="_blank" href="{{t('PROMOTION_LINK')}}">{{t('PROMOTION_TEXT')}}</nps-link>      
+    </div>
+  </template>
 
   <div v-if="t('PROMOTION_OUTRO')" class="nps-Title nps-margin-t20">{{t('PROMOTION_OUTRO')}}</div>
 

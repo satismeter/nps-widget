@@ -1,27 +1,20 @@
 <div
-  class="nps-Feedback"
-  >
+class="nps-Feedback"
+>
   <div
-    class="nps-Feedback-reason"
-    v-if="hasReasons"
-    >
-    <label v-repeat="r: t('REASONS')">
+  class="nps-Feedback-reason"
+  v-if="hasReasons"
+  >
+    <label v-repeat="r: t('REASONS')" v-el="reasons">
       <input type="radio" name="nps-reason" v-model="reason" value="{{r}}"> {{r}}
     </label>
   </div>
 
-  <textarea
-    placeholder="{{t('DETAILS')}}"
-    v-model="feedback"
-    class="nps-Feedback-text"
-    ></textarea>
+  <nps-textarea value="{{feedback}}" v-ref="feedback" placeholder="{{t('DETAILS')}}"></nps-textarea>
 
-    <div class="nps-cf">
-      <button
-        type="button"
-        class="nps-Button nps-Feedback-submit"
-        v-on="click: submit"
-        >{{t('SUBMIT')}}</button>
-      </div>
-
+  <div class="nps-cf">
+    <div style="margin-top: 10px; float: right;">
+      <nps-button action="submit">{{t('SUBMIT')}}</nps-button>      
+    </div>
+  </div>
 </div>

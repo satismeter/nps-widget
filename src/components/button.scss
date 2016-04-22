@@ -11,7 +11,6 @@
   font-size: 100%;
   padding: 0.5em 1em;
   text-decoration: none;
-  color: #fff;
   border: 0;
 }
 .nps-Button::-moz-focus-inner {
@@ -30,11 +29,18 @@
   box-shadow: none;
 }
 
-@each $theme, $base in $themes {
-  .nps-Survey--#{$theme} .nps-Button {
-    background-color: $base;
-    &:hover {
-      background-color: mix($base, white, 90%);
-    }
-  }
+.nps-Button--simple {
+  border: 0;
+  cursor: pointer;
+  padding: 0;  
+}
+
+.nps-Button--icon {
+  width: 30px;
+  height: 30px;
+  padding: 0;  
+}
+
+.nps-Button--simple:focus, .nps-Button--simple:hover {
+  outline: none;
 }

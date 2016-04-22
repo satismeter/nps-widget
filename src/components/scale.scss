@@ -2,55 +2,49 @@
   margin-top: 14px;
   width: (11*32px + 10*2px);
 }
-.nps-Scale-value {
-  display: inline-block;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  margin-right: 2px;
-  text-align: center;
-  line-height: 32px;
+
+.nps-Scale-values {
+  margin-bottom: 4px;
 }
 
-.nps-Scale-number {
-  color: #333;
+.nps-Scale-value {
+  display: inline-block;
+  padding-right: 2px;
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 1.5em;
+}
+
+.nps-Scale-value:last-of-type {
+  padding-right: 0;
+}
+
+.nps-Scale-value:hover {
+  cursor: pointer;
+}
+
+.nps-Scale-button {
+  border-radius: 50%;    
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  font-size: 12px;    
 }
 
 @media (max-width: 480px) {
   .nps-Scale {
     width: (11*22px + 10*2px);
   }
-  .nps-Scale-value {
+  .nps-Scale-button {
     width: 22px;
     height: 22px;
   }
-}
-.nps-Scale-value:last-of-type {
-  margin-right: 0;
-}
-@each $theme, $base in $themes {
-  .nps-Survey--#{$theme} .nps-Scale-value {
-    background-color: mix($base, white, 20%);
-    &:hover {
-      background-color: mix($base, white, 30%);
-    }
-    &.nps-is-selected {
-      background-color: $base;
-    }
-    &.nps-is-selected:hover {
-      background-color: darken($base, 10%);
-    }
-  }
-}
-.nps-Scale-ratings {
-  margin-bottom: 4px;
 }
 
 .nps-Scale-hint {
   font-size: 12px;
   font-style: italic;
-  color: #999;
 }
 .nps-Scale-hint--unlikely {
   float: left;

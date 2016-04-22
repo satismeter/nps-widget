@@ -4,14 +4,16 @@ var View = require('../src/index.js');
 Vue.config.debug = true;
 
 var view = new View({
-  skin: 'dialog',
+  skin: 'panel',
+  // rating: 4,
+  // showNumbers: true,
   serviceName: 'ACME',
-  theme: 'red',
+  colors: {
+    primary: 'green'
+  },
   translation: {
-    PROMOTION_INTRO_PROMOTER: 'It would be super helpful if you could support us with a 5 stars rate on Google Play:',
-    PROMOTION_OUTRO_PROMOTER: 'Thanks again and have a great day!',
-    PROMOTION_LINK_PROMOTER: 'http://www.google.com',
-    PROMOTION_TEXT_PROMOTER: 'Support us now!'
+    // REASONS: ['A', 'B', 'C'],
+    // DETAILS: 'Please tell us more'
   }
 });
 view.on('submit', function() {

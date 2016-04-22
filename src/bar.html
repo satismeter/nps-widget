@@ -2,16 +2,13 @@
   class="nps-Bar"
   v-transition="nps-slide"
   v-show="visible"
+  style="background-color: {{c('background')}}; color: {{c('foreground')}};
+    box-shadow: rgba({{c('shadow')}}, 0.4) 0 1px 4px 0; border-top: 1px solid {{c('shadow')}};"
   >
 
-  <button
-    type="button"
-    class="nps-Bar-close nps-fade"
-    v-if="showCloseIcon"
-    v-on="click: onClose"
-    v-transition="nps-fade"
-  >&#x2715;</button>
-
+  <div class="nps-Bar-close nps-fade" style="position: absolute; right: 20px; top: 10px; font-size: 18px;" v-if="showCloseIcon" v-transition="nps-fade">
+    <nps-button type="simple" action="close">&#x2715;</nps-button>
+  </div>
 
   <div class="nps-Survey-bounding">
       <div class="nps-Survey-content">

@@ -80,7 +80,7 @@ describe('view', function() {
             assert.lengthOf($el.find('.nps-Feedback-textContainer'), 0);
         });
         it('should close window', function(done) {
-            happen.click($el.find('.nps-Dialog-close')[0]);
+            happen.click($el.find('.nps-Button')[0]);
             wait(function() {
                 assert.isFalse(view.visible);
                 done();
@@ -99,7 +99,7 @@ describe('view', function() {
         it('should emit dismiss event', function(done) {
             var spy = sinon.spy();
             view.on('dismiss', spy);
-            happen.click($el.find('.nps-Dialog-close')[0]);
+            happen.click($el.find('.nps-Button')[0]);
             wait(function() {
                 assert.isTrue(spy.called);
                 done();
@@ -113,13 +113,13 @@ describe('view', function() {
             wait(done);
         });
         it('should display button', function() {
-            assert.equal($el.find('.nps-Feedback-submit').length, 1);
+            assert.equal($el.find('.nps-Button:contains("Submit Feedback")').length, 1);
         });
         it('should show feedback form', function() {
-            assert.lengthOf($el.find('.nps-Feedback-text'), 1);
+            assert.lengthOf($el.find('.nps-Textarea'), 1);
         });
         it('should close window', function(done) {
-            happen.click($el.find('.nps-Dialog-close')[0]);
+            happen.click($el.find('.nps-Button')[0]);
             wait(function() {
                 assert.isFalse(view.visible);
                 done();
@@ -130,7 +130,7 @@ describe('view', function() {
             view.on('dismiss', function() {
                 called = true;
             });
-            happen.click($el.find('.nps-Dialog-close')[0]);
+            happen.click($el.find('.nps-Button')[0]);
             wait(function() {
                 assert.isTrue(called);
                 done();
@@ -142,7 +142,7 @@ describe('view', function() {
                 called = true;
             });
 
-            happen.click($el.find('.nps-Feedback-submit')[0]);
+            happen.click($el.find('.nps-Button:contains("Submit Feedback")')[0]);
             wait(function() {
                 assert.isTrue(called);
                 done();
@@ -163,7 +163,7 @@ describe('view', function() {
                 called = true;
             });
             wait(function() {
-                happen.click($el.find('.nps-Feedback-submit')[0]);
+                happen.click($el.find('.nps-Button:contains("Submit Feedback")')[0]);
                 wait(function() {
                     assert.isTrue(called);
                     assert.equal(view.feedback, '');
@@ -173,8 +173,8 @@ describe('view', function() {
         });
 
         it('should set feedback', function(done) {
-            $el.find('.nps-Feedback-text').val('Rubish');
-            happen.once($el.find('.nps-Feedback-text')[0], {type: 'input'});
+            $el.find('.nps-Textarea').val('Rubish');
+            happen.once($el.find('.nps-Textarea')[0], {type: 'input'});
             wait(function() {
                 assert.equal(view.feedback, 'Rubish');
                 done();
@@ -210,10 +210,10 @@ describe('view', function() {
         }
 
         it('should go to thanks screen', function(done) {
-            $el.find('.nps-Feedback-text').val('Rubish');
-            happen.keyup($el.find('.nps-Feedback-text')[0]);
+            $el.find('.nps-Textarea').val('Rubish');
+            happen.keyup($el.find('.nps-Textarea')[0]);
             wait(function() {
-                happen.click($el.find('.nps-Feedback-submit')[0]);
+                happen.click($el.find('.nps-Button:contains("Submit Feedback")')[0]);
                 wait(function() {
                     assert.match($el.text(),
                         /Thank you for your feedback/);
@@ -222,7 +222,7 @@ describe('view', function() {
             });
         });
         it('should close window on submit', function(done) {
-            happen.click($el.find('.nps-Feedback-submit')[0]);
+            happen.click($el.find('.nps-Button')[0]);
             setTimeout(function() {
                 assert.isFalse(view.visible);
                 done();
@@ -265,7 +265,7 @@ describe('view', function() {
                 view.rating = 10;
                 view.state = 'feedback';
                 wait(function() {
-                    assert.equal($el.find('.nps-Feedback-text').attr('placeholder'), 'What the fuck?');
+                    assert.equal($el.find('.nps-Textarea').attr('placeholder'), 'What the fuck?');
                     done();
                 });
             });
@@ -381,14 +381,14 @@ describe('view', function() {
                     happen.click($el.find('.nps-Scale .nps-Scale-value')[5]);
                     return wait();
                 }).then(function() {
-                    $el.find('.nps-Feedback-text').val('Rubish');
-                    happen.once($el.find('.nps-Feedback-text')[0], {type: 'input'});
+                    $el.find('.nps-Textarea').val('Rubish');
+                    happen.once($el.find('.nps-Textarea')[0], {type: 'input'});
                     return wait();
                 }).then(function() {
                     happen.click($el.find('.nps-Feedback-reason input')[0]);
                     return wait();
                 }).then(function() {
-                    happen.click($el.find('.nps-Feedback-submit')[0]);
+                    happen.click($el.find('.nps-Button:contains("Submit Feedback")')[0]);
                     return wait();
                 }).then(function() {
                     assert.equal(view.rating, 5);

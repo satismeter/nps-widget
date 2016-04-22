@@ -1,4 +1,5 @@
 var Vue = require('vue');
+var Color = require('color');
 var insertCss = require('insert-css');
 var bind = require('component-bind');
 var escape = require('escape-html');
@@ -8,6 +9,19 @@ var dom = require('vue/src/util/dom');
 var MESSAGES = require('./messages');
 
 insertCss(require('./index.scss'));
+
+var COLORS = {
+  gray: '#666',
+  pink: '#ff4981',
+  green: '#4CD964',
+  blue: '#007AFF',
+  red: '#FF3A2D',
+  yellow: '#FFCC00',
+  orange: '#FF9500',
+  violet: '#C643FC',
+  lightBlue: '#3FA2D9',
+  darkGreen: '#2FB12C'
+};
 
 var RATING_STATE = 'rating';
 var FEEDBACK_STATE = 'feedback';
@@ -23,13 +37,18 @@ var Survey = Vue.extend({
   partials: {
     rating: require('./rating.html'),
     feedback: require('./feedback.html'),
-    scale: require('./scale.html'),
     thanks: require('./thanks.html'),
     filled: require('./filled.html'),
     'powered-by': require('./powered-by.html'),
     panel: require('./panel.html'),
     dialog: require('./dialog.html'),
     bar: require('./bar.html')
+  },
+  components: {
+    'nps-textarea': require('./components/textarea'),
+    'nps-button': require('./components/button'),
+    'nps-link': require('./components/link'),
+    'nps-scale': require('./components/scale'),
   },
   replace: true,
   data: function() {
@@ -48,11 +67,15 @@ var Survey = Vue.extend({
       serviceName: null,
       poweredBy: true,
       skin: DIALOG_SKIN,
-      theme: 'pink',
       preview: false, // preview mode - positioned inside a preview div
       position: 'cr', // tl (top-right), tr, bl, br
       test: false,
-      showNumbers: false
+      showNumbers: false,
+      colors: {
+        background: '#FDFDFD',
+        foreground: '#333',
+        primary: '#ff4981',
+      }
     };
   },
   computed: {
@@ -63,13 +86,13 @@ var Survey = Vue.extend({
       return this.state === FEEDBACK_STATE;
     },
     ratings: function() {
-      var selectedRating = this.rating;
-      return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(rating) {
+      return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(bind(this, function(rating) {
+        var isHighlighted = is.number(this.visibleRating) && rating <= this.visibleRating;        
         return {
           rating: rating,
-          selected: is.number(selectedRating) && rating <= selectedRating
+          color: (isHighlighted) ? c('primary') : c('light')
         };
-      });
+      }));
     },
     likelyHtml: function() {
       var serviceName = is.string(this.serviceName) ? this.serviceName.trim() : null;
@@ -178,19 +201,40 @@ var Survey = Vue.extend({
       }
       return this._t(key, value);
     },
-    selectRating: function (rating) {
-      this.rating = rating;
-      this.state = FEEDBACK_STATE;
-      this.$emit('ratingSelect');
+    _c: function(type) {
+      if (this.colors[type]) {
+        return this.colors[type];
+      }
+      if (type === 'light') {
+        return Color(this.colors.primary).mix(Color(this.colors.background), 0.2).hexString();
+      }
+      if (type === 'background-light') {
+        return Color(this.colors.primary).mix(Color(this.colors.background), 0.04).hexString();
+      }
+      if (type === 'foreground-light') {
+        return Color(this.colors.foreground).mix(Color(this.colors.background), 0.6).hexString();
+      }
+      if (type === 'shadow') {
+        return Color(this.colors.foreground).mix(Color(this.colors.background), 0.1).hexString();        
+      }
     },
+    c: function(type) {
+      var color = this._c(type);
+      if (color && COLORS[color]) {
+        return COLORS[color];
+      }
+      return color;
+    },      
     show: function() {
       this.visible = true;
     },
     hide: function() {
       this.visible = false;
-    },
+    }
+  },
+  events: {
     submit: function() {
-      this.$emit('submit');
+      this.$dispatch('submit');
       this.state = THANKS_STATE;
       if (this.skin === DIALOG_SKIN || this.skin === BAR_SKIN) {
         this.setTimeout(function() {
@@ -198,10 +242,23 @@ var Survey = Vue.extend({
         }, 800);
       }
     },
-    onClose: function() {
+    selectRating: function (rating) {
+      this.rating = rating;
+      this.state = FEEDBACK_STATE;
+      this.$emit('ratingSelect');
+      this.setTimeout(function() {
+        if (this.hasReasons) {
+          this.$$.reasons[0].focus();
+        }
+        else {
+          this.$.feedback.focus();          
+        }
+      }, 200);
+    },    
+    close: function() {
       this.hide();
       this.$emit('dismiss');
-    }
+    },        
   },
   transitions: {
     next: {
