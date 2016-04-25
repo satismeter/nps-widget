@@ -1,7 +1,7 @@
 <div
   class="nps-Panel"
   v-show="visible"
-  style="border-color: {{c('primary')}}; box-shadow: rgba({{c('primary')}}, 0.4) 0 1px 4px 0; background-color: {{c('background')}}; color: {{c('foreground')}}"
+  v-style="border-color: c('primary'), box-shadow: 'rgba(' + c('primary') + ', 0.4) 0 1px 4px 0', background-color: c('background'), color: c('foreground')"
   >
 
   <div class="nps-Survey-bounding">

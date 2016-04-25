@@ -3,7 +3,7 @@ var is = require('is');
 
 module.exports = Base.extend({
   template: require('./scale.html'),
-  paramAttributes: ['action', 'value', 'show-numbers'],  
+  paramAttributes: ['action', 'value', 'show-numbers'],
   data: function() {
     return {
       numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -33,8 +33,10 @@ module.exports = Base.extend({
     },
     getButtonStyle: function(number) {
       var isVisible = ((this.visibleValue >= number) && this.visibleValue != null)
-      return 'background-color:' + (isVisible ? this.c('primary') : this.c('light')) + ';' +
-        'color:' + (isVisible ? this.c('background') : this.c('foreground'));
+      return {
+        'background-color': isVisible ? this.c('primary') : this.c('light'),
+        color: isVisible ? this.c('background') : this.c('foreground')
+      };
     }
   },
 });

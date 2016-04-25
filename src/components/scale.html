@@ -5,16 +5,16 @@
         v-repeat="number: numbers"
         v-on="mouseenter: highlightValue(number), mouseleave: unhighlightValue, click: setValue(number)"
       >
-        <div class="nps-Scale-button" style="{{getButtonStyle(number)}}">
-          <template v-if="showNumbers">{{number}}</template>        
+        <div class="nps-Scale-button" v-style="getButtonStyle(number)">
+          <template v-if="showNumbers">{{number}}</template>
         </div>
       </div>
     </div>
 
     <div class="nps-cf">
-      <div class="nps-Scale-hint nps-Scale-hint--unlikely" style="color: {{c('foreground-light')}}">
+      <div class="nps-Scale-hint nps-Scale-hint--unlikely" v-style="color: c('foreground-light')">
         {{t('UNLIKELY')}}</div>
-      <div class="nps-Scale-hint nps-Scale-hint--likely" style="color: {{c('foreground-light')}}">
+      <div class="nps-Scale-hint nps-Scale-hint--likely" v-style="color: c('foreground-light')">
         {{t('LIKELY')}}</div>
-    </div>        
+    </div>
   </div>

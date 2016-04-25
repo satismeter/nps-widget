@@ -2,7 +2,7 @@
   placeholder="{{placeholder}}"
   v-model="value"
   class="nps-Textarea"
-  style="border-color: {{focused ? c('primary'): c('light')}}; background-color: {{focused ? c('background-light') : c('background')}}; color: {{c('foreground')}}"
+  v-style="border-color: focused ? c('primary'): c('light'), background-color: focused ? c('background-light') : c('background'), color: c('foreground')"
   v-on="focus: onFocus, blur: onBlur"
   v-el="textarea"
 ></textarea>

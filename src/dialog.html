@@ -4,7 +4,7 @@
     nps-Dialog--{{horizontal}}"
   v-show="visible"
   v-transition="nps-show"
-  style="border-color: {{c('primary')}}; box-shadow: rgba({{c('primary')}}, 0.4) 0 1px 4px 0; background-color: {{c('background')}}; color: {{c('foreground')}}"
+  v-style="border-color: c('primary'), box-shadow: 'rgba(' + c('primary') + ', 0.4) 0 1px 4px 0', background-color: c('background'), color: c('foreground')"
   >
 
   <div style="position: absolute; right: 0px; top: 0px; font-size: 18px;">
@@ -12,7 +12,7 @@
       type="icon"
       v-if="showCloseIcon"
       action="close"
-      v-transition="nps-fade"      
+      v-transition="nps-fade"
     >&#x2715;</nps-button>
   </div>
 

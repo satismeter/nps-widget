@@ -87,7 +87,7 @@ var Survey = Vue.extend({
     },
     ratings: function() {
       return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(bind(this, function(rating) {
-        var isHighlighted = is.number(this.visibleRating) && rating <= this.visibleRating;        
+        var isHighlighted = is.number(this.visibleRating) && rating <= this.visibleRating;
         return {
           rating: rating,
           color: (isHighlighted) ? c('primary') : c('light')
@@ -215,7 +215,10 @@ var Survey = Vue.extend({
         return Color(this.colors.foreground).mix(Color(this.colors.background), 0.6).hexString();
       }
       if (type === 'shadow') {
-        return Color(this.colors.foreground).mix(Color(this.colors.background), 0.1).hexString();        
+        return Color(this.colors.foreground).mix(Color(this.colors.background), 0.1).hexString();
+      }
+      if (type === 'border') {
+        return Color(this.colors.foreground).mix(Color(this.colors.background), 0.15).hexString();
       }
     },
     c: function(type) {
@@ -224,7 +227,7 @@ var Survey = Vue.extend({
         return COLORS[color];
       }
       return color;
-    },      
+    },
     show: function() {
       this.visible = true;
     },
@@ -251,14 +254,14 @@ var Survey = Vue.extend({
           this.$$.reasons[0].focus();
         }
         else {
-          this.$.feedback.focus();          
+          this.$.feedback.focus();
         }
       }, 200);
-    },    
+    },
     close: function() {
       this.hide();
       this.$emit('dismiss');
-    },        
+    },
   },
   transitions: {
     next: {
