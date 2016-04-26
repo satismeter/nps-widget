@@ -5,7 +5,7 @@ A lightweight web widget for gathering Net Promoter Score surveys.
 The widget was created for [SatisMeter](http://www.satismeter.com)
 Customer loyalty analytics SaaS app.
 
-![NPS widget](https://raw.githubusercontent.com/satismeter/assets/master/satismeter-widget-screenshot.png)
+![NPS widget](https://raw.githubusercontent.com/satismeter/assets/master/satismeter-widget-computer.png)
 
 # Install using [browserify](http://browserify.org)
 
