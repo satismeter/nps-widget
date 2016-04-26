@@ -4,7 +4,7 @@ var View = require('../src/index.js');
 Vue.config.debug = true;
 
 var view = new View({
-  skin: 'panel',
+  skin: 'bar',
   // rating: 4,
   // showNumbers: true,
   serviceName: 'ACME',
