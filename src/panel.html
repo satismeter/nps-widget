@@ -12,7 +12,6 @@
         <div v-partial="rating"></div>
 
         <div v-if="state == 'feedback'" v-transition="nps-expand" class="nps-expand">
-          <div class="nps-Title">{{ t('FOLLOWUP') }}</div>
           <div v-partial="feedback"></div>
         </div>
       </div>
