@@ -256,7 +256,7 @@ var Survey = Vue.extend({
         else {
           this.$.feedback.focus();
         }
-      }, 200);
+      }, 400);
     },
     close: function() {
       this.hide();
