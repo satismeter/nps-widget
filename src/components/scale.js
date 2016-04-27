@@ -4,7 +4,7 @@ var range = require('lodash/range');
 
 module.exports = Base.extend({
   template: require('./scale.html'),
-  paramAttributes: ['action', 'value', 'show-numbers', 'min', 'max'],
+  paramAttributes: ['action', 'value', 'show-numbers', 'min', 'max', 'low-legend', 'high-legend'],
   data: function() {
     return {
       min: 0,
@@ -12,7 +12,9 @@ module.exports = Base.extend({
       highlightedValue: null,
       value: null,
       action: '',
-      showNumbers: false
+      showNumbers: false,
+      lowLegend: '',
+      highLegend: ''
     };
   },
   computed: {
