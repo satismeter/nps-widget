@@ -6,7 +6,7 @@ class="nps-Feedback"
   <template v-repeat="question: questions">
     <div class="nps-Title nps-left">{{question}}</div>
 
-    <div style="padding-bottom: 10px;">
+    <div style="padding-bottom: 20px;">
       <nps-scale value="{{answers[$index]}}" show-numbers="{{showNumbers}}" min="1" max="5" low-legend="Disagree" high-legend="Agree"></nps-scale>
     </div>
   </template>
