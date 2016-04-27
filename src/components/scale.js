@@ -1,12 +1,14 @@
 var Base = require('./base');
 var is = require('is');
+var range = require('lodash/range');
 
 module.exports = Base.extend({
   template: require('./scale.html'),
-  paramAttributes: ['action', 'value', 'show-numbers'],
+  paramAttributes: ['action', 'value', 'show-numbers', 'min', 'max'],
   data: function() {
     return {
-      numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      min: 0,
+      max: 10,
       highlightedValue: null,
       value: null,
       action: '',
@@ -17,6 +19,9 @@ module.exports = Base.extend({
     visibleValue: function() {
       return is.number(this.highlightedValue) ? this.highlightedValue : this.value;
     },
+    numbers: function() {
+      return range(parseInt(this.min, 10), parseInt(this.max, 10) + 1);
+    }
   },
   methods: {
     highlightValue: function(value) {
