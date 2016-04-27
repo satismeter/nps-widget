@@ -12,6 +12,12 @@ var view = new View({
     primary: 'green'
   },
   translation: {
+    QUESTIONS: [
+      'Instapage is difficult to use',
+      'Instapage is powerful enough for my needs',
+      'Instapage is expensive',
+      'Instapage has great customer support'
+    ],
     // REASONS: ['A', 'B', 'C'],
     // DETAILS: 'Please tell us more'
   }

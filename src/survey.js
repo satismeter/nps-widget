@@ -57,6 +57,7 @@ var Survey = Vue.extend({
       rating: null,
       feedback: '',
       reason: '',
+      answers: [],
 
       // state
       visible: false,
@@ -79,6 +80,9 @@ var Survey = Vue.extend({
     };
   },
   computed: {
+    questions: function() {
+      return this.t('QUESTIONS') || [];
+    },
     showCloseIcon: function() {
       return this.state === FEEDBACK_STATE || this.state === RATING_STATE;
     },
@@ -109,6 +113,10 @@ var Survey = Vue.extend({
     hasReasons: function() {
       var reasons = this.t('REASONS');
       return reasons && reasons.length > 0;
+    },
+    hasQuestions: function() {
+      var questions = this.t('QUESTIONS');
+      return questions && questions.length > 0;
     },
     vertical: function() {
       switch (this.position[0]) {
@@ -252,6 +260,9 @@ var Survey = Vue.extend({
       this.setTimeout(function() {
         if (this.hasReasons) {
           this.$$.reasons[0].focus();
+        }
+        else if (this.hasQuestions) {
+          // do nothing
         }
         else {
           this.$.feedback.focus();

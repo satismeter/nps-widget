@@ -16,7 +16,9 @@ var ATTRS = [
   'preview',
   'test',
   'showNumbers',
-  'colors'
+  'colors',
+  'questions',
+  'answers'
 ];
 
 function View(options) {
