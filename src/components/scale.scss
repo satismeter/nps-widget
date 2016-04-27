@@ -5,6 +5,7 @@
 
 .nps-Scale-values {
   margin-bottom: 4px;
+  text-align: center;
 }
 
 .nps-Scale-value {
@@ -45,9 +46,11 @@
 }
 .nps-Scale-hint--unlikely {
   float: left;
+  padding-right: 10px;
 }
 .nps-Scale-hint--likely {
   float: right;
+  padding-left: 10px;
 }
 
 .nps-Survey[dir="rtl"] .nps-Scale-hint--unlikely {
