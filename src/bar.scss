@@ -8,6 +8,8 @@
   overflow: hidden;
   z-index: 2147483646;
   padding: 0 20px;
+  max-height: 100vh;
+  overflow: auto;
 }
 .nps-preview .nps-Bar {
   position: absolute;
