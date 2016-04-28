@@ -9,21 +9,28 @@ var view = new View({
   // showNumbers: true,
   serviceName: 'ACME',
   colors: {
-    primary: 'green'
+    primary: '#1565C0'
   },
   translation: {
-    QUESTIONS: [
-      'Instapage is difficult to use',
-      'Instapage is powerful enough for my needs',
-      'Instapage is expensive',
-      'Instapage has great customer support'
-    ],
     // REASONS: ['A', 'B', 'C'],
-    // DETAILS: 'Please tell us more'
-  }
+    // DETAILS: 'Please tell us more',
+    QUESTIONS: [{
+      label: 'Instapage is difficult to use',
+      name: 'NPS_question_difficult'
+    }, {
+      label: 'Instapage is powerful enough for my needs',
+      name: 'NPS_question_powerful'
+    }, {
+      label: 'Instapage is expensive',
+      name: 'NPS_question_expensive'
+    }, {
+      label: 'Instapage has great customer support',
+      name: 'NPS_question_support'
+    }]
+  },
 });
 view.on('submit', function() {
-  console.log('submit', view.rating, view.feedback, view.reason);
+  console.log('submit', view.rating, view.feedback, view.reason, view.answers);
 });
 view.on('dismiss', function() {
   console.log('dismiss');
