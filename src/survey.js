@@ -160,18 +160,24 @@ var Survey = Vue.extend({
       return this._t('DIRECTION') || 'ltr';
     }
   },
+  ready: function() {
+      this.initAnswers();
+  },
   watch: {
-    questions: function(questions) {
-      this.answers = questions.map(function(question) {
+    questions: function() {
+      this.initAnswers();
+    }
+  },
+  methods: {
+    initAnswers: function() {
+      this.answers = this.questions.map(function(question) {
         return {
           name: question.name,
           label: question.label,
           value: null
         };
-      })
-    }
-  },
-  methods: {
+      });
+    },
     inState: function() {
       var states = Array.prototype.slice.call(arguments);
       return states.indexOf(this.state) !== -1;
