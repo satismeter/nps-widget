@@ -165,6 +165,7 @@ var Survey = Vue.extend({
       this.answers = questions.map(function(question) {
         return {
           name: question.name,
+          label: question.label,
           value: null
         };
       })
