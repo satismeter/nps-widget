@@ -258,6 +258,9 @@ var Survey = Vue.extend({
     },
     hide: function() {
       this.visible = false;
+    },
+    stopPropagation: function(e) {
+      e.stopPropagation();
     }
   },
   events: {
