@@ -14,19 +14,19 @@ var view = new View({
   translation: {
     // REASONS: ['A', 'B', 'C'],
     // DETAILS: 'Please tell us more',
-    QUESTIONS: [{
-      label: 'Instapage is difficult to use',
-      name: 'NPS_question_difficult'
-    }, {
-      label: 'Instapage is powerful enough for my needs',
-      name: 'NPS_question_powerful'
-    }, {
-      label: 'Instapage is expensive',
-      name: 'NPS_question_expensive'
-    }, {
-      label: 'Instapage has great customer support',
-      name: 'NPS_question_support'
-    }]
+    // QUESTIONS: [{
+    //   label: 'Instapage is difficult to use',
+    //   name: 'NPS_question_difficult'
+    // }, {
+    //   label: 'Instapage is powerful enough for my needs',
+    //   name: 'NPS_question_powerful'
+    // }, {
+    //   label: 'Instapage is expensive',
+    //   name: 'NPS_question_expensive'
+    // }, {
+    //   label: 'Instapage has great customer support',
+    //   name: 'NPS_question_support'
+    // }]
   },
 });
 view.on('submit', function() {
