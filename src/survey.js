@@ -231,7 +231,7 @@ var Survey = Vue.extend({
         return this.colors[type];
       }
       if (type === 'light') {
-        return Color(this.colors.primary).mix(Color(this.colors.background), 0.2).hexString();
+        return Color(this.colors.primary).mix(Color(this.colors.background), 0.4).hexString();
       }
       if (type === 'background-light') {
         return Color(this.colors.primary).mix(Color(this.colors.background), 0.04).hexString();
