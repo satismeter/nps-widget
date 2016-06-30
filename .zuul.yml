@@ -3,13 +3,17 @@ browsers:
   - name: chrome
     version: latest
   - name: firefox
+    platform: linux
     version: latest
   - name: safari
     version: latest
   - name: ie
     version: 9..latest
   - name: ipad
-    version: latest
+    version: 9.2
 browserify:
   - transform: browserify-sass
   - transform: partialify
+tunnel:
+  type: ngrok
+  bind_tls: true
