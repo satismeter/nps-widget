@@ -110,6 +110,12 @@ var Survey = Vue.extend({
       var serviceHtml = serviceName ? '<b>' + escape(serviceName) + '</b>' : this.t('US');
       return '<span>' + escape(howLikely).replace('%s', serviceHtml) + '</span>';
     },
+
+    poweredByHtml: function() {
+      var linkHtml = '<a href="https://satismeter.com" style="color: ' + this.c('primary') + '" target="_blank">SatisMeter</a>';
+      return escape(this.t('POWERED_BY')).replace('%s', linkHtml);
+    },
+
     hasReasons: function() {
       var reasons = this.t('REASONS');
       return reasons && reasons.length > 0;
