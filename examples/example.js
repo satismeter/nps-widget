@@ -15,17 +15,10 @@ var view = new View({
     // REASONS: ['A', 'B', 'C'],
     // DETAILS: 'Please tell us more',
     // QUESTIONS: [{
-    //   label: 'Instapage is difficult to use',
-    //   name: 'NPS_question_difficult'
-    // }, {
-    //   label: 'Instapage is powerful enough for my needs',
-    //   name: 'NPS_question_powerful'
-    // }, {
-    //   label: 'Instapage is expensive',
-    //   name: 'NPS_question_expensive'
-    // }, {
-    //   label: 'Instapage has great customer support',
-    //   name: 'NPS_question_support'
+    //   label: 'How would you rate the audio quality of this session?',
+    //   name: 'NPS_audio',
+    //   lowLegend: 'Poor',
+    //   highLegend: 'Excelent'
     // }]
   },
 });

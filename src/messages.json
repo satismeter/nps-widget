@@ -9,5 +9,7 @@
     "SUBMIT": "Submit Feedback",
     "THANKS": "Thank you for your feedback!",
     "FILLED": "You have already filled the survey.",
-    "POWERED_BY": "Powered by %s"
+    "POWERED_BY": "Powered by %s",
+    "LOW_LEGEND": "Disagree",
+    "HIGH_LEGEND": "Agree"
 }

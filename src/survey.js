@@ -267,6 +267,15 @@ var Survey = Vue.extend({
     },
     stopPropagation: function(e) {
       e.stopPropagation();
+    },
+    legend(section, index) {
+      var question = this.questions[index];
+      if (section === 'low') {
+        return (question && question.lowLegend) || this.t('LOW_LEGEND');
+      }
+      else {
+        return (question && question.highLegend) || this.t('HIGH_LEGEND');
+      }
     }
   },
   events: {
