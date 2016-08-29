@@ -268,7 +268,7 @@ var Survey = Vue.extend({
     stopPropagation: function(e) {
       e.stopPropagation();
     },
-    legend(section, index) {
+    legend: function(section, index) {
       var question = this.questions[index];
       if (section === 'low') {
         return (question && question.lowLegend) || this.t('LOW_LEGEND');
