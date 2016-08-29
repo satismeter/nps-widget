@@ -11,7 +11,7 @@ browsers:
     version: 9..latest
   - name: ipad
     version: 9.2
-  - name: edge
+  - name: microsoftedge
     version: latest
 browserify:
   - transform: browserify-sass
