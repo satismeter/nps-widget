@@ -204,7 +204,7 @@ var Survey = Vue.extend({
         fn.call(this);
       }), timeout);
     },
-    _t: function(key, param) {
+    _t: function(key) {
       if (this.translation) {
         if (this.translation[key]) {
           return this.translation[key];
@@ -212,7 +212,7 @@ var Survey = Vue.extend({
       }
       return MESSAGES[key];
     },
-    t: function(key, param) {
+    t: function(key) {
       var value;
       if (key === 'FOLLOWUP') {
         value = this.t('IMPROVE');
