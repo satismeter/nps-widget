@@ -9,7 +9,7 @@ release:
 	git push --tags
 
 test-ci:
-	$(BIN)/zuul test/test.js --no-coverage
+	$(BIN)/zuul test/test.js --no-coverage --concurrency 1
 
 test:
 	$(BIN)/zuul test/test.js --local --open --no-coverage
