@@ -16,6 +16,7 @@ var ATTRS = [
   'preview',
   'test',
   'showNumbers',
+  'requireFeedback',
   'colors',
   'questions',
   'answers'

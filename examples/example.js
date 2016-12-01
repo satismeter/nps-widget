@@ -7,6 +7,7 @@ var view = new View({
   skin: 'bar',
   // rating: 4,
   // showNumbers: true,
+  // requireFeedback: true,
   serviceName: 'ACME',
   colors: {
     primary: '#1565C0'

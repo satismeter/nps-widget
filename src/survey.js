@@ -72,6 +72,7 @@ var Survey = Vue.extend({
       position: 'cr', // tl (top-right), tr, bl, br
       test: false,
       showNumbers: false,
+      requireFeedback: false,
       colors: {
         background: '#FDFDFD',
         foreground: '#333',
@@ -164,6 +165,9 @@ var Survey = Vue.extend({
     },
     direction: function() {
       return this._t('DIRECTION') || 'ltr';
+    },
+    submitDisabled: function() {
+      return this.requireFeedback && !this.feedback;
     }
   },
   ready: function() {
