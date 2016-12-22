@@ -68,7 +68,7 @@ var Survey = Vue.extend({
       serviceName: null,
       poweredBy: true,
       skin: DIALOG_SKIN,
-      preview: false, // preview mode - positioned inside a preview div
+      embed: false, // embed mode - positioned inside a embed div
       position: 'cr', // tl (top-right), tr, bl, br
       test: false,
       showNumbers: false,
@@ -145,9 +145,9 @@ var Survey = Vue.extend({
           return 'center';
       }
     },
-    previewClass: function() {
-      if (this.preview) {
-        return 'nps-preview';
+    embedClass: function() {
+      if (this.embed) {
+        return 'nps-embed';
       }
       return '';
     },

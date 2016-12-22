@@ -13,7 +13,7 @@ var ATTRS = [
   'skin',
   'theme',
   'position',
-  'preview',
+  'embed',
   'test',
   'showNumbers',
   'requireFeedback',
@@ -71,5 +71,15 @@ ATTRS.forEach(function(attr) {
     }
   });
 });
+
+Object.defineProperty(View.prototype, 'preview', {
+  get: function() {
+    return this.survey.embed;
+  },
+  set: function(value) {
+    this.survey.embed = value;
+  }
+});
+
 
 module.exports = View;
