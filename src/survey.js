@@ -77,7 +77,8 @@ var Survey = Vue.extend({
         background: '#FDFDFD',
         foreground: '#333',
         primary: '#ff4981',
-      }
+      },
+      size: 'normal'
     };
   },
   computed: {
@@ -145,11 +146,15 @@ var Survey = Vue.extend({
           return 'center';
       }
     },
-    embedClass: function() {
-      if (this.embed) {
-        return 'nps-embed';
+    surveyClass: function() {
+      var classes = [];
+      if (this.size) {
+        classes.push('nps-' + this.size);
       }
-      return '';
+      if (this.embed) {
+        classes.push('nps-embed');
+      }
+      return classes.join(' ');
     },
     category: function() {
       if (!is.number(this.rating)) {

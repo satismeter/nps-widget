@@ -37,8 +37,14 @@
   .nps-Scale-button {
     width: 22px;
     height: 22px;
-    line-height: 22px;    
+    line-height: 22px;
   }
+}
+
+.nps-small .nps-Scale-button {
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
 }
 
 .nps-Scale-hint {

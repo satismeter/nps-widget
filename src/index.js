@@ -19,7 +19,8 @@ var ATTRS = [
   'requireFeedback',
   'colors',
   'questions',
-  'answers'
+  'answers',
+  'size'
 ];
 
 function View(options) {
