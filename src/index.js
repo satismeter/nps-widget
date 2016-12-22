@@ -30,6 +30,9 @@ function View(options) {
       data[attr] = options[attr];
     }
   });
+  if (is.defined(options.preview)) {
+    data.embed = options.preview;
+  }
   if (!data.state) {
     data.state = is.number(data.rating) ? 'feedback' : 'rating';
   }
