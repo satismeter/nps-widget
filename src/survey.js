@@ -103,14 +103,16 @@ var Survey = Vue.extend({
     likelyHtml: function() {
       var serviceName = is.string(this.serviceName) ? this.serviceName.trim() : null;
       var howLikelyUs = this.t('HOW_LIKELY_US');
-      var howLikely = this.t('HOW_LIKELY');
+
+      // replace legacy format %s with {{service_name}}
+      var howLikely = this.t('HOW_LIKELY').replace('%s', '{{service_name}}');
 
       if (!serviceName && howLikelyUs) {
         return escape(howLikelyUs);
       }
 
       var serviceHtml = serviceName ? '<b>' + escape(serviceName) + '</b>' : this.t('US');
-      return '<span>' + escape(howLikely).replace('%s', serviceHtml) + '</span>';
+      return '<span>' + escape(howLikely).replace('{{service_name}}', serviceHtml) + '</span>';
     },
 
     poweredByHtml: function() {
