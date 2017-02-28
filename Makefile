@@ -6,7 +6,7 @@ serve: examples/example.js
 
 release:
 	mversion $(VERSION) -mn
-	git push --tags
+	git push origin head --tags
 
 test-ci:
 	$(BIN)/zuul test/test.js --no-coverage --concurrency 1
