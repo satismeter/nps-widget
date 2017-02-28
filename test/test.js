@@ -246,7 +246,7 @@ describe('view', function() {
             wait(done);
         });
         it('should display filled message', function() {
-            assert.match($el.text(), /filled the survey/);
+            assert.match($el.text(), /Thank you for your feedback/);
         });
     });
 
