@@ -4,18 +4,32 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 1.42857143;
+  width: initial;
+  margin: initial;
+  padding: initial;
+  background-color: initial;
+  border-radius: initial;
 }
-.nps-Survey-buttons {
+
+.nps-Survey * {
+  width: initial;
+  margin: initial;
+  padding: initial;
+  background-color: initial;
+  border-radius: initial;
+}
+
+.nps-Survey .nps-Survey-buttons {
   float: right;
   margin-top: 14px;
 }
 
-.nps-Survey-bounding {
+.nps-Survey .nps-Survey-bounding {
   position: relative;
   overflow: hidden;
 }
 
-.nps-Survey-content {
+.nps-Survey .nps-Survey-content {
   position: relative;
   top: 0;
 }

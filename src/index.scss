@@ -1,3 +1,5 @@
+@import 'survey'; // import first - default styles
+
 @import 'animations';
 @import 'bar';
 @import 'dialog';
@@ -5,7 +7,6 @@
 @import 'panel';
 @import 'powered-by';
 @import 'rating';
-@import 'survey';
 @import 'title';
 @import 'thanks';
 @import 'utils';

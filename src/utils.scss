@@ -1,23 +1,23 @@
-.nps-cf:before,
-.nps-cf:after {
+.nps-Survey .nps-cf:before,
+.nps-Survey .nps-cf:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */
 }
 
-.nps-cf:after {
+.nps-Survey .nps-cf:after {
   clear: both;
 }
 
-.nps-left {
+.nps-Survey .nps-left {
   text-align: left;
 }
 
-.nps-center {
+.nps-Survey .nps-center {
   text-align: center;
 }
 
-.nps-margin-t20 {
+.nps-Survey .nps-margin-t20 {
   margin-top: 20px;
 }

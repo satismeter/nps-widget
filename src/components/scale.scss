@@ -1,14 +1,14 @@
-.nps-Scale {
+.nps-Survey .nps-Scale {
   margin-top: 14px;
   display: inline-block;
 }
 
-.nps-Scale-values {
+.nps-Survey .nps-Scale-values {
   margin-bottom: 4px;
   text-align: center;
 }
 
-.nps-Scale-value {
+.nps-Survey .nps-Scale-value {
   display: inline-block;
   padding-right: 2px;
   vertical-align: middle;
@@ -16,15 +16,15 @@
   font-size: 1.5em;
 }
 
-.nps-Scale-value:last-of-type {
+.nps-Survey .nps-Scale-value:last-of-type {
   padding-right: 0;
 }
 
-.nps-Scale-value:hover {
+.nps-Survey .nps-Scale-value:hover {
   cursor: pointer;
 }
 
-.nps-Scale-button {
+.nps-Survey .nps-Scale-button {
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -34,28 +34,28 @@
 }
 
 @media (max-width: 480px) {
-  .nps-Scale-button {
+  .nps-Survey .nps-Scale-button {
     width: 22px;
     height: 22px;
     line-height: 22px;
   }
 }
 
-.nps-small .nps-Scale-button {
+.nps-Survey.nps-small .nps-Scale-button {
   width: 22px;
   height: 22px;
   line-height: 22px;
 }
 
-.nps-Scale-hint {
+.nps-Survey .nps-Scale-hint {
   font-size: 12px;
   font-style: italic;
 }
-.nps-Scale-hint--unlikely {
+.nps-Survey .nps-Scale-hint--unlikely {
   float: left;
   padding-right: 10px;
 }
-.nps-Scale-hint--likely {
+.nps-Survey .nps-Scale-hint--likely {
   float: right;
   padding-left: 10px;
 }

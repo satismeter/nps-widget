@@ -1,21 +1,21 @@
-.nps-Feedback {
+.nps-Survey .nps-Feedback {
   text-align: left;
 }
-.nps-Feedback-reason {
+.nps-Survey .nps-Feedback-reason {
   margin-top: 10px;
 }
-.nps-Feedback-reason label {
+.nps-Survey .nps-Feedback-reason label {
   display: block;
   font-weight: normal;
 }
-.nps-Feedback-reason input {
+.nps-Survey .nps-Feedback-reason input {
   margin-right: 8px;
   margin-left: 4px;
   position: relative;
-  top: -2px;  
+  top: -2px;
 }
 
-.nps-Feedback-submit {
+.nps-Survey .nps-Feedback-submit {
   margin-top: 10px;
   float: right;
 }

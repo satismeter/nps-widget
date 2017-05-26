@@ -17,11 +17,11 @@
   padding: 0;
   border: 0;
 }
-.nps-Button:focus {
+.nps-Survey .nps-Button:focus {
   outline: 0;
 }
 
-.nps-Button[disabled] {
+.nps-Survey .nps-Button[disabled] {
   border: none;
   background-image: none;
   opacity: 0.40;
@@ -29,18 +29,18 @@
   box-shadow: none;
 }
 
-.nps-Button--simple {
+.nps-Survey .nps-Button--simple {
   border: 0;
   cursor: pointer;
   padding: 10px;
 }
 
-.nps-Button--icon {
+.nps-Survey .nps-Button--icon {
   width: 30px;
   height: 30px;
   padding: 0;
 }
 
-.nps-Button--simple:focus, .nps-Button--simple:hover {
+.nps-Survey .nps-Button--simple:focus, .nps-Button--simple:hover {
   outline: none;
 }

@@ -1,11 +1,11 @@
-.nps-Panel {
+.nps-Survey .nps-Panel {
   border-width: 2px;
   border-style: solid;
   background-color: white;
 }
 
 
-.nps-Panel {
+.nps-Survey .nps-Panel {
   font-size: 16px;
   color: #333;
   max-width: 600px;
@@ -24,14 +24,14 @@
 }
 
 
-.nps-Panel .nps-Survey--powered-by {
+.nps-Survey .nps-Panel .nps-Survey--powered-by {
   line-height: 38px;
 }
 
-.nps-Panel .nps-Title {
+.nps-Survey .nps-Panel .nps-Title {
   font-size: 18px;
 }
 
-.nps-Panel .nps-Rating {
+.nps-Survey .nps-Panel .nps-Rating {
   margin-bottom: 20px;
 }
