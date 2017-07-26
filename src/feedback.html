@@ -3,14 +3,6 @@
 class="nps-Feedback"
 >
 
-  <template v-repeat="question: questions">
-    <div class="nps-Title nps-left">{{question.label}}</div>
-
-    <div style="padding-bottom: 20px;">
-      <nps-scale value="{{answers[$index].value}}" show-numbers="{{showNumbers}}" min="1" max="5" low-legend="{{legend('low', $index)}}" high-legend="{{legend('high', $index)}}"></nps-scale>
-    </div>
-  </template>
-
   <div class="nps-Title nps-left">{{ t('FOLLOWUP') }}</div>
 
   <div
@@ -21,6 +13,14 @@ class="nps-Feedback"
       <input type="radio" name="nps-reason" v-model="reason" value="{{r}}"> {{r}}
     </label>
   </div>
+
+  <template v-repeat="question: questions">
+    <div class="nps-Title nps-left">{{question.label}}</div>
+
+    <div style="padding-bottom: 20px;">
+      <nps-scale value="{{answers[$index].value}}" show-numbers="{{showNumbers}}" min="1" max="5" low-legend="{{legend('low', $index)}}" high-legend="{{legend('high', $index)}}"></nps-scale>
+    </div>
+  </template>
 
   <nps-textarea value="{{feedback}}" v-ref="feedback" placeholder="{{t('DETAILS')}}"></nps-textarea>
 
