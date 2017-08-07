@@ -8,7 +8,8 @@ class="nps-Feedback"
       <div class="nps-Title nps-left">{{question.label}}</div>
 
       <div>
-        <nps-scale value="{{answers[$index].value}}" show-numbers="{{showNumbers}}" min="1" max="5" low-legend="{{legend('low', $index)}}" high-legend="{{legend('high', $index)}}"></nps-scale>
+        <nps-scale v-if="isQuestionScale(question)" value="{{answers[$index].value}}" show-numbers="{{showNumbers}}" min="1" max="5" low-legend="{{legend('low', $index)}}" high-legend="{{legend('high', $index)}}"></nps-scale>
+        <nps-radio-list v-if="isQuestionRadio(question)" value="{{answers[$index].value}}" choices="{{question.choices}}" name={{question.name}}></nps-scale-radio-list>
       </div>
     </div>
   </template>
@@ -25,7 +26,7 @@ class="nps-Feedback"
         </label>
       </div>
 
-      <div style="margin-top: 14px;">
+      <div style="margin-top: 10px;">
         <nps-textarea value="{{feedback}}" v-ref="feedback" placeholder="{{t('DETAILS')}}"></nps-textarea>
       </div>
   </div>

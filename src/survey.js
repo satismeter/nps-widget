@@ -49,6 +49,7 @@ var Survey = Vue.extend({
     'nps-button': require('./components/button'),
     'nps-link': require('./components/link'),
     'nps-scale': require('./components/scale'),
+    'nps-radio-list': require('./components/radio-list')
   },
   replace: true,
   data: function() {
@@ -76,7 +77,7 @@ var Survey = Vue.extend({
       colors: {
         background: '#FDFDFD',
         foreground: '#333',
-        primary: '#ff4981',
+        primary: '#ff4981'
       },
       size: 'normal'
     };
@@ -92,16 +93,21 @@ var Survey = Vue.extend({
       return this.state === FEEDBACK_STATE;
     },
     ratings: function() {
-      return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(bind(this, function(rating) {
-        var isHighlighted = is.number(this.visibleRating) && rating <= this.visibleRating;
-        return {
-          rating: rating,
-          color: (isHighlighted) ? c('primary') : c('light')
-        };
-      }));
+      return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+        bind(this, function(rating) {
+          var isHighlighted =
+            is.number(this.visibleRating) && rating <= this.visibleRating;
+          return {
+            rating: rating,
+            color: isHighlighted ? c('primary') : c('light')
+          };
+        })
+      );
     },
     likelyHtml: function() {
-      var serviceName = is.string(this.serviceName) ? this.serviceName.trim() : null;
+      var serviceName = is.string(this.serviceName)
+        ? this.serviceName.trim()
+        : null;
       var howLikelyUs = this.t('HOW_LIKELY_US');
 
       // replace legacy format %s with {{service_name}}
@@ -111,12 +117,21 @@ var Survey = Vue.extend({
         return escape(howLikelyUs);
       }
 
-      var serviceHtml = serviceName ? '<b>' + escape(serviceName) + '</b>' : this.t('US');
-      return '<span>' + escape(howLikely).replace('{{service_name}}', serviceHtml) + '</span>';
+      var serviceHtml = serviceName
+        ? '<b>' + escape(serviceName) + '</b>'
+        : this.t('US');
+      return (
+        '<span>' +
+        escape(howLikely).replace('{{service_name}}', serviceHtml) +
+        '</span>'
+      );
     },
 
     poweredByHtml: function() {
-      var linkHtml = '<a href="https://satismeter.com" style="color: ' + this.c('primary') + '" target="_blank">SatisMeter</a>';
+      var linkHtml =
+        '<a href="https://satismeter.com" style="color: ' +
+        this.c('primary') +
+        '" target="_blank">SatisMeter</a>';
       return escape(this.t('POWERED_BY')).replace('%s', linkHtml);
     },
 
@@ -168,7 +183,7 @@ var Survey = Vue.extend({
       if (this.rating <= 8) {
         return 'passive';
       }
-      return 'promoter'
+      return 'promoter';
     },
     direction: function() {
       return this._t('DIRECTION') || 'ltr';
@@ -178,7 +193,7 @@ var Survey = Vue.extend({
     }
   },
   ready: function() {
-      this.initAnswers();
+    this.initAnswers();
   },
   watch: {
     questions: function() {
@@ -200,20 +215,25 @@ var Survey = Vue.extend({
       return states.indexOf(this.state) !== -1;
     },
     nextTick: function(fn) {
-      Vue.nextTick(bind(this, function() {
-        if (this._isDestroyed) {
-          return;
-        }
-        fn.call(this);
-      }));
+      Vue.nextTick(
+        bind(this, function() {
+          if (this._isDestroyed) {
+            return;
+          }
+          fn.call(this);
+        })
+      );
     },
     setTimeout: function(fn, timeout) {
-      setTimeout(bind(this, function() {
-        if (this._isDestroyed) {
-          return;
-        }
-        fn.call(this);
-      }), timeout);
+      setTimeout(
+        bind(this, function() {
+          if (this._isDestroyed) {
+            return;
+          }
+          fn.call(this);
+        }),
+        timeout
+      );
     },
     _t: function(key) {
       if (this.translation) {
@@ -248,19 +268,29 @@ var Survey = Vue.extend({
         return this.colors[type];
       }
       if (type === 'light') {
-        return Color(this.colors.primary).mix(Color(this.colors.background), 0.4).hexString();
+        return Color(this.colors.primary)
+          .mix(Color(this.colors.background), 0.4)
+          .hexString();
       }
       if (type === 'background-light') {
-        return Color(this.colors.primary).mix(Color(this.colors.background), 0.04).hexString();
+        return Color(this.colors.primary)
+          .mix(Color(this.colors.background), 0.04)
+          .hexString();
       }
       if (type === 'foreground-light') {
-        return Color(this.colors.foreground).mix(Color(this.colors.background), 0.6).hexString();
+        return Color(this.colors.foreground)
+          .mix(Color(this.colors.background), 0.6)
+          .hexString();
       }
       if (type === 'shadow') {
-        return Color(this.colors.foreground).mix(Color(this.colors.background), 0.1).hexString();
+        return Color(this.colors.foreground)
+          .mix(Color(this.colors.background), 0.1)
+          .hexString();
       }
       if (type === 'border') {
-        return Color(this.colors.foreground).mix(Color(this.colors.background), 0.15).hexString();
+        return Color(this.colors.foreground)
+          .mix(Color(this.colors.background), 0.15)
+          .hexString();
       }
     },
     c: function(type) {
@@ -283,10 +313,15 @@ var Survey = Vue.extend({
       var question = this.questions[index];
       if (section === 'low') {
         return (question && question.lowLegend) || this.t('LOW_LEGEND');
-      }
-      else {
+      } else {
         return (question && question.highLegend) || this.t('HIGH_LEGEND');
       }
+    },
+    isQuestionScale: function(question) {
+      return !question.type || question.type === 'scale';
+    },
+    isQuestionRadio: function(question) {
+      return question.type === 'radio';
     }
   },
   events: {
@@ -299,18 +334,16 @@ var Survey = Vue.extend({
         }, 800);
       }
     },
-    selectRating: function (rating) {
+    selectRating: function(rating) {
       this.rating = rating;
       this.state = FEEDBACK_STATE;
       this.$emit('ratingSelect');
       this.setTimeout(function() {
         if (this.hasReasons) {
           this.$$.reasons[0].focus();
-        }
-        else if (this.hasQuestions) {
+        } else if (this.hasQuestions) {
           // do nothing
-        }
-        else {
+        } else {
           this.$.feedback.focus();
         }
       }, 400);
@@ -318,7 +351,7 @@ var Survey = Vue.extend({
     close: function() {
       this.hide();
       this.$emit('dismiss');
-    },
+    }
   },
   transitions: {
     next: {

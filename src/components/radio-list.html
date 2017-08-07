@@ -1,0 +1,5 @@
+<div class="nps-RadioList">
+  <label v-repeat="choice: choices" class="nps-RadioList-label">
+    <input type="radio" class="nps-RadioList-radio" v-model="value" value="{{choice}}" name="{{name}}"> {{choice}}
+  </label>
+</div>
