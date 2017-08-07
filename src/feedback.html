@@ -3,19 +3,6 @@
 class="nps-Feedback"
 >
 
-  <div class="nps-Feedback-question">
-    <div class="nps-Title nps-left">{{ t('FOLLOWUP') }}</div>
-
-      <div
-      class="nps-Feedback-reason"
-      v-if="hasReasons"
-      >
-        <label v-repeat="r: t('REASONS')" v-el="reasons">
-          <input type="radio" name="nps-reason" v-model="reason" value="{{r}}"> {{r}}
-        </label>
-      </div>
-  </div>
-
   <template v-repeat="question: questions">
     <div class="nps-Feedback-question">
       <div class="nps-Title nps-left">{{question.label}}</div>
@@ -27,11 +14,24 @@ class="nps-Feedback"
   </template>
 
   <div class="nps-Feedback-question">
-    <nps-textarea value="{{feedback}}" v-ref="feedback" placeholder="{{t('DETAILS')}}"></nps-textarea>
+    <div class="nps-Title nps-left">{{ t('FOLLOWUP') }}</div>
+
+      <div
+      class="nps-Feedback-reason"
+      v-if="hasReasons"
+      >
+        <label v-repeat="r: t('REASONS')" v-el="reasons">
+          <input type="radio" name="nps-reason" v-model="reason" value="{{r}}"> {{r}}
+        </label>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <nps-textarea value="{{feedback}}" v-ref="feedback" placeholder="{{t('DETAILS')}}"></nps-textarea>
+      </div>
   </div>
 
   <div class="nps-cf">
-    <div style="margin-top: 10px; float: right;">
+    <div style="float: right;">
       <nps-button action="submit" disabled="{{submitDisabled}}">{{t('SUBMIT')}}</nps-button>
     </div>
   </div>
