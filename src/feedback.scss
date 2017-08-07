@@ -23,3 +23,10 @@
 .nps-Survey .nps-Feedback-question {
   margin: 20px 0;
 }
+
+.nps-Survey .nps-Feedback-question:first-child {
+  margin-top: 0;
+}
+.nps-Survey .nps-Feedback-question:last-child {
+  margin-bottom: 0;
+}
