@@ -1,5 +1,3 @@
-var Color = require("color");
-
 var Base = require('./base');
 
 var Text = Base.extend({

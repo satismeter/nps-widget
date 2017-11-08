@@ -269,28 +269,28 @@ var Survey = Vue.extend({
       }
       if (type === 'light') {
         return Color(this.colors.primary)
-          .mix(Color(this.colors.background), 0.4)
-          .hexString();
+          .mix(Color(this.colors.background), 0.6)
+          .hex();
       }
       if (type === 'background-light') {
         return Color(this.colors.primary)
-          .mix(Color(this.colors.background), 0.04)
-          .hexString();
+          .mix(Color(this.colors.background), 0.96)
+          .hex();
       }
       if (type === 'foreground-light') {
         return Color(this.colors.foreground)
-          .mix(Color(this.colors.background), 0.6)
-          .hexString();
+          .mix(Color(this.colors.background), 0.4)
+          .hex();
       }
       if (type === 'shadow') {
         return Color(this.colors.foreground)
-          .mix(Color(this.colors.background), 0.1)
-          .hexString();
+          .mix(Color(this.colors.background), 0.9)
+          .hex();
       }
       if (type === 'border') {
         return Color(this.colors.foreground)
-          .mix(Color(this.colors.background), 0.15)
-          .hexString();
+          .mix(Color(this.colors.background), 0.85)
+          .hex();
       }
     },
     c: function(type) {
